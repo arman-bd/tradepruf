@@ -2,6 +2,8 @@
 .DS_Store
 logs/
 .ruff_cache/
+charts/
+journals/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

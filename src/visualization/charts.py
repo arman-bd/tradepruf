@@ -120,7 +120,7 @@ class BacktestVisualizer:
     ):
         """Create monthly returns heatmap."""
         # Calculate monthly returns
-        monthly_returns = equity_series.resample("M").last().pct_change() * 100
+        monthly_returns = equity_series.resample("ME").last().pct_change() * 100
         returns_by_month = monthly_returns.groupby(
             [monthly_returns.index.year, monthly_returns.index.month]
         ).first()

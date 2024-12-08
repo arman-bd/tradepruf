@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime
 from decimal import Decimal
 
 import pandas as pd
@@ -8,6 +9,7 @@ from ..core.metrics import MetricsCalculator, PerformanceMetrics
 from ..core.position import Position
 from ..data.fetcher import DataFetcher
 from ..strategies.base import SignalType, Strategy
+from ..utils.journal import JournalWriter
 from ..utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -30,6 +32,7 @@ class BacktestEngine:
         position_size: float = 0.1,  # Changed to 10% of capital
         max_positions: int = 5,
     ):
+        """Initialize the backtest engine."""
         self.initial_capital = Decimal(str(initial_capital))
         self.current_capital = self.initial_capital
         self.position_size = Decimal(str(position_size))
@@ -37,6 +40,10 @@ class BacktestEngine:
         self.positions: list[Position] = []
         self.closed_positions: list[Position] = []
         self.equity_curve = []
+        self.journal = JournalWriter(
+            filename=f"backtest_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+            stdout=False
+        )
 
     def run(
         self,
@@ -47,85 +54,110 @@ class BacktestEngine:
         interval: str = "1d",
     ) -> BacktestResult:
         """Run backtest for given strategy and asset."""
-        try:
-            logger.info(f"Starting backtest for {asset.symbol} using {strategy.name}")
+        with self.journal:
+            try:
+                #logger.info(f"Starting backtest for {asset.symbol} using {strategy.name}")
+                self.journal.section(f"Starting backtest for {asset.symbol}", printable=True)
+                self.journal.metric("Initial Capital", float(self.initial_capital), printable=True)
 
-            # Reset state
-            self.current_capital = self.initial_capital
-            self.positions = []
-            self.closed_positions = []
-            self.equity_curve = []
+                # Reset state
+                self.current_capital = self.initial_capital
+                self.positions = []
+                self.closed_positions = []
+                self.equity_curve = []
 
-            # Fetch data
-            data_fetcher = DataFetcher()
-            data = data_fetcher.get_data(asset, start_date, end_date, interval)
+                # Fetch data
+                data_fetcher = DataFetcher()
+                data = data_fetcher.get_data(asset, start_date, end_date, interval)
 
-            print(f"Fetched {len(data)} bars of data")
-            print(f"Initial capital: ${self.initial_capital}")
-            print(f"Sample prices: {data['Close'].head().tolist()}")
+                # print(f"Fetched {len(data)} bars of data")
+                # print(f"Initial capital: ${self.initial_capital}")
+                # print(f"Sample prices: {data['Close'].head().tolist()}")
+                self.journal.write(f"Fetched {len(data)} bars of data", printable=True)
+                self.journal.write(f"Initial capital: ${self.initial_capital}", printable=True)
+                self.journal.write(f"Sample prices: {data['Close'].head().tolist()}", printable=True)
 
-            # Generate signals
-            signals = strategy.generate_signals(data)
+                # Generate signals
+                signals = strategy.generate_signals(data)
 
-            # Process each bar
-            for i in range(len(data)):
-                current_bar = data.iloc[i]
-                current_time = data.index[i]
-                current_signal = signals.iloc[i]
+                # Process each bar
+                for i in range(len(data)):
+                    current_bar = data.iloc[i]
+                    current_time = data.index[i]
+                    current_signal = signals.iloc[i]
 
-                # Process signals before updating positions
-                if current_signal == SignalType.BUY:
-                    print(f"\nProcessing BUY signal at {current_time}")
-                    print(f"Current price: {current_bar['Close']}")
-                    print(f"Current capital: {self.current_capital}")
-                    self._open_position(asset, current_bar, current_time)
-                elif current_signal == SignalType.SELL and len(self.positions) > 0:
-                    print(f"\nProcessing SELL signal at {current_time}")
-                    self._close_positions(asset, current_bar, current_time)
+                    # Process signals before updating positions
+                    if current_signal == SignalType.BUY:
+                        # print(f"\nProcessing BUY signal at {current_time}")
+                        # print(f"Current price: {current_bar['Close']}")
+                        # print(f"Current capital: {self.current_capital}")
+                        self.journal.write(f"\nProcessing BUY signal at {current_time}")
+                        self.journal.write(f"Current price: {current_bar['Close']}")
+                        self.journal.write(f"Current capital: {self.current_capital}")
+                        self._open_position(asset, current_bar, current_time)
+                    elif current_signal == SignalType.SELL and len(self.positions) > 0:
+                        #print(f"\nProcessing SELL signal at {current_time}")
+                        #print(f"Current price: {current_bar['Close']}")
+                        #print(f"Current capital: {self.current_capital}")
+                        self.journal.write(f"\nProcessing SELL signal at {current_time}")
+                        self.journal.write(f"Current price: {current_bar['Close']}")
+                        self.journal.write(f"Current capital: {self.current_capital}")
+                        self._close_positions(asset, current_bar, current_time)
 
-                # Update open positions
-                self._update_positions(current_bar, current_time)
+                    # Update open positions
+                    self._update_positions(current_bar, current_time)
 
-                # Record equity
-                current_equity = self._calculate_equity(current_bar)
-                self.equity_curve.append(float(current_equity))
+                    # Record equity
+                    current_equity = self._calculate_equity(current_bar)
+                    self.equity_curve.append(float(current_equity))
 
-                if i % 100 == 0 or len(self.positions) > 0:
-                    print(
-                        f"Bar {i}: Equity=${current_equity}, Open Positions={len(self.positions)}"
-                    )
+                    if i % 100 == 0 or len(self.positions) > 0:
+                        # print(
+                        #     f"Bar {i}: Equity=${current_equity}, Open Positions={len(self.positions)}"
+                        # )
+                        self.journal.write(
+                            f"Bar {i}: Equity=${current_equity}, Open Positions={len(self.positions)}"
+                        )
 
-            # Close any remaining positions
-            self._close_all_positions(data.iloc[-1], data.index[-1])
 
-            # Calculate performance metrics
-            equity_series = pd.Series(self.equity_curve, index=data.index)
+                # Close any remaining positions
+                self._close_all_positions(data.iloc[-1], data.index[-1])
 
-            print(f"\nFinal Results:")
-            print(f"Starting Capital: ${self.initial_capital}")
-            print(f"Final Capital: ${self.current_capital}")
-            print(f"Total Trades: {len(self.closed_positions)}")
+                # Calculate performance metrics
+                equity_series = pd.Series(self.equity_curve, index=data.index)
 
-            if len(self.closed_positions) > 0:
-                total_pnl = sum(pos.profit_loss for pos in self.closed_positions)
-                print(f"Total P&L: ${total_pnl}")
-                print(
-                    f"Average P&L per trade: ${total_pnl / len(self.closed_positions)}"
+                # print(f"\nFinal Results:")
+                # print(f"Starting Capital: ${self.initial_capital}")
+                # print(f"Final Capital: ${self.current_capital}")
+                # print(f"Total Trades: {len(self.closed_positions)}")
+                self.journal.section("Final Results", printable=True)
+                self.journal.metric("Starting Capital", float(self.initial_capital), printable=True)
+                self.journal.metric("Final Capital", float(self.current_capital), printable=True)
+                self.journal.metric("Total Trades", len(self.closed_positions), printable=True)
+
+
+                if len(self.closed_positions) > 0:
+                    total_pnl = sum(pos.profit_loss for pos in self.closed_positions)
+                    # print(f"Total P&L: ${total_pnl}")
+                    # print(
+                    #     f"Average P&L per trade: ${total_pnl / len(self.closed_positions)}"
+                    # )
+                    self.journal.metric("Total P&L", total_pnl, printable=True)
+                    self.journal.metric("Average P&L per trade", total_pnl / len(self.closed_positions), printable=True)
+
+                equity_series = pd.Series(self.equity_curve, index=data.index)
+                metrics = MetricsCalculator.calculate_metrics(
+                    self.closed_positions, equity_series
                 )
 
-            equity_series = pd.Series(self.equity_curve, index=data.index)
-            metrics = MetricsCalculator.calculate_metrics(
-                self.closed_positions, equity_series
-            )
+                return BacktestResult(metrics=metrics, equity_series=equity_series)
 
-            return BacktestResult(metrics=metrics, equity_series=equity_series)
+            except Exception as e:
+                logger.error(f"Backtest failed: {str(e)}")
+                import traceback
 
-        except Exception as e:
-            logger.error(f"Backtest failed: {str(e)}")
-            import traceback
-
-            traceback.print_exc()
-            raise
+                traceback.print_exc()
+                raise
 
     # Example modification for portfolio backtesting
     def run_portfolio(
@@ -138,7 +170,8 @@ class BacktestEngine:
     ) -> PerformanceMetrics:
         """Run backtest for a portfolio of assets."""
         try:
-            logger.info(f"Starting portfolio backtest with {len(assets)} assets")
+            #logger.info(f"Starting portfolio backtest with {len(assets)} assets")
+            self.journal.section(f"Starting portfolio backtest with {len(assets)} assets", printable=True)
 
             # Reset state
             self.current_capital = self.initial_capital
@@ -155,11 +188,14 @@ class BacktestEngine:
                 data = data_fetcher.get_data(asset, start_date, end_date, interval)
                 portfolio_data[asset.symbol] = data
                 all_dates.update(data.index)
-                print(f"Fetched {len(data)} bars for {asset.symbol}")
-                print(f"Date range: {data.index[0]} to {data.index[-1]}")
+                # print(f"Fetched {len(data)} bars for {asset.symbol}")
+                # print(f"Date range: {data.index[0]} to {data.index[-1]}")
+                self.journal.write(f"Fetched {len(data)} bars for {asset.symbol}", printable=True)
+                self.journal.write(f"Date range: {data.index[0]} to {data.index[-1]}", printable=True)
 
             dates = sorted(list(all_dates))
-            print(f"Total trading days: {len(dates)}")
+            #print(f"Total trading days: {len(dates)}")
+            self.journal.write(f"Total trading days: {len(dates)}", printable=True)
 
             # Generate signals
             portfolio_signals = {}
@@ -167,7 +203,8 @@ class BacktestEngine:
                 strategy = strategies[asset.symbol]
                 signals = strategy.generate_signals(portfolio_data[asset.symbol])
                 portfolio_signals[asset.symbol] = signals
-                print(f"Generated signals for {asset.symbol} using {strategy.name}")
+                #print(f"Generated signals for {asset.symbol} using {strategy.name}")
+                self.journal.write(f"Generated signals for {asset.symbol} using {strategy.name}", printable=True)
 
             # Initialize equity curve with initial capital
             equity_values = []
@@ -189,12 +226,18 @@ class BacktestEngine:
                     current_signal = portfolio_signals[asset.symbol].loc[current_time]
 
                     if current_signal == SignalType.BUY:
-                        print(
+                        # print(
+                        #     f"\nProcessing BUY signal for {asset.symbol} at {current_time}"
+                        # )
+                        self.journal.write(
                             f"\nProcessing BUY signal for {asset.symbol} at {current_time}"
                         )
                         self._open_position(asset, current_bar, current_time)
                     elif current_signal == SignalType.SELL:
-                        print(
+                        # print(
+                        #     f"\nProcessing SELL signal for {asset.symbol} at {current_time}"
+                        # )
+                        self.journal.write(
                             f"\nProcessing SELL signal for {asset.symbol} at {current_time}"
                         )
                         self._close_positions(asset, current_bar, current_time)
@@ -216,14 +259,19 @@ class BacktestEngine:
                 equity_values.append(total_value)
                 equity_dates.append(current_time)
 
-                if i % 50 == 0:
-                    print(
+                if i % 7 == 0:
+                    # print(
+                    #     f"\nDay {i}: Portfolio Equity=${total_value:,.2f}, "
+                    #     f"Open Positions={len(self.positions)}"
+                    # )
+                    self.journal.write(
                         f"\nDay {i}: Portfolio Equity=${total_value:,.2f}, "
                         f"Open Positions={len(self.positions)}"
                     )
 
             # Close remaining positions
-            print("\nClosing remaining positions...")
+            # print("\nClosing remaining positions...")
+            self.journal.write("\nClosing remaining positions...")
             for asset in assets:
                 data = portfolio_data[asset.symbol]
                 final_bar = data.iloc[-1]
@@ -233,32 +281,45 @@ class BacktestEngine:
             equity_series = pd.Series(equity_values, index=equity_dates)
 
             # Print final results
-            print(f"\nFinal Results:")
-            print(f"Starting Capital: ${float(self.initial_capital):,.2f}")
-            print(f"Final Capital: ${float(self.current_capital):,.2f}")
-            print(f"Total Trades: {len(self.closed_positions)}")
+            # print(f"\nFinal Results:")
+            # print(f"Starting Capital: ${float(self.initial_capital):,.2f}")
+            # print(f"Final Capital: ${float(self.current_capital):,.2f}")
+            # print(f"Total Trades: {len(self.closed_positions)}")
+            self.journal.section("Final Results", printable=True)
+            self.journal.metric("Starting Capital", float(self.initial_capital), printable=True)
+            self.journal.metric("Final Capital", float(self.current_capital), printable=True)
+            self.journal.metric("Total Trades", len(self.closed_positions), printable=True)
+
 
             if self.closed_positions:
                 total_pnl = sum(pos.profit_loss for pos in self.closed_positions)
-                print(f"Total P&L: ${float(total_pnl):,.2f}")
-                print(
-                    f"Average P&L per trade: ${float(total_pnl/len(self.closed_positions)):,.2f}"
-                )
+                # print(f"Total P&L: ${float(total_pnl):,.2f}")
+                # print(
+                #     f"Average P&L per trade: ${float(total_pnl/len(self.closed_positions)):,.2f}"
+                # )
+                self.journal.metric("Total P&L", float(total_pnl), printable=True)
+                self.journal.metric("Average P&L per trade", float(total_pnl/len(self.closed_positions)), printable=True)
 
                 # Print per-asset statistics
-                print("\nPer-Asset Performance:")
+                #print("\nPer-Asset Performance:")
+                self.journal.section("Per-Asset Performance", printable=True)
                 for asset in assets:
                     asset_positions = [
                         p for p in self.closed_positions if p.symbol == asset.symbol
                     ]
                     if asset_positions:
                         asset_pnl = sum(p.profit_loss for p in asset_positions)
-                        print(f"{asset.symbol}:")
-                        print(f"  Trades: {len(asset_positions)}")
-                        print(f"  Total P&L: ${float(asset_pnl):,.2f}")
-                        print(
-                            f"  Avg P&L: ${float(asset_pnl/len(asset_positions)):,.2f}"
-                        )
+                        # print(f"{asset.symbol}:")
+                        # print(f"  Trades: {len(asset_positions)}")
+                        # print(f"  Total P&L: ${float(asset_pnl):,.2f}")
+                        # print(
+                        #     f"  Avg P&L: ${float(asset_pnl/len(asset_positions)):,.2f}"
+                        # )
+                        self.journal.write(f"{asset.symbol}:", printable=True)
+                        self.journal.metric("Trades", len(asset_positions), printable=True)
+                        self.journal.metric("Total P&L", float(asset_pnl), printable=True)
+                        self.journal.metric("Avg P&L", float(asset_pnl/len(asset_positions)), printable=True)
+
 
             equity_series = pd.Series(equity_values, index=equity_dates)
             metrics = MetricsCalculator.calculate_metrics(
@@ -292,7 +353,10 @@ class BacktestEngine:
         try:
             # Only check max positions limit
             if len(self.positions) >= self.max_positions:
-                print(
+                # print(
+                #     f"Skip opening position: Max positions ({self.max_positions}) reached"
+                # )
+                self.journal.write(
                     f"Skip opening position: Max positions ({self.max_positions}) reached"
                 )
                 return
@@ -302,7 +366,8 @@ class BacktestEngine:
             current_price = Decimal(str(bar["Close"]))
 
             if current_price == 0:
-                print(f"Skip opening position: Invalid price {current_price}")
+                #print(f"Skip opening position: Invalid price {current_price}")
+                self.journal.write(f"Skip opening position: Invalid price {current_price}")
                 return
 
             shares = float(position_capital / current_price)
@@ -310,7 +375,8 @@ class BacktestEngine:
             shares_decimal = Decimal(str(shares))
 
             if shares < 0.001:
-                print(f"Skip opening position: Position size too small")
+                #print(f"Skip opening position: Position size too small")
+                self.journal.write(f"Skip opening position: Position size too small")
                 return
 
             position = Position(
@@ -322,19 +388,30 @@ class BacktestEngine:
 
             cost = current_price * shares_decimal
             if cost > self.current_capital:
-                print(f"Skip opening position: Insufficient capital")
+                #print(f"Skip opening position: Insufficient capital")
+                self.journal.write(f"Skip opening position: Insufficient capital")
                 return
 
-            print(f"\nOpening position #{len(self.positions) + 1}:")
-            print(f"Symbol: {position.symbol}")
-            print(f"Shares: {float(shares_decimal):,.3f}")
-            print(f"Price: ${float(current_price):,.2f}")
-            print(f"Total Cost: ${float(cost):,.2f}")
+            # print(f"\nOpening position #{len(self.positions) + 1}:")
+            # print(f"Symbol: {position.symbol}")
+            # print(f"Shares: {float(shares_decimal):,.3f}")
+            # print(f"Price: ${float(current_price):,.2f}")
+            # print(f"Total Cost: ${float(cost):,.2f}")
+            # print(f"Capital Before: ${float(self.current_capital):,.2f}")
+
+            self.journal.write(f"\nOpening position #{len(self.positions) + 1}:")
+            self.journal.write(f"Symbol: {position.symbol}")
+            self.journal.write(f"Shares: {float(shares_decimal):,.3f}")
+            self.journal.write(f"Price: ${float(current_price):,.2f}")
+            self.journal.write(f"Total Cost: ${float(cost):,.2f}")
+            self.journal.write(f"Capital Before: ${float(self.current_capital):,.2f}")
+
 
             self.positions.append(position)
             self.current_capital -= cost
 
-            print(f"Total Open Positions: {len(self.positions)}")
+            #print(f"Total Open Positions: {len(self.positions)}")
+            self.journal.write(f"Total Open Positions: {len(self.positions)}")
 
         except Exception as e:
             print(f"Error opening position: {str(e)}")
@@ -353,19 +430,28 @@ class BacktestEngine:
             value = price * Decimal(str(position.shares))
             pnl = position.profit_loss
 
-            print(f"\nClosing position:")
-            print(f"Symbol: {position.symbol}")
-            print(f"Shares: {position.shares:,}")
-            print(f"Entry: ${float(position.entry_price):,.2f}")
-            print(f"Exit: ${float(price):,.2f}")
-            print(f"P&L: ${float(pnl):,.2f}")
-            print(f"Capital Before: ${float(self.current_capital):,.2f}")
+            # print(f"\nClosing position:")
+            # print(f"Symbol: {position.symbol}")
+            # print(f"Shares: {position.shares:,}")
+            # print(f"Entry: ${float(position.entry_price):,.2f}")
+            # print(f"Exit: ${float(price):,.2f}")
+            # print(f"P&L: ${float(pnl):,.2f}")
+            # print(f"Capital Before: ${float(self.current_capital):,.2f}")
+
+            self.journal.write("\nClosing position:")
+            self.journal.write(f"Symbol: {position.symbol}")
+            self.journal.write(f"Shares: {position.shares:,}")
+            self.journal.write(f"Entry: ${float(position.entry_price):,.2f}")
+            self.journal.write(f"Exit: ${float(price):,.2f}")
+            self.journal.write(f"P&L: ${float(pnl):,.2f}")
+            self.journal.write(f"Capital Before: ${float(self.current_capital):,.2f}")
 
             self.current_capital += value
             self.closed_positions.append(position)
             self.positions.remove(position)
 
-            print(f"Capital After: ${float(self.current_capital):,.2f}")
+            #print(f"Capital After: ${float(self.current_capital):,.2f}")
+            self.journal.write(f"Capital After: ${float(self.current_capital):,.2f}")
 
         except Exception as e:
             print(f"Error closing position: {str(e)}")
