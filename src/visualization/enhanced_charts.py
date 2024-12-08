@@ -1,11 +1,9 @@
 from datetime import datetime
-from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Optional
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import seaborn as sns
 from plotly.subplots import make_subplots
@@ -17,7 +15,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
     """Enhanced visualization class with additional analysis capabilities."""
 
     def create_correlation_matrix(
-        self, portfolio_returns: Dict[str, pd.Series], format: str = "html"
+        self, portfolio_returns: dict[str, pd.Series], format: str = "html"
     ) -> go.Figure:
         """Create correlation matrix heatmap of asset returns."""
         # Combine all returns into a DataFrame
@@ -68,7 +66,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         return fig
 
     def create_interactive_pair_comparison(
-        self, portfolio_data: Dict[str, pd.Series], format: str = "html"
+        self, portfolio_data: dict[str, pd.Series], format: str = "html"
     ) -> go.Figure:
         """Create an interactive pair-wise comparison dashboard for all assets."""
         assets = list(portfolio_data.keys())
@@ -95,56 +93,52 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
 
         # Add dropdown menus for asset selection
         updatemenus = [
-            dict(
-                buttons=list(
-                    [
-                        dict(
-                            args=[
-                                {
-                                    "visible": [
-                                        i == j or i == j + len(assets)
-                                        for i in range(len(assets) * 2)
-                                    ]
-                                }
-                            ],
-                            label=f"Asset 1: {asset}",
-                            method="update",
-                        )
-                        for j, asset in enumerate(assets)
-                    ]
-                ),
-                direction="down",
-                showactive=True,
-                x=0.1,
-                xanchor="left",
-                y=1.15,
-                yanchor="top",
-            ),
-            dict(
-                buttons=list(
-                    [
-                        dict(
-                            args=[
-                                {
-                                    "visible": [
-                                        i == j or i == j + len(assets)
-                                        for i in range(len(assets) * 2)
-                                    ]
-                                }
-                            ],
-                            label=f"Asset 2: {asset}",
-                            method="update",
-                        )
-                        for j, asset in enumerate(assets)
-                    ]
-                ),
-                direction="down",
-                showactive=True,
-                x=0.3,
-                xanchor="left",
-                y=1.15,
-                yanchor="top",
-            ),
+            {
+                "buttons": [
+                    {
+                        "args": [
+                            {
+                                "visible": [
+                                    i == j or i == j + len(assets)
+                                    for i in range(len(assets) * 2)
+                                ]
+                            }
+                        ],
+                        "label": f"Asset 1: {asset}",
+                        "method": "update",
+                    }
+                    for j, asset in enumerate(assets)
+                ],
+                "direction": "down",
+                "showactive": True,
+                "x": 0.1,
+                "xanchor": "left",
+                "y": 1.15,
+                "yanchor": "top",
+            },
+            {
+                "buttons": [
+                    {
+                        "args": [
+                            {
+                                "visible": [
+                                    i == j or i == j + len(assets)
+                                    for i in range(len(assets) * 2)
+                                ]
+                            }
+                        ],
+                        "label": f"Asset 2: {asset}",
+                        "method": "update",
+                    }
+                    for j, asset in enumerate(assets)
+                ],
+                "direction": "down",
+                "showactive": True,
+                "x": 0.3,
+                "xanchor": "left",
+                "y": 1.15,
+                "yanchor": "top",
+            },
         ]
 
         # Add traces for all possible pairs
@@ -230,8 +224,8 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
 
     def create_portfolio_risk_analysis(
         self,
-        returns_data: Dict[str, pd.Series],
-        weights: Optional[Dict[str, float]] = None,
+        returns_data: dict[str, pd.Series],
+        weights: Optional[dict[str, float]] = None,
         format: str = "html",
     ) -> go.Figure:
         """Create portfolio risk analysis visualization."""
@@ -337,7 +331,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         return fig
 
     def create_trade_analysis(
-        self, trades: List[Dict], format: str = "html"
+        self, trades: list[dict], format: str = "html"
     ) -> go.Figure:
         """Create detailed trade analysis visualization."""
         trades_df = pd.DataFrame(trades)
@@ -439,8 +433,8 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         return fig
 
     def _calculate_portfolio_metrics(
-        self, returns_df: pd.DataFrame, weights: Dict[str, float]
-    ) -> Dict[str, float]:
+        self, returns_df: pd.DataFrame, weights: dict[str, float]
+    ) -> dict[str, float]:
         """Calculate portfolio metrics."""
         portfolio_return = sum(
             returns_df[asset].mean() * weight for asset, weight in weights.items()
@@ -459,8 +453,8 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         return {"portfolio_return": portfolio_return, "portfolio_vol": portfolio_vol}
 
     def _calculate_risk_contributions(
-        self, returns_df: pd.DataFrame, weights: Dict[str, float], portfolio_vol: float
-    ) -> Dict[str, float]:
+        self, returns_df: pd.DataFrame, weights: dict[str, float], portfolio_vol: float
+    ) -> dict[str, float]:
         """Calculate risk contributions for each asset."""
         risk_contributions = {}
         for asset in weights.keys():
@@ -474,7 +468,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         return risk_contributions
 
     def create_equity_curve(
-        self, equity_series: pd.Series, trades: List[Dict], format: str = "html"
+        self, equity_series: pd.Series, trades: list[dict], format: str = "html"
     ) -> go.Figure:
         """Create equity curve with trade markers."""
         fig = go.Figure()
@@ -485,7 +479,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                 x=equity_series.index,
                 y=equity_series.values,
                 name="Portfolio Value",
-                line=dict(color="blue"),
+                line={"color": "blue"},
             )
         )
 
@@ -550,7 +544,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                 y=drawdown.values,
                 fill="tozeroy",
                 name="Drawdown",
-                line=dict(color="red"),
+                line={"color": "red"},
             )
         )
 
@@ -592,7 +586,9 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         )
 
         if format == "html":
-            fig.write_html(f"monthly_returns_heatmap_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html")
+            fig.write_html(
+                f"monthly_returns_heatmap_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+            )
         elif format == "interactive":
             fig.show()
 

@@ -1,12 +1,11 @@
-from typing import List, Dict
-import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
-from plotly.subplots import make_subplots
-import matplotlib.pyplot as plt
-import seaborn as sns
 from datetime import datetime
 from pathlib import Path
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+import seaborn as sns
 
 
 class BacktestVisualizer:
@@ -17,7 +16,7 @@ class BacktestVisualizer:
     def create_equity_curve(
         self,
         equity_series: pd.Series,
-        trades: List[Dict],
+        trades: list[dict],
         title: str,
         format: str = "html",
     ):
@@ -150,7 +149,7 @@ class BacktestVisualizer:
             )
             plt.close()
 
-    def create_asset_allocation(self, positions: List[Dict], format: str = "html"):
+    def create_asset_allocation(self, positions: list[dict], format: str = "html"):
         """Create asset allocation pie chart."""
         asset_values = {}
         for pos in positions:

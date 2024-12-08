@@ -1,7 +1,7 @@
+import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Union, TextIO
-import sys
+from typing import Optional, TextIO, Union
 
 
 class JournalWriter:

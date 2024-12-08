@@ -1,15 +1,19 @@
 import pandas as pd
-import numpy as np
-from .base import Strategy, SignalType
+
+from ..utils.journal import JournalWriter
+from .base import SignalType, Strategy
 
 
 class BollingerBandsStrategy(Strategy):
     """Bollinger Bands Strategy."""
 
-    def __init__(self, window: int = 20, num_std: float = 2.0):
+    def __init__(
+        self, window: int = 20, num_std: float = 2.0, journal: JournalWriter = None
+    ):
         super().__init__("Bollinger Bands Strategy")
         self.window = window
         self.num_std = num_std
+        self.journal = journal
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
         if len(data) < self.window:
@@ -33,9 +37,9 @@ class BollingerBandsStrategy(Strategy):
                 signals.iloc[i] = SignalType.SELL
                 position = 0
 
-        print(
-            f"Generated Bollinger Bands signals: Buy={sum(signals == SignalType.BUY)}, "
-            f"Sell={sum(signals == SignalType.SELL)}"
+        self.journal.write(
+            f"Generated Bollinger Bands signals: Buy={sum(signals == SignalType.BUY)}, Sell={sum(signals == SignalType.SELL)}",
+            printable=True,
         )
         return signals
 
@@ -43,10 +47,16 @@ class BollingerBandsStrategy(Strategy):
 class ATRTrailingStopStrategy(Strategy):
     """Average True Range Trailing Stop Strategy."""
 
-    def __init__(self, atr_period: int = 14, atr_multiplier: float = 2.0):
+    def __init__(
+        self,
+        atr_period: int = 14,
+        atr_multiplier: float = 2.0,
+        journal: JournalWriter = None,
+    ):
         super().__init__("ATR Trailing Stop Strategy")
         self.atr_period = atr_period
         self.atr_multiplier = atr_multiplier
+        self.journal = journal
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
         if len(data) < self.atr_period:
@@ -89,8 +99,8 @@ class ATRTrailingStopStrategy(Strategy):
                 signals.iloc[i] = SignalType.SELL
                 position = 0
 
-        print(
-            f"Generated ATR signals: Buy={sum(signals == SignalType.BUY)}, "
-            f"Sell={sum(signals == SignalType.SELL)}"
+        self.journal.write(
+            f"Generated ATR signals: Buy={sum(signals == SignalType.BUY)}, Sell={sum(signals == SignalType.SELL)}",
+            printable=True,
         )
         return signals

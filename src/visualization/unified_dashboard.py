@@ -1,15 +1,13 @@
-from datetime import datetime
-from pathlib import Path
-from typing import Dict, List, Optional
-import pandas as pd
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import http.server
+import random
 import socketserver
 import threading
 import webbrowser
-import asyncio
-import random
+from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
+import plotly.graph_objects as go
 
 from src.visualization.enhanced_charts import EnhancedBacktestVisualizer
 
@@ -19,11 +17,11 @@ class UnifiedDashboard(EnhancedBacktestVisualizer):
 
     def create_unified_dashboard(
         self,
-        portfolio_data: Dict[str, pd.Series],
-        trades: List[Dict],
+        portfolio_data: dict[str, pd.Series],
+        trades: list[dict],
         equity_series: pd.Series,
-        portfolio_returns: Dict[str, pd.Series],
-        weights: Optional[Dict[str, float]] = None,
+        portfolio_returns: dict[str, pd.Series],
+        weights: dict[str, float] | None = None,
         format: str = "html",
     ) -> str:
         """Create a unified dashboard with all analyses."""
@@ -54,7 +52,7 @@ class UnifiedDashboard(EnhancedBacktestVisualizer):
             risk_analysis_fig,
             trade_analysis_fig,
         ]:
-            fig.update_layout(margin=dict(l=50, r=50, t=50, b=50))
+            fig.update_layout(margin={"l": 50, "r": 50, "t": 50, "b": 50})
 
         # Save the dashboard
         dashboard_path = (

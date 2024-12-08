@@ -4,8 +4,8 @@ from decimal import Decimal
 import numpy as np
 import pandas as pd
 
-from .position import Position
 from ..utils.logger import get_logger
+from .position import Position
 
 logger = get_logger(__name__)
 

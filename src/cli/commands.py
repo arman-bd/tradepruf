@@ -1,6 +1,5 @@
 import json
 from datetime import datetime
-from typing import Dict
 
 import click
 import pandas as pd
@@ -29,27 +28,34 @@ STRATEGIES = {
     "sma": lambda params: SMACrossoverStrategy(
         short_window=int(params.get("short_window", 20)),
         long_window=int(params.get("long_window", 50)),
+        journal=journal,
     ),
     "ema": lambda params: EMAStrategy(
         fast_window=int(params.get("fast_window", 12)),
         slow_window=int(params.get("slow_window", 26)),
+        journal=journal,
     ),
     "rsi": lambda params: RSIStrategy(
         period=int(params.get("period", 14)),
         oversold=int(params.get("oversold", 30)),
         overbought=int(params.get("overbought", 70)),
+        journal=journal,
     ),
     "macd": lambda params: MACDStrategy(
         fast_period=int(params.get("fast_period", 12)),
         slow_period=int(params.get("slow_period", 26)),
         signal_period=int(params.get("signal_period", 9)),
+        journal=journal,
     ),
     "bb": lambda params: BollingerBandsStrategy(
-        window=int(params.get("window", 20)), num_std=float(params.get("num_std", 2.0))
+        window=int(params.get("window", 20)),
+        num_std=float(params.get("num_std", 2.0)),
+        journal=journal,
     ),
     "atr": lambda params: ATRTrailingStopStrategy(
         atr_period=int(params.get("atr_period", 14)),
         atr_multiplier=float(params.get("atr_multiplier", 2.0)),
+        journal=journal,
     ),
 }
 
@@ -164,7 +170,7 @@ def backtest(
 
         except Exception as e:
             console.print(f"[red]Error: {str(e)}")
-            raise click.Abort()
+            raise click.Abort() from e
 
 
 def _display_results(metrics, asset, strategy):
@@ -224,8 +230,8 @@ def info(symbol: str):
 
 
 def calculate_portfolio_returns(
-    portfolio_data: Dict[str, pd.DataFrame], asset_weights: Dict[str, float] = None
-) -> Dict[str, pd.Series]:
+    portfolio_data: dict[str, pd.DataFrame], asset_weights: dict[str, float] = None
+) -> dict[str, pd.Series]:
     """Calculate returns for each asset in the portfolio."""
     returns_dict = {}
     for symbol, data in portfolio_data.items():
@@ -259,6 +265,9 @@ def backtest_portfolio(
         # Load portfolio configuration
         with open(portfolio) as f:
             config = json.load(f)
+
+        # Display Portfolio Configuration
+        _display_portfolio_configuration(config)
 
         assets = []
         strategies = {}
@@ -377,6 +386,41 @@ def backtest_portfolio(
         e.with_traceback()
         console.print(f"[red]Error: {str(e)}")
         raise click.Abort()
+
+
+def _display_portfolio_configuration(config):
+    """Display portfolio configuration in a formatted table."""
+    table = Table(title="Portfolio Configuration")
+
+    table.add_column("Parameter", style="cyan", no_wrap=True)
+    table.add_column("Value", style="magenta", justify="right")
+
+    table.add_row("Initial Capital", f"${config.get('initial_capital', 100000):,.2f}")
+    table.add_row("Position Size", f"{config.get('position_size', 0.1):.2f}")
+    table.add_row("Max Positions", str(config.get("max_positions", 5)))
+    table.add_row("Start Date", config["start_date"])
+    table.add_row("End Date", config["end_date"])
+    table.add_row("Interval", config.get("interval", "1d"))
+
+    assets_table = Table(title="Assets")
+    assets_table.add_column("Symbol", style="cyan")
+    assets_table.add_column("Type", style="blue")
+    assets_table.add_column("Strategy", style="green")
+    assets_table.add_column("Params", style="yellow")
+
+    for asset_config in config["assets"]:
+        assets_table.add_row(
+            asset_config["symbol"],
+            asset_config["type"],
+            asset_config["strategy"],
+            json.dumps(asset_config.get("params", {})),
+        )
+
+    console.print(table)
+    console.print(assets_table)
+
+    # Channel all console output to journal
+    journal.write(console.export_text(styles=False), printable=False)
 
 
 def _display_portfolio_results(metrics, assets, strategies):

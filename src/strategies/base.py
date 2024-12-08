@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
-from typing import List, Optional
+
 import pandas as pd
-import numpy as np
+
+from ..utils.journal import JournalWriter
 
 
 class SignalType:
@@ -13,8 +14,9 @@ class SignalType:
 class Strategy(ABC):
     """Base class for trading strategies"""
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, journal: JournalWriter = None):
         self.name = name
+        self.journal = journal
 
     @abstractmethod
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:

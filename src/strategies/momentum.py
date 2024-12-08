@@ -1,16 +1,24 @@
 import pandas as pd
-import numpy as np
-from .base import Strategy, SignalType
+
+from ..utils.journal import JournalWriter
+from .base import SignalType, Strategy
 
 
 class RSIStrategy(Strategy):
     """Relative Strength Index Strategy."""
 
-    def __init__(self, period: int = 14, oversold: int = 30, overbought: int = 70):
+    def __init__(
+        self,
+        period: int = 14,
+        oversold: int = 30,
+        overbought: int = 70,
+        journal: JournalWriter = None,
+    ):
         super().__init__("RSI Strategy")
         self.period = period
         self.oversold = oversold
         self.overbought = overbought
+        self.journal = journal
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
         if len(data) < self.period:
@@ -27,7 +35,10 @@ class RSIStrategy(Strategy):
         rs = gain / loss
         rsi = 100 - (100 / (1 + rs))
 
-        print(f"Generated RSI values: Min={rsi.min():.2f}, Max={rsi.max():.2f}")
+        self.journal.write(
+            f"Generated RSI values: Min={rsi.min():.2f}, Max={rsi.max():.2f}",
+            printable=True,
+        )
 
         # Generate signals only on crossovers
         for i in range(self.period, len(data)):
@@ -38,9 +49,9 @@ class RSIStrategy(Strategy):
                 signals.iloc[i] = SignalType.SELL
                 position = 0
 
-        print(
-            f"Generated RSI signals: Buy={sum(signals == SignalType.BUY)}, "
-            f"Sell={sum(signals == SignalType.SELL)}"
+        self.journal.write(
+            f"Generated RSI signals: Buy={sum(signals == SignalType.BUY)}, Sell={sum(signals == SignalType.SELL)}",
+            printable=True,
         )
         return signals
 
@@ -49,12 +60,17 @@ class MACDStrategy(Strategy):
     """Moving Average Convergence Divergence Strategy."""
 
     def __init__(
-        self, fast_period: int = 12, slow_period: int = 26, signal_period: int = 9
+        self,
+        fast_period: int = 12,
+        slow_period: int = 26,
+        signal_period: int = 9,
+        journal: JournalWriter = None,
     ):
         super().__init__("MACD Strategy")
         self.fast_period = fast_period
         self.slow_period = slow_period
         self.signal_period = signal_period
+        self.journal = journal
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
         if len(data) < self.slow_period + self.signal_period:
@@ -79,8 +95,8 @@ class MACDStrategy(Strategy):
                 signals.iloc[i] = SignalType.SELL
                 position = 0
 
-        print(
-            f"Generated MACD signals: Buy={sum(signals == SignalType.BUY)}, "
-            f"Sell={sum(signals == SignalType.SELL)}"
+        self.journal.write(
+            f"Generated MACD signals: Buy={sum(signals == SignalType.BUY)}, Sell={sum(signals == SignalType.SELL)}",
+            printable=True,
         )
         return signals
