@@ -73,10 +73,10 @@ tradepruf backtest \
 {
     "initial_capital": 100000,
     "position_size": 0.1,
-    "max_positions": 5,
+    "max_positions": 10,
     "start_date": "2023-01-01",
-    "end_date": "2024-01-31",
-    "interval": "1d",
+    "end_date": "2024-01-01",
+    "interval": "1h",
     "assets": [
         {
             "symbol": "BTC-USD",
@@ -90,7 +90,12 @@ tradepruf backtest \
         {
             "symbol": "ETH-USD",
             "type": "crypto",
-            "strategy": "rsi"
+            "strategy": "rsi",
+            "params": {
+                "period": 14,
+                "oversold": 30,
+                "overbought": 70
+            }
         },
         {
             "symbol": "AAPL",
@@ -103,7 +108,73 @@ tradepruf backtest \
 
 2. Run the backtest:
 ```bash
-tradepruf backtest-portfolio --portfolio portfolios/my_portfolio.json --charts html
+tradepruf backtest-portfolio --portfolio portfolios/btc-eth-aapl.json --charts interactive --enhanced-analysis
+```
+
+**Result**
+```
+     Portfolio Configuration     
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Parameter       ┃       Value ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ Initial Capital │ $100,000.00 │
+│ Position Size   │        0.20 │
+│ Max Positions   │           5 │
+│ Start Date      │  2023-01-01 │
+│ End Date        │  2024-01-01 │
+│ Interval        │          1h │
+└─────────────────┴─────────────┘
+                                      Assets                                      
+┏━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Symbol  ┃ Type   ┃ Strategy ┃ Extra Params                                     ┃
+┡━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ BTC-USD │ crypto │ sma      │ {"short_window": 20, "long_window": 50}          │
+│ ETH-USD │ crypto │ rsi      │ {"period": 14, "oversold": 30, "overbought": 70} │
+│ AAPL    │ stock  │ macd     │ "N/A"                                            │
+└─────────┴────────┴──────────┴──────────────────────────────────────────────────┘
+================================================================================
+=== Starting portfolio backtest with 3 assets ===
+================================================================================
+Fetched 8676 bars for BTC-USD
+Date range: 2023-01-01 00:00:00+00:00 to 2023-12-31 23:00:00+00:00
+Fetched 8675 bars for ETH-USD
+Date range: 2023-01-01 00:00:00+00:00 to 2023-12-31 23:00:00+00:00
+Fetched 1742 bars for AAPL
+Date range: 2023-01-03 09:30:00-05:00 to 2023-12-29 15:30:00-05:00
+================================================================================
+=== Generating signals ===
+================================================================================
+Generated SMA Crossover signals: Buy=111, Sell=110
+Generated signals for BTC-USD using SMA Crossover
+Generated RSI values: Min=2.86, Max=98.35
+Generated RSI signals: Buy=117, Sell=116
+Generated signals for ETH-USD using RSI Strategy
+Generated MACD signals: Buy=71, Sell=71
+Generated signals for AAPL using MACD Strategy
+
+ Portfolio Backtest Results 
+┏━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Metric        ┃    Value ┃
+┡━━━━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ Total Return  │   24.12% │
+│ Annual Return │   24.20% │
+│ Sharpe Ratio  │     0.12 │
+│ Max Drawdown  │   38.12% │
+│ Total Trades  │      299 │
+│ Win Rate      │   47.83% │
+│ Average Win   │  $443.41 │
+│ Average Loss  │ $-253.45 │
+│ Volatility    │  177.96% │
+└───────────────┴──────────┘
+
+                      Asset Performance Summary                      
+┏━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Asset   ┃ Strategy      ┃ Type   ┃ Trades ┃        P&L ┃ Win Rate ┃
+┡━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ BTC-USD │ SMA Crossover │ crypto │    111 │ $16,305.44 │    35.1% │
+│ ETH-USD │ RSI Strategy  │ crypto │    117 │  $5,112.17 │    65.8% │
+│ AAPL    │ MACD Strategy │ stock  │     71 │  $2,705.18 │    38.0% │
+└─────────┴───────────────┴────────┴────────┴────────────┴──────────┘
 ```
 
 ## 📈 Custom Strategies

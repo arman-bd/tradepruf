@@ -8,7 +8,6 @@ class BollingerBandsStrategy(Strategy):
     """Bollinger Bands Strategy."""
 
     def __init__(
-        
         self, window: int = 20, num_std: float = 2.0, journal: JournalWriter = None
     ):
         """Initialize the Bollinger Bands Strategy.

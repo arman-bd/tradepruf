@@ -406,14 +406,14 @@ def _display_portfolio_configuration(config):
     assets_table.add_column("Symbol", style="cyan")
     assets_table.add_column("Type", style="blue")
     assets_table.add_column("Strategy", style="green")
-    assets_table.add_column("Params", style="yellow")
+    assets_table.add_column("Extra Params", style="yellow")
 
     for asset_config in config["assets"]:
         assets_table.add_row(
             asset_config["symbol"],
             asset_config["type"],
             asset_config["strategy"],
-            json.dumps(asset_config.get("params", {})),
+            json.dumps(asset_config.get("params", "N/A")),
         )
 
     console.print(table)
@@ -446,7 +446,6 @@ def _display_portfolio_results(metrics, assets, strategies):
     for metric, value in metrics_to_display:
         table.add_row(metric, value)
 
-    console.print("------------------------------------")
     console.print(table)
 
     # Create asset performance table
@@ -476,7 +475,6 @@ def _display_portfolio_results(metrics, assets, strategies):
                 f"{win_rate:.1f}%",
             )
 
-    console.print("\n")
     console.print(asset_table)
 
     # Channel all console output to journal
