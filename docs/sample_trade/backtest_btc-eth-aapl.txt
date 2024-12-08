@@ -1,0 +1,7077 @@
+     Portfolio Configuration     
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Parameter       ┃       Value ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ Initial Capital │ $100,000.00 │
+│ Position Size   │        0.20 │
+│ Max Positions   │           5 │
+│ Start Date      │  2023-01-01 │
+│ End Date        │  2024-01-01 │
+│ Interval        │          1h │
+└─────────────────┴─────────────┘
+                                      Assets                                      
+┏━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Symbol  ┃ Type   ┃ Strategy ┃ Extra Params                                     ┃
+┡━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ BTC-USD │ crypto │ sma      │ {"short_window": 20, "long_window": 50}          │
+│ ETH-USD │ crypto │ rsi      │ {"period": 14, "oversold": 30, "overbought": 70} │
+│ AAPL    │ stock  │ macd     │ "N/A"                                            │
+└─────────┴────────┴──────────┴──────────────────────────────────────────────────┘
+
+================================================================================
+=== Starting portfolio backtest with 3 assets ===
+================================================================================
+Fetched 8676 bars for BTC-USD
+Date range: 2023-01-01 00:00:00+00:00 to 2023-12-31 23:00:00+00:00
+Fetched 8675 bars for ETH-USD
+Date range: 2023-01-01 00:00:00+00:00 to 2023-12-31 23:00:00+00:00
+Fetched 1742 bars for AAPL
+Date range: 2023-01-03 09:30:00-05:00 to 2023-12-29 15:30:00-05:00
+================================================================================
+=== Generating signals ===
+================================================================================
+Generated SMA Crossover signals: Buy=111, Sell=110
+Generated signals for BTC-USD using SMA Crossover
+Generated RSI values: Min=2.86, Max=98.35
+Generated RSI signals: Buy=117, Sell=116
+Generated signals for ETH-USD using RSI Strategy
+Generated MACD signals: Buy=71, Sell=71
+Generated signals for AAPL using MACD Strategy
+
+Trading Day 1 (2023-01-01): Portfolio Equity=$100,000.00, Open Positions=0
+
+Trading Day 2 (2023-01-02): Portfolio Equity=$100,000.00, Open Positions=0
+
+Trading Day 3 (2023-01-03): Portfolio Equity=$100,000.00, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-01-03 02:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 1.199
+Price: $16,684.15
+Total Cost: $20,004.30
+Capital Before: $100,000.00
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-01-03 19:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 13.228
+Price: $1,209.49
+Total Cost: $15,999.16
+Capital Before: $79,995.70
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-01-04 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 1.199
+Entry: $16,684.15
+Exit: $16,669.93
+P&L: $-17.05
+Capital Before: $63,996.54
+Capital After: $83,983.78
+
+Trading Day 4 (2023-01-04): Portfolio Equity=$100,034.25, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-01-04 02:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 13.228
+Entry: $1,209.49
+Exit: $1,230.40
+P&L: $276.55
+Capital Before: $83,983.78
+Capital After: $100,259.50
+
+Processing BUY signal for BTC-USD at 2023-01-04 07:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 1.189
+Price: $16,870.27
+Total Cost: $20,058.75
+Capital Before: $100,259.50
+Total Open Positions: 1
+
+Trading Day 5 (2023-01-05): Portfolio Equity=$100,228.29, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-01-05 08:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.827
+Price: $1,250.46
+Total Cost: $16,039.71
+Capital Before: $80,200.75
+Total Open Positions: 2
+
+Trading Day 6 (2023-01-06): Portfolio Equity=$100,303.52, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-01-06 01:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 1.189
+Entry: $16,870.27
+Exit: $16,836.59
+P&L: $-40.05
+Capital Before: $64,161.04
+Capital After: $84,179.74
+
+Processing SELL signal for ETH-USD at 2023-01-06 18:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.827
+Entry: $1,250.46
+Exit: $1,266.29
+P&L: $203.01
+Capital Before: $84,179.74
+Capital After: $100,422.46
+
+Trading Day 7 (2023-01-07): Portfolio Equity=$100,422.46, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-01-07 01:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 1.185
+Price: $16,952.47
+Total Cost: $20,088.67
+Capital Before: $100,422.46
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-01-07 12:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.715
+Price: $1,263.60
+Total Cost: $16,066.66
+Capital Before: $80,333.79
+Total Open Positions: 2
+
+Trading Day 8 (2023-01-08): Portfolio Equity=$100,371.12, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-01-08 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.715
+Entry: $1,263.60
+Exit: $1,265.72
+P&L: $27.01
+Capital Before: $64,267.13
+Capital After: $80,360.80
+
+Trading Day 9 (2023-01-09): Portfolio Equity=$100,699.56, Open Positions=1
+
+Trading Day 10 (2023-01-10): Portfolio Equity=$100,770.85, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-01-10 07:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.144
+Price: $1,323.46
+Total Cost: $16,072.05
+Capital Before: $80,360.80
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-01-10 10:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.144
+Entry: $1,323.46
+Exit: $1,332.55
+P&L: $110.39
+Capital Before: $64,288.75
+Capital After: $80,471.19
+
+Trading Day 11 (2023-01-11): Portfolio Equity=$101,177.37, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-01-11 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.158
+Price: $1,323.76
+Total Cost: $16,094.28
+Capital Before: $80,471.19
+Total Open Positions: 2
+
+Processing BUY signal for AAPL at 2023-01-11 11:30:00-05:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 96.953
+Price: $132.80
+Total Cost: $12,875.36
+Capital Before: $64,376.91
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-01-11 22:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.158
+Entry: $1,323.76
+Exit: $1,351.63
+P&L: $338.83
+Capital Before: $51,501.55
+Capital After: $67,934.65
+
+Trading Day 12 (2023-01-12): Portfolio Equity=$89,389.04, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-12 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.847
+Price: $1,379.76
+Total Cost: $13,586.49
+Capital Before: $67,934.65
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-01-12 13:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 96.953
+Entry: $132.80
+Exit: $133.20
+P&L: $38.54
+Capital Before: $54,348.16
+Capital After: $67,262.06
+
+Trading Day 13 (2023-01-13): Portfolio Equity=$103,379.33, Open Positions=2
+
+Processing BUY signal for AAPL at 2023-01-13 15:30:00-05:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 99.869
+Price: $134.70
+Total Cost: $13,452.35
+Capital Before: $67,262.06
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-01-13 21:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.847
+Entry: $1,379.76
+Exit: $1,454.79
+P&L: $738.83
+Capital Before: $53,809.71
+Capital After: $68,135.02
+
+Trading Day 14 (2023-01-14): Portfolio Equity=$92,957.94, Open Positions=2
+
+Trading Day 15 (2023-01-15): Portfolio Equity=$92,774.65, Open Positions=2
+
+Trading Day 16 (2023-01-16): Portfolio Equity=$92,956.83, Open Positions=2
+
+Trading Day 17 (2023-01-17): Portfolio Equity=$93,143.05, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-17 09:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.707
+Price: $1,565.04
+Total Cost: $13,626.80
+Capital Before: $68,135.02
+Total Open Positions: 3
+
+Trading Day 18 (2023-01-18): Portfolio Equity=$93,344.67, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-01-18 13:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.707
+Entry: $1,565.04
+Exit: $1,593.58
+P&L: $248.47
+Capital Before: $54,508.22
+Capital After: $68,383.49
+
+Processing BUY signal for ETH-USD at 2023-01-18 16:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.993
+Price: $1,520.78
+Total Cost: $13,676.37
+Capital Before: $68,383.49
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-01-18 11:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 99.869
+Entry: $134.70
+Exit: $135.58
+P&L: $88.18
+Capital Before: $54,707.12
+Capital After: $68,247.66
+
+Processing SELL signal for BTC-USD at 2023-01-18 18:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 1.185
+Entry: $16,952.47
+Exit: $20,949.74
+P&L: $4,736.76
+Capital Before: $68,247.66
+Capital After: $93,073.10
+
+Trading Day 19 (2023-01-19): Portfolio Equity=$106,723.05, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-01-19 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.993
+Entry: $1,520.78
+Exit: $1,551.63
+P&L: $277.41
+Capital Before: $93,073.10
+Capital After: $107,026.88
+
+Trading Day 20 (2023-01-20): Portfolio Equity=$107,026.88, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-01-20 07:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 1.021
+Price: $20,968.92
+Total Cost: $21,409.26
+Capital Before: $107,026.88
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-01-20 13:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 125.039
+Price: $136.95
+Total Cost: $17,123.47
+Capital Before: $85,617.62
+Total Open Positions: 2
+
+Trading Day 21 (2023-01-21): Portfolio Equity=$91,567.13, Open Positions=2
+
+Trading Day 22 (2023-01-22): Portfolio Equity=$91,855.39, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-22 02:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.469
+Price: $1,617.49
+Total Cost: $13,698.48
+Capital Before: $68,494.15
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-01-22 16:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.469
+Entry: $1,617.49
+Exit: $1,638.27
+P&L: $176.01
+Capital Before: $54,795.67
+Capital After: $68,670.16
+
+Processing SELL signal for BTC-USD at 2023-01-22 21:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 1.021
+Entry: $20,968.92
+Exit: $22,590.83
+P&L: $1,655.98
+Capital Before: $68,670.16
+Capital After: $91,735.40
+
+Trading Day 23 (2023-01-23): Portfolio Equity=$91,735.40, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-01-23 21:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.798
+Price: $22,989.13
+Total Cost: $18,345.33
+Capital Before: $91,735.40
+Total Open Positions: 2
+
+Trading Day 24 (2023-01-24): Portfolio Equity=$91,728.91, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-24 16:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.093
+Price: $1,614.18
+Total Cost: $14,677.74
+Capital Before: $73,390.07
+Total Open Positions: 3
+
+Trading Day 25 (2023-01-25): Portfolio Equity=$90,922.84, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-01-25 02:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.798
+Entry: $22,989.13
+Exit: $22,550.00
+P&L: $-350.42
+Capital Before: $58,712.33
+Capital After: $76,707.23
+
+Processing SELL signal for AAPL at 2023-01-25 09:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 125.039
+Entry: $136.95
+Exit: $139.82
+P&L: $359.49
+Capital Before: $76,707.23
+Capital After: $94,190.19
+
+Processing SELL signal for ETH-USD at 2023-01-25 21:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.093
+Entry: $1,614.18
+Exit: $1,616.91
+P&L: $24.81
+Capital Before: $94,190.19
+Capital After: $108,892.74
+
+Trading Day 26 (2023-01-26): Portfolio Equity=$108,892.74, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-01-26 04:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.939
+Price: $23,182.48
+Total Cost: $21,768.35
+Capital Before: $108,892.74
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-01-26 15:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 121.057
+Price: $143.94
+Total Cost: $17,424.94
+Capital Before: $87,124.38
+Total Open Positions: 2
+
+Trading Day 27 (2023-01-27): Portfolio Equity=$91,235.95, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-27 01:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.902
+Price: $1,565.96
+Total Cost: $13,940.20
+Capital Before: $69,699.44
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-01-27 13:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.939
+Entry: $23,182.48
+Exit: $22,915.08
+P&L: $-251.10
+Capital Before: $55,759.24
+Capital After: $77,276.49
+
+Processing SELL signal for ETH-USD at 2023-01-27 17:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.902
+Entry: $1,565.96
+Exit: $1,605.45
+P&L: $351.55
+Capital Before: $77,276.49
+Capital After: $91,568.25
+
+Processing BUY signal for BTC-USD at 2023-01-27 23:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.794
+Price: $23,077.29
+Total Cost: $18,323.37
+Capital Before: $91,568.25
+Total Open Positions: 2
+
+Trading Day 28 (2023-01-28): Portfolio Equity=$91,630.28, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-28 13:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.301
+Price: $1,574.99
+Total Cost: $14,648.94
+Capital Before: $73,244.88
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-01-29 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.794
+Entry: $23,077.29
+Exit: $23,128.29
+P&L: $40.50
+Capital Before: $58,595.94
+Capital After: $76,959.81
+
+Trading Day 29 (2023-01-29): Portfolio Equity=$91,697.86, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-01-29 01:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.662
+Price: $23,260.51
+Total Cost: $15,398.46
+Capital Before: $76,959.81
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-01-29 10:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.301
+Entry: $1,574.99
+Exit: $1,610.51
+P&L: $330.38
+Capital Before: $61,561.35
+Capital After: $76,540.66
+
+Trading Day 30 (2023-01-30): Portfolio Equity=$92,278.18, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-01-30 09:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.635
+Price: $1,588.88
+Total Cost: $15,308.82
+Capital Before: $76,540.66
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-01-30 09:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 121.057
+Entry: $143.94
+Exit: $144.19
+P&L: $30.26
+Capital Before: $61,231.84
+Capital After: $78,687.05
+
+Processing SELL signal for BTC-USD at 2023-01-30 20:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.662
+Entry: $23,260.51
+Exit: $22,723.09
+P&L: $-355.77
+Capital Before: $78,687.05
+Capital After: $93,729.73
+
+Trading Day 31 (2023-01-31): Portfolio Equity=$108,868.72, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-01-31 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.635
+Entry: $1,588.88
+Exit: $1,597.15
+P&L: $79.71
+Capital Before: $93,729.73
+Capital After: $109,118.26
+
+Trading Day 32 (2023-02-01): Portfolio Equity=$109,118.26, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-02-01 05:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.944
+Price: $23,128.28
+Total Cost: $21,833.09
+Capital Before: $109,118.26
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-02-01 15:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 120.013
+Price: $145.46
+Total Cost: $17,457.09
+Capital Before: $87,285.17
+Total Open Positions: 2
+
+Trading Day 33 (2023-02-02): Portfolio Equity=$92,633.83, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-02-02 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.386
+Price: $1,665.39
+Total Cost: $13,966.00
+Capital Before: $69,828.08
+Total Open Positions: 3
+
+Trading Day 34 (2023-02-03): Portfolio Equity=$91,918.97, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-02-03 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.944
+Entry: $23,128.28
+Exit: $23,533.46
+P&L: $382.50
+Capital Before: $55,862.08
+Capital After: $78,077.67
+
+Trading Day 35 (2023-02-04): Portfolio Equity=$92,015.33, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-02-04 17:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.386
+Entry: $1,665.39
+Exit: $1,681.87
+P&L: $138.20
+Capital Before: $78,077.67
+Capital After: $92,181.87
+
+Trading Day 36 (2023-02-05): Portfolio Equity=$92,181.87, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-02-05 03:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.095
+Price: $1,661.63
+Total Cost: $18,435.81
+Capital Before: $92,181.87
+Total Open Positions: 2
+
+Trading Day 37 (2023-02-06): Portfolio Equity=$91,934.71, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-02-06 10:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 120.013
+Entry: $145.46
+Exit: $152.89
+P&L: $891.71
+Capital Before: $73,746.06
+Capital After: $92,094.86
+
+Processing SELL signal for ETH-USD at 2023-02-06 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.095
+Entry: $1,661.63
+Exit: $1,646.40
+P&L: $-168.97
+Capital Before: $92,094.86
+Capital After: $110,361.70
+
+Trading Day 38 (2023-02-07): Portfolio Equity=$110,361.70, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-02-07 17:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.947
+Price: $23,299.46
+Total Cost: $22,064.59
+Capital Before: $110,361.70
+Total Open Positions: 1
+
+Trading Day 39 (2023-02-08): Portfolio Equity=$110,381.18, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-02-08 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.671
+Price: $1,654.95
+Total Cost: $17,660.02
+Capital Before: $88,297.11
+Total Open Positions: 2
+
+Trading Day 40 (2023-02-09): Portfolio Equity=$110,050.13, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-02-09 01:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.947
+Entry: $23,299.46
+Exit: $22,955.56
+P&L: $-325.68
+Capital Before: $70,637.09
+Capital After: $92,376.00
+
+Trading Day 41 (2023-02-10): Portfolio Equity=$108,895.56, Open Positions=1
+
+Trading Day 42 (2023-02-11): Portfolio Equity=$108,559.24, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-02-11 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.671
+Entry: $1,654.95
+Exit: $1,523.46
+P&L: $-1,403.14
+Capital Before: $92,376.00
+Capital After: $108,632.89
+
+Trading Day 43 (2023-02-12): Portfolio Equity=$108,632.89, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-02-12 03:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.996
+Price: $21,804.36
+Total Cost: $21,717.15
+Capital Before: $108,632.89
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-02-12 13:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.380
+Price: $1,527.45
+Total Cost: $17,382.40
+Capital Before: $86,915.75
+Total Open Positions: 2
+
+Trading Day 44 (2023-02-13): Portfolio Equity=$108,589.14, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-02-13 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.996
+Entry: $21,804.36
+Exit: $21,688.68
+P&L: $-115.22
+Capital Before: $69,533.34
+Capital After: $91,135.27
+
+Processing BUY signal for AAPL at 2023-02-13 10:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 119.018
+Price: $153.15
+Total Cost: $18,227.01
+Capital Before: $91,135.27
+Total Open Positions: 2
+
+Trading Day 45 (2023-02-14): Portfolio Equity=$90,006.61, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-02-14 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.38
+Entry: $1,527.45
+Exit: $1,505.06
+P&L: $-254.77
+Capital Before: $72,908.26
+Capital After: $90,035.89
+
+Processing BUY signal for BTC-USD at 2023-02-14 15:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.817
+Price: $22,035.81
+Total Cost: $18,003.26
+Capital Before: $90,035.89
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-02-14 11:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 119.018
+Entry: $153.15
+Exit: $151.89
+P&L: $-149.38
+Capital Before: $72,032.63
+Capital After: $90,110.26
+
+Processing BUY signal for AAPL at 2023-02-14 13:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 117.687
+Price: $153.13
+Total Cost: $18,022.00
+Capital Before: $90,110.26
+Total Open Positions: 2
+
+Trading Day 46 (2023-02-15): Portfolio Equity=$90,190.62, Open Positions=2
+
+Trading Day 47 (2023-02-16): Portfolio Equity=$92,187.78, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-02-16 15:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 117.687
+Entry: $153.13
+Exit: $153.69
+P&L: $65.32
+Capital Before: $72,088.26
+Capital After: $90,175.58
+
+Trading Day 48 (2023-02-17): Portfolio Equity=$109,557.75, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-02-17 05:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.884
+Price: $1,657.07
+Total Cost: $18,035.53
+Capital Before: $90,175.58
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-02-17 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.817
+Entry: $22,035.81
+Exit: $23,864.22
+P&L: $1,493.80
+Capital Before: $72,140.04
+Capital After: $91,637.11
+
+Processing SELL signal for ETH-USD at 2023-02-17 13:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.884
+Entry: $1,657.07
+Exit: $1,661.36
+P&L: $46.70
+Capital Before: $91,637.11
+Capital After: $109,719.34
+
+Trading Day 49 (2023-02-18): Portfolio Equity=$109,719.34, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-02-18 05:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.891
+Price: $24,627.36
+Total Cost: $21,942.98
+Capital Before: $109,719.34
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-02-18 10:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.396
+Price: $1,688.68
+Total Cost: $17,555.56
+Capital Before: $87,776.36
+Total Open Positions: 2
+
+Trading Day 50 (2023-02-19): Portfolio Equity=$109,906.87, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-02-19 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.396
+Entry: $1,688.68
+Exit: $1,711.28
+P&L: $234.92
+Capital Before: $70,220.81
+Capital After: $88,011.29
+
+Processing SELL signal for BTC-USD at 2023-02-20 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.891
+Entry: $24,627.36
+Exit: $24,253.97
+P&L: $-332.69
+Capital Before: $88,011.29
+Capital After: $109,621.58
+
+Trading Day 51 (2023-02-20): Portfolio Equity=$109,621.58, Open Positions=0
+
+Processing BUY signal for ETH-USD at 2023-02-20 01:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 13.121
+Price: $1,670.89
+Total Cost: $21,923.77
+Capital Before: $109,621.58
+Total Open Positions: 1
+
+Processing SELL signal for ETH-USD at 2023-02-20 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 13.121
+Entry: $1,670.89
+Exit: $1,708.59
+P&L: $494.69
+Capital Before: $87,697.81
+Capital After: $110,116.27
+
+Processing BUY signal for BTC-USD at 2023-02-20 19:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.886
+Price: $24,865.91
+Total Cost: $22,031.20
+Capital Before: $110,116.27
+Total Open Positions: 1
+
+Trading Day 52 (2023-02-21): Portfolio Equity=$110,121.46, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-02-21 16:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.585
+Price: $1,664.35
+Total Cost: $17,617.16
+Capital Before: $88,085.07
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-02-21 22:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.886
+Entry: $24,865.91
+Exit: $24,380.26
+P&L: $-430.28
+Capital Before: $70,467.91
+Capital After: $92,068.83
+
+Trading Day 53 (2023-02-22): Portfolio Equity=$109,623.20, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-02-22 15:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 123.640
+Price: $148.93
+Total Cost: $18,413.70
+Capital Before: $92,068.83
+Total Open Positions: 2
+
+Trading Day 54 (2023-02-23): Portfolio Equity=$91,009.08, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-02-23 05:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.585
+Entry: $1,664.35
+Exit: $1,664.31
+P&L: $-0.44
+Capital Before: $73,655.12
+Capital After: $91,271.85
+
+Processing BUY signal for BTC-USD at 2023-02-23 16:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.766
+Price: $23,836.67
+Total Cost: $18,258.89
+Capital Before: $91,271.85
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-02-23 23:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.766
+Entry: $23,836.67
+Exit: $23,944.43
+P&L: $82.54
+Capital Before: $73,012.96
+Capital After: $91,354.39
+
+Trading Day 55 (2023-02-24): Portfolio Equity=$91,354.39, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-02-24 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.380
+Price: $1,605.51
+Total Cost: $18,270.73
+Capital Before: $91,354.39
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-02-24 10:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 123.64
+Entry: $148.93
+Exit: $146.39
+P&L: $-314.04
+Capital Before: $73,083.66
+Capital After: $91,183.32
+
+Trading Day 56 (2023-02-25): Portfolio Equity=$109,456.84, Open Positions=1
+
+Trading Day 57 (2023-02-26): Portfolio Equity=$109,300.86, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-02-26 10:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.38
+Entry: $1,605.51
+Exit: $1,602.54
+P&L: $-33.84
+Capital Before: $91,183.32
+Capital After: $109,420.21
+
+Processing BUY signal for BTC-USD at 2023-02-26 15:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.941
+Price: $23,245.61
+Total Cost: $21,874.12
+Capital Before: $109,420.21
+Total Open Positions: 1
+
+Trading Day 58 (2023-02-27): Portfolio Equity=$109,658.88, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-02-27 09:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 117.741
+Price: $148.71
+Total Cost: $17,509.26
+Capital Before: $87,546.09
+Total Open Positions: 2
+
+Trading Day 59 (2023-02-28): Portfolio Equity=$92,114.84, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-02-28 03:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.575
+Price: $1,633.48
+Total Cost: $14,007.05
+Capital Before: $70,036.82
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-02-28 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.941
+Entry: $23,245.61
+Exit: $23,373.08
+P&L: $119.95
+Capital Before: $56,029.77
+Capital After: $78,023.84
+
+Trading Day 60 (2023-03-01): Portfolio Equity=$91,757.30, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-03-01 07:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.658
+Price: $23,721.66
+Total Cost: $15,608.85
+Capital Before: $78,023.84
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-03-01 11:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.575
+Entry: $1,633.48
+Exit: $1,655.15
+P&L: $185.86
+Capital Before: $62,414.99
+Capital After: $76,607.89
+
+Processing SELL signal for AAPL at 2023-03-01 09:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 117.741
+Entry: $148.71
+Exit: $145.67
+P&L: $-357.93
+Capital Before: $76,607.89
+Capital After: $93,759.23
+
+Trading Day 61 (2023-03-02): Portfolio Equity=$109,308.84, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-03-02 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.658
+Entry: $23,721.66
+Exit: $23,355.78
+P&L: $-240.75
+Capital Before: $93,759.23
+Capital After: $109,127.33
+
+Processing BUY signal for ETH-USD at 2023-03-02 13:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 13.392
+Price: $1,629.74
+Total Cost: $21,825.46
+Capital Before: $109,127.33
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-03-02 14:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 119.433
+Price: $146.19
+Total Cost: $17,460.41
+Capital Before: $87,301.87
+Total Open Positions: 2
+
+Trading Day 62 (2023-03-03): Portfolio Equity=$91,860.59, Open Positions=2
+
+Trading Day 63 (2023-03-04): Portfolio Equity=$90,921.36, Open Positions=2
+
+Trading Day 64 (2023-03-05): Portfolio Equity=$90,856.70, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-03-05 10:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.623
+Price: $22,413.62
+Total Cost: $13,963.69
+Capital Before: $69,841.46
+Total Open Positions: 3
+
+Trading Day 65 (2023-03-06): Portfolio Equity=$90,857.64, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-03-06 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 13.392
+Entry: $1,629.74
+Exit: $1,578.23
+P&L: $-689.80
+Capital Before: $55,877.77
+Capital After: $77,013.43
+
+Trading Day 66 (2023-03-07): Portfolio Equity=$90,990.99, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-03-07 14:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.623
+Entry: $22,413.62
+Exit: $22,330.93
+P&L: $-51.52
+Capital Before: $77,013.43
+Capital After: $90,925.60
+
+Processing BUY signal for ETH-USD at 2023-03-07 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.637
+Price: $1,562.73
+Total Cost: $18,185.44
+Capital Before: $90,925.60
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-03-07 10:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 119.433
+Entry: $146.19
+Exit: $152.26
+P&L: $723.86
+Capital Before: $72,740.16
+Capital After: $90,924.43
+
+Trading Day 67 (2023-03-08): Portfolio Equity=$109,156.04, Open Positions=1
+
+Trading Day 68 (2023-03-09): Portfolio Equity=$108,804.47, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-03-09 11:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 117.984
+Price: $154.13
+Total Cost: $18,184.90
+Capital Before: $90,924.43
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-03-09 12:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 117.984
+Entry: $154.13
+Exit: $152.65
+P&L: $-174.95
+Capital Before: $72,739.53
+Capital After: $90,749.48
+
+Trading Day 69 (2023-03-10): Portfolio Equity=$107,341.61, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-03-11 00:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.637
+Entry: $1,562.73
+Exit: $1,439.82
+P&L: $-1,430.29
+Capital Before: $90,749.48
+Capital After: $107,504.63
+
+Trading Day 70 (2023-03-11): Portfolio Equity=$107,504.63, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-03-11 15:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 1.061
+Price: $20,259.43
+Total Cost: $21,495.25
+Capital Before: $107,504.63
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-03-11 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.924
+Price: $1,442.67
+Total Cost: $17,202.43
+Capital Before: $86,009.38
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-03-11 21:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.924
+Entry: $1,442.67
+Exit: $1,473.75
+P&L: $370.59
+Capital Before: $68,806.95
+Capital After: $86,379.98
+
+Trading Day 71 (2023-03-12): Portfolio Equity=$108,255.58, Open Positions=1
+
+Trading Day 72 (2023-03-13): Portfolio Equity=$110,395.73, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-03-13 11:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 113.479
+Price: $152.24
+Total Cost: $17,276.04
+Capital Before: $86,379.98
+Total Open Positions: 2
+
+Trading Day 73 (2023-03-14): Portfolio Equity=$94,839.83, Open Positions=2
+
+Trading Day 74 (2023-03-15): Portfolio Equity=$95,363.02, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-03-15 04:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.085
+Price: $1,709.40
+Total Cost: $13,820.51
+Capital Before: $69,103.93
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-03-15 10:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 113.479
+Entry: $152.24
+Exit: $150.82
+P&L: $-161.14
+Capital Before: $55,283.42
+Capital After: $72,398.32
+
+Processing BUY signal for AAPL at 2023-03-15 13:30:00-04:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 94.949
+Price: $152.50
+Total Cost: $14,479.72
+Capital Before: $72,398.32
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-03-15 18:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 1.061
+Entry: $20,259.43
+Exit: $24,433.99
+P&L: $4,429.22
+Capital Before: $57,918.60
+Capital After: $83,843.07
+
+Trading Day 75 (2023-03-16): Portfolio Equity=$97,153.80, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-03-16 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.085
+Entry: $1,709.40
+Exit: $1,657.12
+P&L: $-422.71
+Capital Before: $83,843.07
+Capital After: $97,240.87
+
+Processing BUY signal for BTC-USD at 2023-03-16 20:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.787
+Price: $24,714.98
+Total Cost: $19,450.69
+Capital Before: $97,240.87
+Total Open Positions: 2
+
+Trading Day 76 (2023-03-17): Portfolio Equity=$97,444.10, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-03-17 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 94.949
+Entry: $152.50
+Exit: $155.01
+P&L: $237.85
+Capital Before: $77,790.18
+Capital After: $92,507.75
+
+Trading Day 77 (2023-03-18): Portfolio Equity=$114,260.27, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-03-18 23:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.511
+Price: $1,760.26
+Total Cost: $18,502.10
+Capital Before: $92,507.75
+Total Open Positions: 2
+
+Trading Day 78 (2023-03-19): Portfolio Equity=$114,060.71, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-03-19 13:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.787
+Entry: $24,714.98
+Exit: $27,247.61
+P&L: $1,993.18
+Capital Before: $74,005.64
+Capital After: $95,449.52
+
+Processing SELL signal for ETH-USD at 2023-03-19 16:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.511
+Entry: $1,760.26
+Exit: $1,819.91
+P&L: $626.92
+Capital Before: $95,449.52
+Capital After: $114,578.54
+
+Processing BUY signal for BTC-USD at 2023-03-19 19:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.809
+Price: $28,322.21
+Total Cost: $22,912.67
+Capital Before: $114,578.54
+Total Open Positions: 1
+
+Trading Day 79 (2023-03-20): Portfolio Equity=$114,247.98, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-03-20 06:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.376
+Price: $1,766.88
+Total Cost: $18,333.15
+Capital Before: $91,665.87
+Total Open Positions: 2
+
+Processing BUY signal for AAPL at 2023-03-20 10:30:00-04:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 93.519
+Price: $156.83
+Total Cost: $14,666.59
+Capital Before: $73,332.73
+Total Open Positions: 3
+
+Trading Day 80 (2023-03-21): Portfolio Equity=$99,456.32, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-03-21 13:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.376
+Entry: $1,766.88
+Exit: $1,820.57
+P&L: $557.07
+Capital Before: $58,666.13
+Capital After: $77,556.35
+
+Processing SELL signal for BTC-USD at 2023-03-21 16:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.809
+Entry: $28,322.21
+Exit: $28,436.34
+P&L: $92.33
+Capital Before: $77,556.35
+Capital After: $100,561.35
+
+Processing BUY signal for BTC-USD at 2023-03-21 19:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.714
+Price: $28,152.24
+Total Cost: $20,100.70
+Capital Before: $100,561.35
+Total Open Positions: 2
+
+Trading Day 81 (2023-03-22): Portfolio Equity=$100,498.26, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-03-22 19:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.326
+Price: $1,725.45
+Total Cost: $16,091.57
+Capital Before: $80,460.65
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-03-22 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 93.519
+Entry: $156.83
+Exit: $157.81
+P&L: $91.64
+Capital Before: $64,369.08
+Capital After: $79,127.31
+
+Processing SELL signal for BTC-USD at 2023-03-23 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.714
+Entry: $28,152.24
+Exit: $27,357.99
+P&L: $-567.10
+Capital Before: $79,127.31
+Capital After: $98,660.91
+
+Trading Day 82 (2023-03-23): Portfolio Equity=$114,887.71, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-03-23 09:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.326
+Entry: $1,725.45
+Exit: $1,759.43
+P&L: $316.90
+Capital Before: $98,660.91
+Capital After: $115,069.38
+
+Processing BUY signal for BTC-USD at 2023-03-24 00:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.815
+Price: $28,229.61
+Total Cost: $23,007.13
+Capital Before: $115,069.38
+Total Open Positions: 1
+
+Trading Day 83 (2023-03-24): Portfolio Equity=$115,069.38, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-03-24 11:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.506
+Price: $1,752.56
+Total Cost: $18,412.44
+Capital Before: $92,062.25
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-03-25 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.815
+Entry: $28,229.61
+Exit: $27,591.11
+P&L: $-520.38
+Capital Before: $73,649.81
+Capital After: $96,136.56
+
+Trading Day 84 (2023-03-25): Portfolio Equity=$114,608.60, Open Positions=1
+
+Trading Day 85 (2023-03-26): Portfolio Equity=$114,560.99, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-03-26 09:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.506
+Entry: $1,752.56
+Exit: $1,775.17
+P&L: $237.49
+Capital Before: $96,136.56
+Capital After: $114,786.49
+
+Processing BUY signal for BTC-USD at 2023-03-26 14:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.826
+Price: $27,795.70
+Total Cost: $22,959.25
+Capital Before: $114,786.49
+Total Open Positions: 1
+
+Trading Day 86 (2023-03-27): Portfolio Equity=$114,969.25, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-03-27 14:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.601
+Price: $1,732.35
+Total Cost: $18,364.68
+Capital Before: $91,827.24
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-03-27 18:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.826
+Entry: $27,795.70
+Exit: $27,094.99
+P&L: $-578.79
+Capital Before: $73,462.55
+Capital After: $95,843.02
+
+Trading Day 87 (2023-03-28): Portfolio Equity=$113,938.66, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-03-28 18:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.601
+Entry: $1,732.35
+Exit: $1,776.13
+P&L: $464.06
+Capital Before: $95,843.02
+Capital After: $114,671.76
+
+Trading Day 88 (2023-03-29): Portfolio Equity=$114,671.76, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-03-29 07:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.817
+Price: $28,082.79
+Total Cost: $22,943.64
+Capital Before: $114,671.76
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-03-29 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 114.799
+Price: $159.81
+Total Cost: $18,345.57
+Capital Before: $91,728.12
+Total Open Positions: 2
+
+Trading Day 89 (2023-03-30): Portfolio Equity=$96,523.76, Open Positions=2
+
+Trading Day 90 (2023-03-31): Portfolio Equity=$96,475.34, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-03-31 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.817
+Entry: $28,082.79
+Exit: $28,183.74
+P&L: $82.48
+Capital Before: $73,382.55
+Capital After: $96,408.67
+
+Trading Day 91 (2023-04-01): Portfolio Equity=$96,408.67, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-04-01 03:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.676
+Price: $28,542.73
+Total Cost: $19,294.88
+Capital Before: $96,408.67
+Total Open Positions: 2
+
+Trading Day 92 (2023-04-02): Portfolio Equity=$96,303.20, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-04-02 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.676
+Entry: $28,542.73
+Exit: $28,263.92
+P&L: $-188.48
+Capital Before: $77,113.79
+Capital After: $96,220.19
+
+Processing BUY signal for ETH-USD at 2023-04-02 19:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.807
+Price: $1,780.66
+Total Cost: $19,243.57
+Capital Before: $96,220.19
+Total Open Positions: 2
+
+Trading Day 93 (2023-04-03): Portfolio Equity=$96,334.77, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-04-03 18:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.807
+Entry: $1,780.66
+Exit: $1,834.53
+P&L: $582.16
+Capital Before: $76,976.62
+Capital After: $96,802.35
+
+Trading Day 94 (2023-04-04): Portfolio Equity=$96,802.35, Open Positions=1
+
+Processing SELL signal for AAPL at 2023-04-04 12:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 114.799
+Entry: $159.81
+Exit: $166.08
+P&L: $720.24
+Capital Before: $96,802.35
+Capital After: $115,868.16
+
+Processing BUY signal for BTC-USD at 2023-04-04 17:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.821
+Price: $28,233.32
+Total Cost: $23,179.55
+Capital Before: $115,868.16
+Total Open Positions: 1
+
+Trading Day 95 (2023-04-05): Portfolio Equity=$116,240.48, Open Positions=1
+
+Trading Day 96 (2023-04-06): Portfolio Equity=$115,658.61, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-04-06 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.821
+Entry: $28,233.32
+Exit: $28,145.03
+P&L: $-72.48
+Capital Before: $92,688.60
+Capital After: $115,795.67
+
+Processing BUY signal for ETH-USD at 2023-04-06 09:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 12.350
+Price: $1,875.25
+Total Cost: $23,159.29
+Capital Before: $115,795.67
+Total Open Positions: 1
+
+Trading Day 97 (2023-04-07): Portfolio Equity=$115,872.43, Open Positions=1
+
+Trading Day 98 (2023-04-08): Portfolio Equity=$115,575.07, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-04-08 09:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.661
+Price: $28,042.79
+Total Cost: $18,536.29
+Capital Before: $92,636.38
+Total Open Positions: 2
+
+Trading Day 99 (2023-04-09): Portfolio Equity=$115,559.38, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-04-09 11:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.661
+Entry: $28,042.79
+Exit: $27,947.48
+P&L: $-63.00
+Capital Before: $74,100.09
+Capital After: $92,573.38
+
+Processing SELL signal for ETH-USD at 2023-04-09 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.35
+Entry: $1,875.25
+Exit: $1,856.17
+P&L: $-235.55
+Capital Before: $92,573.38
+Capital After: $115,497.12
+
+Processing BUY signal for BTC-USD at 2023-04-09 21:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.812
+Price: $28,455.76
+Total Cost: $23,106.08
+Capital Before: $115,497.12
+Total Open Positions: 1
+
+Trading Day 100 (2023-04-10): Portfolio Equity=$115,453.64, Open Positions=1
+
+Trading Day 101 (2023-04-11): Portfolio Equity=$116,668.45, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-04-11 20:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.752
+Price: $1,894.78
+Total Cost: $18,477.90
+Capital Before: $92,391.05
+Total Open Positions: 2
+
+Trading Day 102 (2023-04-12): Portfolio Equity=$116,895.70, Open Positions=2
+
+Processing BUY signal for AAPL at 2023-04-12 09:30:00-04:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 91.299
+Price: $161.91
+Total Cost: $14,782.68
+Capital Before: $73,913.14
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-04-12 16:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.752
+Entry: $1,894.78
+Exit: $1,909.39
+P&L: $142.51
+Capital Before: $59,130.47
+Capital After: $77,750.88
+
+Processing SELL signal for AAPL at 2023-04-12 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 91.299
+Entry: $161.91
+Exit: $159.85
+P&L: $-188.53
+Capital Before: $77,750.88
+Capital After: $92,345.03
+
+Processing SELL signal for BTC-USD at 2023-04-12 20:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.812
+Entry: $28,455.76
+Exit: $29,961.84
+P&L: $1,222.94
+Capital Before: $92,345.03
+Capital After: $116,674.04
+
+Trading Day 103 (2023-04-13): Portfolio Equity=$116,674.04, Open Positions=0
+
+Processing BUY signal for AAPL at 2023-04-13 09:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 142.775
+Price: $163.44
+Total Cost: $23,334.83
+Capital Before: $116,674.04
+Total Open Positions: 1
+
+Processing BUY signal for BTC-USD at 2023-04-13 14:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.613
+Price: $30,465.92
+Total Cost: $18,675.61
+Capital Before: $93,339.21
+Total Open Positions: 2
+
+Trading Day 104 (2023-04-14): Portfolio Equity=$93,524.85, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-04-14 15:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.248
+Price: $2,060.13
+Total Cost: $14,931.81
+Capital Before: $74,663.60
+Total Open Positions: 3
+
+Trading Day 105 (2023-04-15): Portfolio Equity=$93,517.29, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-04-15 06:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.613
+Entry: $30,465.92
+Exit: $30,400.29
+P&L: $-40.23
+Capital Before: $59,731.79
+Capital After: $78,367.17
+
+Trading Day 106 (2023-04-16): Portfolio Equity=$93,530.71, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-04-16 23:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.248
+Entry: $2,060.13
+Exit: $2,119.89
+P&L: $433.17
+Capital Before: $78,367.17
+Capital After: $93,732.15
+
+Trading Day 107 (2023-04-17): Portfolio Equity=$93,732.15, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-04-17 11:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.020
+Price: $2,078.23
+Total Cost: $18,745.65
+Capital Before: $93,732.15
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-04-17 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 142.775
+Entry: $163.44
+Exit: $164.24
+P&L: $114.55
+Capital Before: $74,986.49
+Capital After: $98,435.87
+
+Trading Day 108 (2023-04-18): Portfolio Equity=$117,149.66, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-04-18 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.02
+Entry: $2,078.23
+Exit: $2,104.53
+P&L: $237.21
+Capital Before: $98,435.87
+Capital After: $117,418.74
+
+Processing BUY signal for AAPL at 2023-04-18 09:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 141.277
+Price: $166.23
+Total Cost: $23,483.77
+Capital Before: $117,418.74
+Total Open Positions: 1
+
+Processing BUY signal for BTC-USD at 2023-04-18 18:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.623
+Price: $30,151.17
+Total Cost: $18,784.18
+Capital Before: $93,934.97
+Total Open Positions: 2
+
+Trading Day 109 (2023-04-19): Portfolio Equity=$94,044.92, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-04-19 08:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.551
+Price: $1,990.46
+Total Cost: $15,029.97
+Capital Before: $75,150.79
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-04-19 17:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.623
+Entry: $30,151.17
+Exit: $29,312.50
+P&L: $-522.49
+Capital Before: $60,120.82
+Capital After: $78,382.51
+
+Trading Day 110 (2023-04-20): Portfolio Equity=$93,085.96, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-04-20 10:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 141.277
+Entry: $166.23
+Exit: $167.14
+P&L: $129.27
+Capital Before: $78,382.51
+Capital After: $101,995.54
+
+Trading Day 111 (2023-04-21): Portfolio Equity=$116,722.13, Open Positions=1
+
+Trading Day 112 (2023-04-22): Portfolio Equity=$115,945.46, Open Positions=1
+
+Trading Day 113 (2023-04-24): Portfolio Equity=$101,995.54, Open Positions=1
+
+Trading Day 114 (2023-04-25): Portfolio Equity=$115,895.94, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-04-25 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 123.466
+Price: $165.22
+Total Cost: $20,399.05
+Capital Before: $101,995.54
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-04-25 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 123.466
+Entry: $165.22
+Exit: $164.63
+P&L: $-72.68
+Capital Before: $81,596.49
+Capital After: $101,922.86
+
+Processing BUY signal for BTC-USD at 2023-04-25 21:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.721
+Price: $28,256.35
+Total Cost: $20,372.83
+Capital Before: $101,922.86
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-04-25 21:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.551
+Entry: $1,990.46
+Exit: $1,870.53
+P&L: $-905.63
+Capital Before: $81,550.03
+Capital After: $95,674.37
+
+Trading Day 115 (2023-04-26): Portfolio Equity=$116,097.56, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-04-26 11:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 115.948
+Price: $165.03
+Total Cost: $19,134.90
+Capital Before: $95,674.37
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-04-26 13:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 115.948
+Entry: $165.03
+Exit: $163.76
+P&L: $-147.25
+Capital Before: $76,539.47
+Capital After: $95,527.11
+
+Trading Day 116 (2023-04-27): Portfolio Equity=$116,648.42, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-04-27 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 114.916
+Price: $166.26
+Total Cost: $19,105.36
+Capital Before: $95,527.11
+Total Open Positions: 2
+
+Trading Day 117 (2023-04-28): Portfolio Equity=$97,693.89, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-04-28 15:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.099
+Price: $1,887.28
+Total Cost: $15,285.07
+Capital Before: $76,421.75
+Total Open Positions: 3
+
+Trading Day 118 (2023-04-29): Portfolio Equity=$97,534.93, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-04-29 13:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.099
+Entry: $1,887.28
+Exit: $1,914.87
+P&L: $223.45
+Capital Before: $61,136.69
+Capital After: $76,645.21
+
+Processing SELL signal for BTC-USD at 2023-04-29 15:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.721
+Entry: $28,256.35
+Exit: $29,293.46
+P&L: $747.76
+Capital Before: $76,645.21
+Capital After: $97,765.80
+
+Trading Day 119 (2023-04-30): Portfolio Equity=$97,765.80, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-04-30 17:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.658
+Price: $29,698.09
+Total Cost: $19,541.35
+Capital Before: $97,765.80
+Total Open Positions: 2
+
+Trading Day 120 (2023-05-01): Portfolio Equity=$97,511.46, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-05-01 01:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.525
+Price: $1,835.24
+Total Cost: $15,645.40
+Capital Before: $78,224.45
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-05-01 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.658
+Entry: $29,698.09
+Exit: $28,572.64
+P&L: $-740.55
+Capital Before: $62,579.05
+Capital After: $81,379.84
+
+Trading Day 121 (2023-05-02): Portfolio Equity=$97,017.73, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-05-02 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 114.916
+Entry: $166.26
+Exit: $168.49
+P&L: $256.84
+Capital Before: $81,379.84
+Capital After: $100,742.04
+
+Processing SELL signal for ETH-USD at 2023-05-02 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.525
+Entry: $1,835.24
+Exit: $1,859.05
+P&L: $202.97
+Capital Before: $100,742.04
+Capital After: $116,590.41
+
+Trading Day 122 (2023-05-03): Portfolio Equity=$116,590.41, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-05-03 01:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.817
+Price: $28,552.65
+Total Cost: $23,327.51
+Capital Before: $116,590.41
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-05-03 12:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.076
+Price: $1,851.14
+Total Cost: $18,652.08
+Capital Before: $93,262.90
+Total Open Positions: 2
+
+Processing BUY signal for AAPL at 2023-05-03 13:30:00-04:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 87.651
+Price: $170.24
+Total Cost: $14,922.14
+Capital Before: $74,610.82
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-05-03 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 87.651
+Entry: $170.24
+Exit: $168.15
+P&L: $-183.63
+Capital Before: $59,688.67
+Capital After: $74,427.19
+
+Trading Day 123 (2023-05-04): Portfolio Equity=$117,354.39, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-05-04 02:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.076
+Entry: $1,851.14
+Exit: $1,899.91
+P&L: $491.41
+Capital Before: $74,427.19
+Capital After: $93,570.68
+
+Processing BUY signal for ETH-USD at 2023-05-04 17:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.944
+Price: $1,882.03
+Total Cost: $18,714.87
+Capital Before: $93,570.68
+Total Open Positions: 2
+
+Trading Day 124 (2023-05-05): Portfolio Equity=$117,200.30, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-05-05 08:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.944
+Entry: $1,882.03
+Exit: $1,897.46
+P&L: $153.47
+Capital Before: $74,855.81
+Capital After: $93,724.15
+
+Processing BUY signal for AAPL at 2023-05-05 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 108.123
+Price: $173.37
+Total Cost: $18,744.74
+Capital Before: $93,724.15
+Total Open Positions: 2
+
+Trading Day 125 (2023-05-06): Portfolio Equity=$99,240.98, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-05-06 09:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.734
+Price: $1,938.94
+Total Cost: $14,995.75
+Capital Before: $74,979.41
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-05-06 19:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.817
+Entry: $28,552.65
+Exit: $28,903.44
+P&L: $286.59
+Capital Before: $59,983.65
+Capital After: $83,597.76
+
+Trading Day 126 (2023-05-07): Portfolio Equity=$98,357.12, Open Positions=2
+
+Trading Day 127 (2023-05-08): Portfolio Equity=$98,157.24, Open Positions=2
+
+Trading Day 128 (2023-05-09): Portfolio Equity=$97,853.04, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-05-09 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 108.123
+Entry: $173.37
+Exit: $172.52
+P&L: $-91.36
+Capital Before: $83,597.76
+Capital After: $102,251.14
+
+Trading Day 129 (2023-05-10): Portfolio Equity=$116,575.71, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-05-10 12:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.726
+Price: $28,177.68
+Total Cost: $20,456.99
+Capital Before: $102,251.14
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-05-10 12:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.734
+Entry: $1,938.94
+Exit: $1,879.63
+P&L: $-458.73
+Capital Before: $81,794.15
+Capital After: $96,331.17
+
+Trading Day 130 (2023-05-11): Portfolio Equity=$116,327.66, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-05-11 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.726
+Entry: $28,177.68
+Exit: $27,434.90
+P&L: $-539.25
+Capital Before: $96,331.17
+Capital After: $116,248.91
+
+Processing BUY signal for ETH-USD at 2023-05-11 10:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 12.744
+Price: $1,824.42
+Total Cost: $23,250.41
+Capital Before: $116,248.91
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-05-11 14:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 106.840
+Price: $174.09
+Total Cost: $18,599.78
+Capital Before: $92,998.50
+Total Open Positions: 2
+
+Trading Day 131 (2023-05-12): Portfolio Equity=$97,342.09, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-05-12 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 106.84
+Entry: $174.09
+Exit: $172.69
+P&L: $-149.58
+Capital Before: $74,398.72
+Capital After: $92,848.92
+
+Processing SELL signal for ETH-USD at 2023-05-12 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.744
+Entry: $1,824.42
+Exit: $1,789.69
+P&L: $-442.64
+Capital Before: $92,848.92
+Capital After: $115,656.69
+
+Trading Day 132 (2023-05-13): Portfolio Equity=$115,656.69, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-05-13 13:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.862
+Price: $26,839.76
+Total Cost: $23,135.87
+Capital Before: $115,656.69
+Total Open Positions: 1
+
+Trading Day 133 (2023-05-14): Portfolio Equity=$115,583.87, Open Positions=1
+
+Trading Day 134 (2023-05-15): Portfolio Equity=$115,625.69, Open Positions=1
+
+Trading Day 135 (2023-05-16): Portfolio Equity=$92,520.82, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-05-16 14:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 107.168
+Price: $172.66
+Total Cost: $18,504.16
+Capital Before: $92,520.82
+Total Open Positions: 2
+
+Trading Day 136 (2023-05-17): Portfolio Equity=$97,385.24, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-05-17 11:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.862
+Entry: $26,839.76
+Exit: $26,633.69
+P&L: $-177.63
+Capital Before: $74,016.66
+Capital After: $96,974.90
+
+Processing BUY signal for ETH-USD at 2023-05-17 11:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.834
+Price: $1,790.14
+Total Cost: $19,394.36
+Capital Before: $96,974.90
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-05-17 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 107.168
+Entry: $172.66
+Exit: $171.02
+P&L: $-176.11
+Capital Before: $77,580.54
+Capital After: $95,908.60
+
+Processing BUY signal for AAPL at 2023-05-17 13:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 111.257
+Price: $172.41
+Total Cost: $19,181.65
+Capital Before: $95,908.60
+Total Open Positions: 2
+
+Trading Day 137 (2023-05-18): Portfolio Equity=$96,446.03, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-05-18 01:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.834
+Entry: $1,790.14
+Exit: $1,820.46
+P&L: $328.52
+Capital Before: $76,726.94
+Capital After: $96,449.82
+
+Processing BUY signal for BTC-USD at 2023-05-18 07:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.704
+Price: $27,393.38
+Total Cost: $19,284.94
+Capital Before: $96,449.82
+Total Open Positions: 2
+
+Processing BUY signal for ETH-USD at 2023-05-18 17:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.687
+Price: $1,776.61
+Total Cost: $15,433.45
+Capital Before: $77,164.88
+Total Open Positions: 3
+
+Trading Day 138 (2023-05-19): Portfolio Equity=$96,336.60, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-05-19 01:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.704
+Entry: $27,393.38
+Exit: $26,809.67
+P&L: $-410.93
+Capital Before: $61,731.43
+Capital After: $80,605.44
+
+Processing SELL signal for ETH-USD at 2023-05-19 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.687
+Entry: $1,776.61
+Exit: $1,806.56
+P&L: $260.15
+Capital Before: $80,605.44
+Capital After: $96,299.03
+
+Trading Day 139 (2023-05-20): Portfolio Equity=$96,299.03, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-05-20 15:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.715
+Price: $26,948.20
+Total Cost: $19,267.96
+Capital Before: $96,299.03
+Total Open Positions: 2
+
+Trading Day 140 (2023-05-21): Portfolio Equity=$96,526.20, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-05-21 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.495
+Price: $1,813.60
+Total Cost: $15,406.55
+Capital Before: $77,031.07
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-05-21 22:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.715
+Entry: $26,948.20
+Exit: $26,774.18
+P&L: $-124.42
+Capital Before: $61,624.51
+Capital After: $80,768.05
+
+Trading Day 141 (2023-05-22): Portfolio Equity=$96,053.24, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-05-22 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 111.257
+Entry: $172.41
+Exit: $174.19
+P&L: $198.43
+Capital Before: $80,768.05
+Capital After: $100,148.13
+
+Processing SELL signal for ETH-USD at 2023-05-22 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.495
+Entry: $1,813.60
+Exit: $1,817.25
+P&L: $30.96
+Capital Before: $100,148.13
+Capital After: $115,585.65
+
+Trading Day 142 (2023-05-23): Portfolio Equity=$115,585.65, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-05-23 03:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.844
+Price: $27,379.51
+Total Cost: $23,108.31
+Capital Before: $115,585.65
+Total Open Positions: 1
+
+Trading Day 143 (2023-05-24): Portfolio Equity=$115,399.82, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-05-24 04:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.122
+Price: $1,827.19
+Total Cost: $18,494.82
+Capital Before: $92,477.35
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-05-24 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.844
+Entry: $27,379.51
+Exit: $26,753.22
+P&L: $-528.59
+Capital Before: $73,982.53
+Capital After: $96,562.25
+
+Trading Day 144 (2023-05-25): Portfolio Equity=$114,696.89, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-05-25 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 112.106
+Price: $172.27
+Total Cost: $19,312.50
+Capital Before: $96,562.25
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-05-25 18:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.122
+Entry: $1,827.19
+Exit: $1,805.32
+P&L: $-221.34
+Capital Before: $77,249.74
+Capital After: $95,523.22
+
+Trading Day 145 (2023-05-26): Portfolio Equity=$95,523.22, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-05-26 06:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.723
+Price: $26,436.62
+Total Cost: $19,113.68
+Capital Before: $95,523.22
+Total Open Positions: 2
+
+Trading Day 146 (2023-05-27): Portfolio Equity=$95,683.82, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-05-27 16:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.386
+Price: $1,822.33
+Total Cost: $15,282.03
+Capital Before: $76,409.55
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-05-28 00:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.386
+Entry: $1,822.33
+Exit: $1,849.24
+P&L: $225.73
+Capital Before: $61,127.51
+Capital After: $76,635.28
+
+Trading Day 147 (2023-05-28): Portfolio Equity=$96,200.94, Open Positions=2
+
+Trading Day 148 (2023-05-29): Portfolio Equity=$97,047.00, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-05-29 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.099
+Price: $1,892.56
+Total Cost: $15,327.83
+Capital Before: $76,635.28
+Total Open Positions: 3
+
+Trading Day 149 (2023-05-30): Portfolio Equity=$96,676.34, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-05-30 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.099
+Entry: $1,892.56
+Exit: $1,902.42
+P&L: $79.90
+Capital Before: $61,307.45
+Capital After: $76,715.17
+
+Processing SELL signal for BTC-USD at 2023-05-30 15:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.723
+Entry: $26,436.62
+Exit: $27,684.33
+P&L: $902.09
+Capital Before: $76,715.17
+Capital After: $96,730.94
+
+Trading Day 150 (2023-05-31): Portfolio Equity=$96,730.94, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-05-31 05:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.396
+Price: $1,860.96
+Total Cost: $19,346.56
+Capital Before: $96,730.94
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-05-31 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 112.106
+Entry: $172.27
+Exit: $177.42
+P&L: $577.35
+Capital Before: $77,384.38
+Capital After: $97,274.23
+
+Trading Day 151 (2023-06-01): Portfolio Equity=$116,722.15, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-06-01 11:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 108.203
+Price: $179.80
+Total Cost: $19,454.90
+Capital Before: $97,274.23
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-06-01 16:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.396
+Entry: $1,860.96
+Exit: $1,877.71
+P&L: $174.11
+Capital Before: $77,819.33
+Capital After: $97,340.00
+
+Trading Day 152 (2023-06-02): Portfolio Equity=$97,340.00, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-06-02 11:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.718
+Price: $27,131.42
+Total Cost: $19,480.36
+Capital Before: $97,340.00
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-06-02 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 108.203
+Entry: $179.80
+Exit: $179.73
+P&L: $-7.58
+Capital Before: $77,859.64
+Capital After: $97,306.96
+
+Processing BUY signal for AAPL at 2023-06-02 11:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 107.718
+Price: $180.67
+Total Cost: $19,461.41
+Capital Before: $97,306.96
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-06-02 12:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 107.718
+Entry: $180.67
+Exit: $180.59
+P&L: $-8.62
+Capital Before: $77,845.55
+Capital After: $97,298.34
+
+Trading Day 153 (2023-06-03): Portfolio Equity=$116,811.42, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-06-03 19:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.316
+Price: $1,886.27
+Total Cost: $19,458.75
+Capital Before: $97,298.34
+Total Open Positions: 2
+
+Trading Day 154 (2023-06-04): Portfolio Equity=$116,728.32, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-06-04 04:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.718
+Entry: $27,131.42
+Exit: $27,057.97
+P&L: $-52.74
+Capital Before: $77,839.59
+Capital After: $97,267.21
+
+Processing SELL signal for ETH-USD at 2023-06-04 09:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.316
+Entry: $1,886.27
+Exit: $1,905.97
+P&L: $203.25
+Capital Before: $97,267.21
+Capital After: $116,929.21
+
+Processing BUY signal for BTC-USD at 2023-06-04 20:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.858
+Price: $27,246.14
+Total Cost: $23,377.19
+Capital Before: $116,929.21
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-06-05 00:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.935
+Price: $1,883.34
+Total Cost: $18,711.02
+Capital Before: $93,552.03
+Total Open Positions: 2
+
+Trading Day 155 (2023-06-05): Portfolio Equity=$116,752.20, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-06-05 05:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.858
+Entry: $27,246.14
+Exit: $26,817.62
+P&L: $-367.67
+Capital Before: $74,841.01
+Capital After: $97,850.52
+
+Processing BUY signal for AAPL at 2023-06-05 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 106.527
+Price: $183.71
+Total Cost: $19,570.08
+Capital Before: $97,850.52
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-06-05 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 106.527
+Entry: $183.71
+Exit: $179.52
+P&L: $-445.82
+Capital Before: $78,280.45
+Capital After: $97,404.71
+
+Trading Day 156 (2023-06-06): Portfolio Equity=$115,392.37, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-06-06 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.935
+Entry: $1,883.34
+Exit: $1,842.30
+P&L: $-407.76
+Capital Before: $97,404.71
+Capital After: $115,707.97
+
+Trading Day 157 (2023-06-07): Portfolio Equity=$115,707.97, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-06-07 01:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.854
+Price: $27,107.49
+Total Cost: $23,149.79
+Capital Before: $115,707.97
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-06-07 09:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.985
+Price: $1,853.89
+Total Cost: $18,511.12
+Capital Before: $92,558.18
+Total Open Positions: 2
+
+Trading Day 158 (2023-06-08): Portfolio Equity=$114,926.63, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-06-08 06:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.854
+Entry: $27,107.49
+Exit: $26,434.98
+P&L: $-574.32
+Capital Before: $74,047.06
+Capital After: $96,622.53
+
+Processing SELL signal for ETH-USD at 2023-06-08 11:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.985
+Entry: $1,853.89
+Exit: $1,843.94
+P&L: $-99.40
+Capital Before: $96,622.53
+Capital After: $115,034.26
+
+Processing BUY signal for AAPL at 2023-06-08 11:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 127.837
+Price: $179.97
+Total Cost: $23,006.81
+Capital Before: $115,034.26
+Total Open Positions: 1
+
+Trading Day 159 (2023-06-09): Portfolio Equity=$92,027.44, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-06-09 04:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.009
+Price: $1,838.82
+Total Cost: $18,404.75
+Capital Before: $92,027.44
+Total Open Positions: 2
+
+Processing BUY signal for BTC-USD at 2023-06-09 05:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.556
+Price: $26,503.32
+Total Cost: $14,735.85
+Capital Before: $73,622.70
+Total Open Positions: 3
+
+Trading Day 160 (2023-06-10): Portfolio Equity=$91,990.68, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-06-10 04:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.556
+Entry: $26,503.32
+Exit: $25,800.97
+P&L: $-390.51
+Capital Before: $58,886.85
+Capital After: $73,232.19
+
+Trading Day 161 (2023-06-11): Portfolio Equity=$90,714.80, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-06-12 00:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.564
+Price: $25,972.64
+Total Cost: $14,648.57
+Capital Before: $73,232.19
+Total Open Positions: 3
+
+Trading Day 162 (2023-06-12): Portfolio Equity=$90,769.67, Open Positions=3
+
+Trading Day 163 (2023-06-13): Portfolio Equity=$90,505.92, Open Positions=3
+
+Processing SELL signal for AAPL at 2023-06-13 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 127.837
+Entry: $179.97
+Exit: $182.98
+P&L: $384.80
+Capital Before: $58,583.62
+Capital After: $81,975.24
+
+Trading Day 164 (2023-06-14): Portfolio Equity=$114,082.06, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-06-14 06:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.564
+Entry: $25,972.64
+Exit: $25,887.21
+P&L: $-48.18
+Capital Before: $81,975.24
+Capital After: $96,575.63
+
+Processing BUY signal for AAPL at 2023-06-14 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 104.845
+Price: $184.23
+Total Cost: $19,315.07
+Capital Before: $96,575.63
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-06-14 13:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 104.845
+Entry: $184.23
+Exit: $182.65
+P&L: $-165.13
+Capital Before: $77,260.56
+Capital After: $96,410.50
+
+Trading Day 165 (2023-06-15): Portfolio Equity=$112,975.10, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-06-15 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 103.756
+Price: $185.84
+Total Cost: $19,282.01
+Capital Before: $96,410.50
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-06-15 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.009
+Entry: $1,838.82
+Exit: $1,665.65
+P&L: $-1,733.22
+Capital Before: $77,128.48
+Capital After: $93,800.01
+
+Trading Day 166 (2023-06-16): Portfolio Equity=$93,800.01, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-06-16 09:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.734
+Price: $25,574.98
+Total Cost: $18,772.03
+Capital Before: $93,800.01
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-06-16 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 103.756
+Entry: $185.84
+Exit: $185.73
+P&L: $-11.40
+Capital Before: $75,027.97
+Capital After: $94,298.59
+
+Trading Day 167 (2023-06-17): Portfolio Equity=$113,608.00, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-06-17 19:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.920
+Price: $1,727.10
+Total Cost: $18,859.91
+Capital Before: $94,298.59
+Total Open Positions: 2
+
+Trading Day 168 (2023-06-18): Portfolio Equity=$113,679.68, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-06-18 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.92
+Entry: $1,727.10
+Exit: $1,739.45
+P&L: $134.83
+Capital Before: $75,438.67
+Capital After: $94,433.42
+
+Trading Day 169 (2023-06-19): Portfolio Equity=$113,771.84, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-06-19 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.734
+Entry: $25,574.98
+Exit: $26,385.57
+P&L: $594.97
+Capital Before: $94,433.42
+Capital After: $113,800.43
+
+Processing BUY signal for ETH-USD at 2023-06-19 06:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 13.200
+Price: $1,724.19
+Total Cost: $22,759.36
+Capital Before: $113,800.43
+Total Open Positions: 1
+
+Processing BUY signal for BTC-USD at 2023-06-19 22:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.681
+Price: $26,745.30
+Total Cost: $18,213.55
+Capital Before: $91,041.07
+Total Open Positions: 2
+
+Trading Day 170 (2023-06-20): Portfolio Equity=$114,186.22, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-06-20 17:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 13.2
+Entry: $1,724.19
+Exit: $1,767.46
+P&L: $571.16
+Capital Before: $72,827.52
+Capital After: $96,158.03
+
+Trading Day 171 (2023-06-21): Portfolio Equity=$115,508.32, Open Positions=1
+
+Trading Day 172 (2023-06-22): Portfolio Equity=$116,666.17, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-06-22 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 103.257
+Price: $186.25
+Total Cost: $19,231.62
+Capital Before: $96,158.03
+Total Open Positions: 2
+
+Processing BUY signal for ETH-USD at 2023-06-22 16:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.180
+Price: $1,880.85
+Total Cost: $15,385.34
+Capital Before: $76,926.42
+Total Open Positions: 3
+
+Trading Day 173 (2023-06-23): Portfolio Equity=$97,332.84, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-06-23 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.18
+Entry: $1,880.85
+Exit: $1,916.33
+P&L: $290.28
+Capital Before: $61,541.08
+Capital After: $77,216.69
+
+Trading Day 174 (2023-06-24): Portfolio Equity=$97,985.13, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-06-24 07:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.198
+Price: $1,883.85
+Total Cost: $15,443.83
+Capital Before: $77,216.69
+Total Open Positions: 3
+
+Trading Day 175 (2023-06-25): Portfolio Equity=$97,919.42, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-06-25 05:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.198
+Entry: $1,883.85
+Exit: $1,912.71
+P&L: $236.61
+Capital Before: $61,772.87
+Capital After: $77,453.30
+
+Processing SELL signal for BTC-USD at 2023-06-25 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.681
+Entry: $26,745.30
+Exit: $30,633.04
+P&L: $2,647.55
+Capital Before: $77,453.30
+Capital After: $98,314.41
+
+Processing BUY signal for BTC-USD at 2023-06-25 11:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.640
+Price: $30,717.74
+Total Cost: $19,659.35
+Capital Before: $98,314.41
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-06-25 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.64
+Entry: $30,717.74
+Exit: $30,677.27
+P&L: $-25.90
+Capital Before: $78,655.05
+Capital After: $98,288.51
+
+Processing BUY signal for BTC-USD at 2023-06-25 20:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.647
+Price: $30,380.87
+Total Cost: $19,656.42
+Capital Before: $98,288.51
+Total Open Positions: 2
+
+Processing BUY signal for ETH-USD at 2023-06-25 20:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.304
+Price: $1,893.74
+Total Cost: $15,725.60
+Capital Before: $78,632.09
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-06-25 23:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.647
+Entry: $30,380.87
+Exit: $30,479.75
+P&L: $63.97
+Capital Before: $62,906.48
+Capital After: $82,626.88
+
+Trading Day 176 (2023-06-26): Portfolio Equity=$98,314.75, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-06-26 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 103.257
+Entry: $186.25
+Exit: $186.25
+P&L: $0.00
+Capital Before: $82,626.88
+Capital After: $101,858.50
+
+Trading Day 177 (2023-06-27): Portfolio Equity=$117,328.24, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-06-27 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.304
+Entry: $1,893.74
+Exit: $1,875.46
+P&L: $-151.74
+Capital Before: $101,858.50
+Capital After: $117,432.36
+
+Processing BUY signal for BTC-USD at 2023-06-27 14:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.762
+Price: $30,813.79
+Total Cost: $23,480.11
+Capital Before: $117,432.36
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-06-27 12:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 100.064
+Price: $187.79
+Total Cost: $18,790.52
+Capital Before: $93,952.25
+Total Open Positions: 2
+
+Trading Day 178 (2023-06-28): Portfolio Equity=$98,493.57, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-06-28 06:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.073
+Price: $1,861.94
+Total Cost: $15,031.42
+Capital Before: $75,161.73
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-06-28 15:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.762
+Entry: $30,813.79
+Exit: $30,409.60
+P&L: $-308.00
+Capital Before: $60,130.31
+Capital After: $83,302.42
+
+Trading Day 179 (2023-06-29): Portfolio Equity=$98,085.28, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-06-29 09:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.073
+Entry: $1,861.94
+Exit: $1,858.21
+P&L: $-30.12
+Capital Before: $83,302.42
+Capital After: $98,303.72
+
+Processing SELL signal for AAPL at 2023-06-29 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 100.064
+Entry: $187.79
+Exit: $189.48
+P&L: $169.37
+Capital Before: $98,303.72
+Capital After: $117,263.60
+
+Processing BUY signal for BTC-USD at 2023-06-29 19:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.767
+Price: $30,596.47
+Total Cost: $23,467.49
+Capital Before: $117,263.60
+Total Open Positions: 1
+
+Trading Day 180 (2023-06-30): Portfolio Equity=$117,141.56, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-06-30 01:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.169
+Price: $1,844.78
+Total Cost: $18,759.60
+Capital Before: $93,796.11
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-06-30 04:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.169
+Entry: $1,844.78
+Exit: $1,899.39
+P&L: $555.25
+Capital Before: $75,036.51
+Capital After: $94,351.36
+
+Processing BUY signal for AAPL at 2023-06-30 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 97.931
+Price: $192.69
+Total Cost: $18,870.32
+Capital Before: $94,351.36
+Total Open Positions: 2
+
+Trading Day 181 (2023-07-01): Portfolio Equity=$98,857.28, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-07-01 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.767
+Entry: $30,596.47
+Exit: $30,386.82
+P&L: $-160.80
+Capital Before: $75,481.04
+Capital After: $98,787.73
+
+Processing BUY signal for BTC-USD at 2023-07-02 00:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.646
+Price: $30,578.85
+Total Cost: $19,753.94
+Capital Before: $98,787.73
+Total Open Positions: 2
+
+Trading Day 182 (2023-07-02): Portfolio Equity=$98,787.73, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-07-02 03:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.260
+Price: $1,913.70
+Total Cost: $15,807.15
+Capital Before: $79,033.79
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-07-02 22:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.26
+Entry: $1,913.70
+Exit: $1,942.81
+P&L: $240.43
+Capital Before: $63,226.64
+Capital After: $79,274.22
+
+Trading Day 183 (2023-07-03): Portfolio Equity=$99,060.47, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-07-03 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 97.931
+Entry: $192.69
+Exit: $192.12
+P&L: $-56.31
+Capital Before: $79,274.22
+Capital After: $98,088.24
+
+Trading Day 184 (2023-07-04): Portfolio Equity=$118,193.24, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-07-04 08:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.054
+Price: $1,951.14
+Total Cost: $19,616.74
+Capital Before: $98,088.24
+Total Open Positions: 2
+
+Trading Day 185 (2023-07-05): Portfolio Equity=$117,814.01, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-07-05 02:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.646
+Entry: $30,578.85
+Exit: $30,832.53
+P&L: $163.87
+Capital Before: $78,471.50
+Capital After: $98,389.31
+
+Trading Day 186 (2023-07-06): Portfolio Equity=$117,532.36, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-07-06 08:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.054
+Entry: $1,951.14
+Exit: $1,948.44
+P&L: $-27.09
+Capital Before: $98,389.31
+Capital After: $117,978.96
+
+Processing BUY signal for ETH-USD at 2023-07-06 22:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 12.638
+Price: $1,867.02
+Total Cost: $23,595.35
+Capital Before: $117,978.96
+Total Open Positions: 1
+
+Trading Day 187 (2023-07-07): Portfolio Equity=$117,699.41, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-07-07 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.638
+Entry: $1,867.02
+Exit: $1,873.33
+P&L: $79.79
+Capital Before: $94,383.61
+Capital After: $118,058.75
+
+Processing BUY signal for AAPL at 2023-07-07 12:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 122.620
+Price: $192.56
+Total Cost: $23,611.71
+Capital Before: $118,058.75
+Total Open Positions: 1
+
+Processing SELL signal for AAPL at 2023-07-07 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 122.62
+Entry: $192.56
+Exit: $190.71
+P&L: $-226.85
+Capital Before: $94,447.04
+Capital After: $117,831.91
+
+Trading Day 188 (2023-07-08): Portfolio Equity=$117,831.91, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-07-08 12:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.781
+Price: $30,181.67
+Total Cost: $23,571.88
+Capital Before: $117,831.91
+Total Open Positions: 1
+
+Trading Day 189 (2023-07-09): Portfolio Equity=$117,959.22, Open Positions=1
+
+Trading Day 190 (2023-07-10): Portfolio Equity=$117,773.16, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-07-10 02:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.781
+Entry: $30,181.67
+Exit: $30,217.31
+P&L: $27.84
+Capital Before: $94,260.02
+Capital After: $117,859.75
+
+Processing BUY signal for BTC-USD at 2023-07-10 20:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.765
+Price: $30,797.20
+Total Cost: $23,559.85
+Capital Before: $117,859.75
+Total Open Positions: 1
+
+Trading Day 191 (2023-07-11): Portfolio Equity=$117,562.94, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-07-11 09:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.082
+Price: $1,870.74
+Total Cost: $18,860.84
+Capital Before: $94,299.89
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-07-12 00:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.082
+Entry: $1,870.74
+Exit: $1,877.79
+P&L: $71.01
+Capital Before: $75,439.05
+Capital After: $94,370.90
+
+Trading Day 192 (2023-07-12): Portfolio Equity=$117,720.93, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-07-12 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 99.155
+Price: $190.35
+Total Cost: $18,874.15
+Capital Before: $94,370.90
+Total Open Positions: 2
+
+Trading Day 193 (2023-07-13): Portfolio Equity=$98,719.96, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-07-13 02:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.765
+Entry: $30,797.20
+Exit: $30,329.46
+P&L: $-357.82
+Capital Before: $75,496.74
+Capital After: $98,698.78
+
+Processing BUY signal for ETH-USD at 2023-07-13 03:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.570
+Price: $1,867.49
+Total Cost: $19,739.32
+Capital Before: $98,698.78
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-07-13 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.57
+Entry: $1,867.49
+Exit: $1,933.53
+P&L: $698.05
+Capital Before: $78,959.47
+Capital After: $99,396.84
+
+Processing BUY signal for BTC-USD at 2023-07-13 19:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.628
+Price: $31,663.47
+Total Cost: $19,884.66
+Capital Before: $99,396.84
+Total Open Positions: 2
+
+Trading Day 194 (2023-07-14): Portfolio Equity=$99,256.93, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-07-14 17:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.099
+Price: $1,963.61
+Total Cost: $15,903.29
+Capital Before: $79,512.18
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-07-14 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 99.155
+Entry: $190.35
+Exit: $190.27
+P&L: $-7.44
+Capital Before: $63,608.88
+Capital After: $82,475.60
+
+Processing BUY signal for AAPL at 2023-07-14 15:30:00-04:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 86.484
+Price: $190.73
+Total Cost: $16,495.09
+Capital Before: $82,475.60
+Total Open Positions: 3
+
+Trading Day 195 (2023-07-15): Portfolio Equity=$100,689.65, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-07-15 01:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.628
+Entry: $31,663.47
+Exit: $30,354.82
+P&L: $-821.83
+Capital Before: $65,980.51
+Capital After: $85,043.34
+
+Processing SELL signal for ETH-USD at 2023-07-15 08:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.099
+Entry: $1,963.61
+Exit: $1,939.82
+P&L: $-192.72
+Capital Before: $85,043.34
+Capital After: $100,753.91
+
+Trading Day 196 (2023-07-16): Portfolio Equity=$100,753.91, Open Positions=1
+
+Trading Day 197 (2023-07-17): Portfolio Equity=$100,753.91, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-07-17 01:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.665
+Price: $30,302.17
+Total Cost: $20,150.95
+Capital Before: $100,753.91
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-07-17 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.665
+Entry: $30,302.17
+Exit: $30,172.56
+P&L: $-86.19
+Capital Before: $80,602.96
+Capital After: $100,667.72
+
+Processing BUY signal for ETH-USD at 2023-07-17 11:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.535
+Price: $1,911.16
+Total Cost: $20,134.04
+Capital Before: $100,667.72
+Total Open Positions: 2
+
+Trading Day 198 (2023-07-18): Portfolio Equity=$100,682.91, Open Positions=2
+
+Trading Day 199 (2023-07-19): Portfolio Equity=$100,662.91, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-07-19 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.535
+Entry: $1,911.16
+Exit: $1,910.88
+P&L: $-2.89
+Capital Before: $80,533.68
+Capital After: $100,664.83
+
+Processing SELL signal for AAPL at 2023-07-19 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 86.484
+Entry: $190.73
+Exit: $192.78
+P&L: $177.29
+Capital Before: $100,664.83
+Capital After: $117,337.21
+
+Processing BUY signal for AAPL at 2023-07-19 11:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 120.278
+Price: $195.11
+Total Cost: $23,467.44
+Capital Before: $117,337.21
+Total Open Positions: 1
+
+Processing BUY signal for BTC-USD at 2023-07-19 17:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.626
+Price: $29,973.04
+Total Cost: $18,763.12
+Capital Before: $93,869.77
+Total Open Positions: 2
+
+Trading Day 200 (2023-07-20): Portfolio Equity=$93,888.74, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-07-20 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 120.278
+Entry: $195.11
+Exit: $194.62
+P&L: $-58.94
+Capital Before: $75,106.65
+Capital After: $98,515.15
+
+Processing SELL signal for BTC-USD at 2023-07-21 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.626
+Entry: $29,973.04
+Exit: $29,795.25
+P&L: $-111.30
+Capital Before: $98,515.15
+Capital After: $117,166.98
+
+Processing BUY signal for ETH-USD at 2023-07-21 00:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 12.399
+Price: $1,890.01
+Total Cost: $23,434.17
+Capital Before: $117,166.98
+Total Open Positions: 1
+
+Trading Day 201 (2023-07-21): Portfolio Equity=$117,166.98, Open Positions=1
+
+Trading Day 202 (2023-07-22): Portfolio Equity=$117,243.99, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-07-22 09:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.626
+Price: $29,931.50
+Total Cost: $18,737.12
+Capital Before: $93,732.81
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-07-23 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.626
+Entry: $29,931.50
+Exit: $29,777.07
+P&L: $-96.68
+Capital Before: $74,995.68
+Capital After: $93,636.13
+
+Trading Day 203 (2023-07-23): Portfolio Equity=$116,723.39, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-07-23 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.399
+Entry: $1,890.01
+Exit: $1,873.53
+P&L: $-204.33
+Capital Before: $93,636.13
+Capital After: $116,865.97
+
+Processing BUY signal for BTC-USD at 2023-07-23 17:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.777
+Price: $30,091.01
+Total Cost: $23,380.72
+Capital Before: $116,865.97
+Total Open Positions: 1
+
+Trading Day 204 (2023-07-24): Portfolio Equity=$116,809.48, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-07-24 08:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.999
+Price: $1,869.82
+Total Cost: $18,696.33
+Capital Before: $93,485.25
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-07-24 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.777
+Entry: $30,091.01
+Exit: $29,317.29
+P&L: $-601.18
+Capital Before: $74,788.92
+Capital After: $97,568.46
+
+Trading Day 205 (2023-07-25): Portfolio Equity=$116,061.11, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-07-25 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 100.679
+Price: $193.82
+Total Cost: $19,513.60
+Capital Before: $97,568.46
+Total Open Positions: 2
+
+Trading Day 206 (2023-07-26): Portfolio Equity=$96,612.70, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-07-26 07:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.534
+Price: $29,209.57
+Total Cost: $15,597.91
+Capital Before: $78,054.85
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-07-26 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.999
+Entry: $1,869.82
+Exit: $1,881.46
+P&L: $116.44
+Capital Before: $62,456.94
+Capital After: $81,269.71
+
+Trading Day 207 (2023-07-27): Portfolio Equity=$96,938.16, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-07-27 18:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.741
+Price: $1,859.41
+Total Cost: $16,253.13
+Capital Before: $81,269.71
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-07-27 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 100.679
+Entry: $193.82
+Exit: $193.01
+P&L: $-81.55
+Capital Before: $65,016.58
+Capital After: $84,448.63
+
+Trading Day 208 (2023-07-28): Portfolio Equity=$116,360.32, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-07-28 02:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.534
+Entry: $29,209.57
+Exit: $29,220.18
+P&L: $5.67
+Capital Before: $84,448.63
+Capital After: $100,052.21
+
+Processing SELL signal for ETH-USD at 2023-07-28 12:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.741
+Entry: $1,859.41
+Exit: $1,872.11
+P&L: $110.96
+Capital Before: $100,052.21
+Capital After: $116,416.30
+
+Processing BUY signal for AAPL at 2023-07-28 10:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 118.671
+Price: $196.20
+Total Cost: $23,283.25
+Capital Before: $116,416.30
+Total Open Positions: 1
+
+Trading Day 209 (2023-07-29): Portfolio Equity=$93,133.05, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-07-29 04:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.634
+Price: $29,386.50
+Total Cost: $18,631.04
+Capital Before: $93,133.05
+Total Open Positions: 2
+
+Processing BUY signal for ETH-USD at 2023-07-29 10:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.967
+Price: $1,870.38
+Total Cost: $14,901.29
+Capital Before: $74,502.00
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-07-29 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.967
+Entry: $1,870.38
+Exit: $1,883.93
+P&L: $107.97
+Capital Before: $59,600.71
+Capital After: $74,609.97
+
+Trading Day 210 (2023-07-30): Portfolio Equity=$93,215.95, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-07-30 10:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.964
+Price: $1,873.68
+Total Cost: $14,921.96
+Capital Before: $74,609.97
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-07-30 13:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.634
+Entry: $29,386.50
+Exit: $29,282.60
+P&L: $-65.88
+Capital Before: $59,688.01
+Capital After: $78,253.18
+
+Processing BUY signal for BTC-USD at 2023-07-30 16:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.533
+Price: $29,374.93
+Total Cost: $15,656.84
+Capital Before: $78,253.18
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-07-30 19:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.533
+Entry: $29,374.93
+Exit: $29,179.02
+P&L: $-104.42
+Capital Before: $62,596.35
+Capital After: $78,148.77
+
+Trading Day 211 (2023-07-31): Portfolio Equity=$93,064.79, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-07-31 03:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.531
+Price: $29,418.88
+Total Cost: $15,621.43
+Capital Before: $78,148.77
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-07-31 12:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.964
+Entry: $1,873.68
+Exit: $1,871.98
+P&L: $-13.52
+Capital Before: $62,527.34
+Capital After: $77,435.78
+
+Processing SELL signal for AAPL at 2023-07-31 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 118.671
+Entry: $196.20
+Exit: $196.09
+P&L: $-13.34
+Capital Before: $77,435.78
+Capital After: $100,705.69
+
+Processing BUY signal for AAPL at 2023-07-31 15:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 102.505
+Price: $196.49
+Total Cost: $20,141.21
+Capital Before: $100,705.69
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-07-31 22:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.531
+Entry: $29,418.88
+Exit: $29,208.33
+P&L: $-111.80
+Capital Before: $80,564.48
+Capital After: $96,074.11
+
+Trading Day 212 (2023-08-01): Portfolio Equity=$96,074.11, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-08-01 02:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.505
+Price: $1,829.11
+Total Cost: $19,214.81
+Capital Before: $96,074.11
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-08-01 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 102.505
+Entry: $196.49
+Exit: $195.48
+P&L: $-104.04
+Capital Before: $76,859.30
+Capital After: $96,896.46
+
+Processing SELL signal for ETH-USD at 2023-08-01 18:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.505
+Entry: $1,829.11
+Exit: $1,851.57
+P&L: $235.90
+Capital Before: $96,896.46
+Capital After: $116,347.18
+
+Trading Day 213 (2023-08-02): Portfolio Equity=$116,347.18, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-08-02 04:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.785
+Price: $29,656.22
+Total Cost: $23,280.13
+Capital Before: $116,347.18
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-08-02 13:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.053
+Price: $1,851.49
+Total Cost: $18,613.03
+Capital Before: $93,067.04
+Total Open Positions: 2
+
+Trading Day 214 (2023-08-03): Portfolio Equity=$115,829.72, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-08-03 05:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.785
+Entry: $29,656.22
+Exit: $29,127.60
+P&L: $-414.97
+Capital Before: $74,454.02
+Capital After: $97,319.18
+
+Trading Day 215 (2023-08-04): Portfolio Equity=$115,784.84, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-08-04 09:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.667
+Price: $29,171.35
+Total Cost: $19,457.29
+Capital Before: $97,319.18
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-08-04 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.667
+Entry: $29,171.35
+Exit: $29,133.47
+P&L: $-25.27
+Capital Before: $77,861.89
+Capital After: $97,293.91
+
+Processing BUY signal for BTC-USD at 2023-08-04 11:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.668
+Price: $29,143.77
+Total Cost: $19,468.04
+Capital Before: $97,293.91
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-08-04 19:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.668
+Entry: $29,143.77
+Exit: $28,991.84
+P&L: $-101.49
+Capital Before: $77,825.88
+Capital After: $97,192.42
+
+Trading Day 216 (2023-08-05): Portfolio Equity=$115,585.42, Open Positions=1
+
+Trading Day 217 (2023-08-06): Portfolio Equity=$115,639.61, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-08-06 18:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.669
+Price: $29,048.02
+Total Cost: $19,433.13
+Capital Before: $97,192.42
+Total Open Positions: 2
+
+Trading Day 218 (2023-08-07): Portfolio Equity=$115,522.35, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-08-07 02:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.053
+Entry: $1,851.49
+Exit: $1,841.24
+P&L: $-103.06
+Capital Before: $77,759.30
+Capital After: $96,269.26
+
+Processing BUY signal for ETH-USD at 2023-08-07 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.602
+Price: $1,816.10
+Total Cost: $19,254.34
+Capital Before: $96,269.26
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-08-07 16:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.669
+Entry: $29,048.02
+Exit: $28,893.97
+P&L: $-103.06
+Capital Before: $77,014.92
+Capital After: $96,344.98
+
+Processing BUY signal for BTC-USD at 2023-08-07 21:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.661
+Price: $29,160.85
+Total Cost: $19,275.32
+Capital Before: $96,344.98
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-08-07 22:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.661
+Entry: $29,160.85
+Exit: $29,147.04
+P&L: $-9.12
+Capital Before: $77,069.66
+Capital After: $96,335.86
+
+Processing BUY signal for BTC-USD at 2023-08-08 00:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.659
+Price: $29,221.80
+Total Cost: $19,257.17
+Capital Before: $96,335.86
+Total Open Positions: 2
+
+Trading Day 219 (2023-08-08): Portfolio Equity=$115,766.30, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-08-08 05:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.602
+Entry: $1,816.10
+Exit: $1,833.20
+P&L: $181.27
+Capital Before: $77,078.69
+Capital After: $96,514.30
+
+Processing BUY signal for AAPL at 2023-08-08 11:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 108.024
+Price: $178.69
+Total Cost: $19,302.81
+Capital Before: $96,514.30
+Total Open Positions: 2
+
+Trading Day 220 (2023-08-09): Portfolio Equity=$96,836.40, Open Positions=2
+
+Trading Day 221 (2023-08-10): Portfolio Equity=$96,706.37, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-08-10 06:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.659
+Entry: $29,221.80
+Exit: $29,492.38
+P&L: $178.31
+Capital Before: $77,211.49
+Capital After: $96,646.97
+
+Trading Day 222 (2023-08-11): Portfolio Equity=$96,646.97, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-08-11 03:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.480
+Price: $1,844.47
+Total Cost: $19,330.08
+Capital Before: $96,646.97
+Total Open Positions: 2
+
+Trading Day 223 (2023-08-12): Portfolio Equity=$96,720.49, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-08-12 15:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.526
+Price: $29,423.82
+Total Cost: $15,476.93
+Capital Before: $77,316.88
+Total Open Positions: 3
+
+Trading Day 224 (2023-08-13): Portfolio Equity=$96,714.01, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-08-13 14:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.526
+Entry: $29,423.82
+Exit: $29,358.65
+P&L: $-34.28
+Capital Before: $61,839.95
+Capital After: $77,282.60
+
+Processing SELL signal for ETH-USD at 2023-08-13 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.48
+Entry: $1,844.47
+Exit: $1,857.73
+P&L: $138.88
+Capital Before: $77,282.60
+Capital After: $96,751.57
+
+Trading Day 225 (2023-08-14): Portfolio Equity=$96,751.57, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-08-14 20:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.659
+Price: $29,365.00
+Total Cost: $19,351.53
+Capital Before: $96,751.57
+Total Open Positions: 2
+
+Trading Day 226 (2023-08-15): Portfolio Equity=$96,777.33, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-08-15 04:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.409
+Price: $1,840.97
+Total Cost: $15,480.68
+Capital Before: $77,400.03
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-08-15 12:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.659
+Entry: $29,365.00
+Exit: $29,340.37
+P&L: $-16.23
+Capital Before: $61,919.36
+Capital After: $81,254.66
+
+Processing SELL signal for AAPL at 2023-08-15 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 108.024
+Entry: $178.69
+Exit: $177.48
+P&L: $-130.71
+Capital Before: $81,254.66
+Capital After: $100,426.76
+
+Trading Day 227 (2023-08-16): Portfolio Equity=$115,796.99, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-08-16 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 112.960
+Price: $177.81
+Total Cost: $20,085.42
+Capital Before: $100,426.76
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-08-16 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 112.96
+Entry: $177.81
+Exit: $177.42
+P&L: $-44.05
+Capital Before: $80,341.34
+Capital After: $100,382.70
+
+Processing BUY signal for AAPL at 2023-08-16 12:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 112.875
+Price: $177.87
+Total Cost: $20,076.51
+Capital Before: $100,382.70
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-08-16 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 112.875
+Entry: $177.87
+Exit: $176.56
+P&L: $-147.46
+Capital Before: $80,306.19
+Capital After: $100,235.24
+
+Trading Day 228 (2023-08-17): Portfolio Equity=$115,314.05, Open Positions=1
+
+Trading Day 229 (2023-08-18): Portfolio Equity=$114,483.49, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-08-18 11:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.409
+Entry: $1,840.97
+Exit: $1,685.60
+P&L: $-1,306.48
+Capital Before: $100,235.24
+Capital After: $114,409.44
+
+Processing BUY signal for AAPL at 2023-08-18 14:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 131.132
+Price: $174.49
+Total Cost: $22,881.88
+Capital Before: $114,409.44
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-08-18 20:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.038
+Price: $1,658.40
+Total Cost: $18,305.43
+Capital Before: $91,527.56
+Total Open Positions: 2
+
+Trading Day 230 (2023-08-19): Portfolio Equity=$91,637.81, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-08-19 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.038
+Entry: $1,658.40
+Exit: $1,681.81
+P&L: $258.40
+Capital Before: $73,222.13
+Capital After: $91,785.96
+
+Trading Day 231 (2023-08-20): Portfolio Equity=$91,785.96, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-08-20 06:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.038
+Price: $1,663.12
+Total Cost: $18,357.55
+Capital Before: $91,785.96
+Total Open Positions: 2
+
+Processing BUY signal for BTC-USD at 2023-08-20 08:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.563
+Price: $26,106.03
+Total Cost: $14,697.70
+Capital Before: $73,428.41
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-08-20 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.038
+Entry: $1,663.12
+Exit: $1,688.76
+P&L: $282.95
+Capital Before: $58,730.71
+Capital After: $77,371.22
+
+Trading Day 232 (2023-08-21): Portfolio Equity=$92,086.04, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-08-21 10:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.290
+Price: $1,665.70
+Total Cost: $15,474.39
+Capital Before: $77,371.22
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-08-21 13:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.563
+Entry: $26,106.03
+Exit: $26,119.43
+P&L: $7.54
+Capital Before: $61,896.83
+Capital After: $76,602.07
+
+Trading Day 233 (2023-08-22): Portfolio Equity=$92,090.80, Open Positions=2
+
+Trading Day 234 (2023-08-23): Portfolio Equity=$91,770.57, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-08-23 11:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.29
+Entry: $1,665.70
+Exit: $1,642.22
+P&L: $-218.17
+Capital Before: $76,602.07
+Capital After: $91,858.28
+
+Processing BUY signal for BTC-USD at 2023-08-23 17:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.692
+Price: $26,544.93
+Total Cost: $18,369.09
+Capital Before: $91,858.28
+Total Open Positions: 2
+
+Trading Day 235 (2023-08-24): Portfolio Equity=$91,819.55, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-08-24 13:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.830
+Price: $1,664.47
+Total Cost: $14,697.24
+Capital Before: $73,489.19
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-08-24 10:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 131.132
+Entry: $174.49
+Exit: $178.12
+P&L: $476.01
+Capital Before: $58,791.95
+Capital After: $82,149.84
+
+Trading Day 236 (2023-08-25): Portfolio Equity=$114,861.40, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-08-25 01:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.692
+Entry: $26,544.93
+Exit: $26,134.82
+P&L: $-283.80
+Capital Before: $82,149.84
+Capital After: $100,235.14
+
+Trading Day 237 (2023-08-26): Portfolio Equity=$114,820.32, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-08-26 15:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.770
+Price: $26,042.04
+Total Cost: $20,052.37
+Capital Before: $100,235.14
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-08-26 19:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.77
+Entry: $26,042.04
+Exit: $26,024.22
+P&L: $-13.72
+Capital Before: $80,182.76
+Capital After: $100,221.41
+
+Trading Day 238 (2023-08-27): Portfolio Equity=$114,768.14, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-08-27 10:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.769
+Price: $26,074.46
+Total Cost: $20,051.26
+Capital Before: $100,221.41
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-08-27 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.83
+Entry: $1,664.47
+Exit: $1,656.89
+P&L: $-66.86
+Capital Before: $80,170.15
+Capital After: $94,800.53
+
+Trading Day 239 (2023-08-28): Portfolio Equity=$114,810.78, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-08-28 06:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.543
+Price: $1,642.63
+Total Cost: $18,960.90
+Capital Before: $94,800.53
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-08-28 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.769
+Entry: $26,074.46
+Exit: $25,937.52
+P&L: $-105.31
+Capital Before: $75,839.63
+Capital After: $95,785.58
+
+Processing BUY signal for AAPL at 2023-08-28 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 106.553
+Price: $179.79
+Total Cost: $19,157.16
+Capital Before: $95,785.58
+Total Open Positions: 2
+
+Trading Day 240 (2023-08-29): Portfolio Equity=$95,735.56, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-08-29 03:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.588
+Price: $26,070.60
+Total Cost: $15,329.51
+Capital Before: $76,628.42
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-08-29 11:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.588
+Entry: $26,070.60
+Exit: $25,960.10
+P&L: $-64.98
+Capital Before: $61,298.91
+Capital After: $76,563.45
+
+Processing BUY signal for BTC-USD at 2023-08-29 14:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.558
+Price: $27,463.35
+Total Cost: $15,324.55
+Capital Before: $76,563.45
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-08-29 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.543
+Entry: $1,642.63
+Exit: $1,719.57
+P&L: $888.13
+Capital Before: $61,238.90
+Capital After: $81,087.92
+
+Trading Day 241 (2023-08-30): Portfolio Equity=$96,512.50, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-08-30 06:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.441
+Price: $1,717.86
+Total Cost: $16,218.27
+Capital Before: $81,087.92
+Total Open Positions: 3
+
+Trading Day 242 (2023-08-31): Portfolio Equity=$96,107.46, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-08-31 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.558
+Entry: $27,463.35
+Exit: $27,199.34
+P&L: $-147.32
+Capital Before: $64,869.65
+Capital After: $80,046.88
+
+Processing SELL signal for AAPL at 2023-08-31 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 106.553
+Entry: $179.79
+Exit: $187.87
+P&L: $860.95
+Capital Before: $80,046.88
+Capital After: $100,064.99
+
+Trading Day 243 (2023-09-01): Portfolio Equity=$115,673.72, Open Positions=1
+
+Trading Day 244 (2023-09-02): Portfolio Equity=$115,447.57, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-09-02 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.441
+Entry: $1,717.86
+Exit: $1,631.61
+P&L: $-814.26
+Capital Before: $100,064.99
+Capital After: $115,469.00
+
+Trading Day 245 (2023-09-03): Portfolio Equity=$115,469.00, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-09-03 04:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.892
+Price: $25,875.61
+Total Cost: $23,081.05
+Capital Before: $115,469.00
+Total Open Positions: 1
+
+Trading Day 246 (2023-09-04): Portfolio Equity=$115,495.14, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-09-04 21:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.892
+Entry: $25,875.61
+Exit: $25,667.59
+P&L: $-185.56
+Capital Before: $92,387.96
+Capital After: $115,283.45
+
+Processing BUY signal for ETH-USD at 2023-09-04 21:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 14.227
+Price: $1,620.64
+Total Cost: $23,056.89
+Capital Before: $115,283.45
+Total Open Positions: 1
+
+Trading Day 247 (2023-09-05): Portfolio Equity=$115,349.68, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-09-05 16:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 14.227
+Entry: $1,620.64
+Exit: $1,636.31
+P&L: $222.84
+Capital Before: $92,226.56
+Capital After: $115,506.29
+
+Trading Day 248 (2023-09-06): Portfolio Equity=$115,506.29, Open Positions=0
+
+Processing BUY signal for ETH-USD at 2023-09-06 16:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 14.229
+Price: $1,623.50
+Total Cost: $23,100.80
+Capital Before: $115,506.29
+Total Open Positions: 1
+
+Trading Day 249 (2023-09-07): Portfolio Equity=$115,634.28, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-09-07 11:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.719
+Price: $25,691.43
+Total Cost: $18,472.14
+Capital Before: $92,405.49
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-09-07 13:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.719
+Entry: $25,691.43
+Exit: $25,620.89
+P&L: $-50.72
+Capital Before: $73,933.35
+Capital After: $92,354.78
+
+Processing BUY signal for BTC-USD at 2023-09-07 14:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.718
+Price: $25,735.33
+Total Cost: $18,477.96
+Capital Before: $92,354.78
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-09-07 22:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 14.229
+Entry: $1,623.50
+Exit: $1,650.45
+P&L: $383.45
+Capital Before: $73,876.81
+Capital After: $97,361.06
+
+Trading Day 250 (2023-09-08): Portfolio Equity=$116,310.50, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-09-08 14:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.940
+Price: $1,630.86
+Total Cost: $19,472.50
+Capital Before: $97,361.06
+Total Open Positions: 2
+
+Processing BUY signal for AAPL at 2023-09-08 11:30:00-04:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 86.757
+Price: $179.55
+Total Cost: $15,577.65
+Capital Before: $77,888.56
+Total Open Positions: 3
+
+Trading Day 251 (2023-09-09): Portfolio Equity=$100,400.95, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-09-09 01:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.718
+Entry: $25,735.33
+Exit: $25,868.43
+P&L: $95.57
+Capital Before: $62,310.91
+Capital After: $80,884.44
+
+Processing SELL signal for ETH-USD at 2023-09-09 01:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.94
+Entry: $1,630.86
+Exit: $1,635.58
+P&L: $56.35
+Capital Before: $80,884.44
+Capital After: $100,413.29
+
+Trading Day 252 (2023-09-10): Portfolio Equity=$100,413.29, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-09-10 04:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.358
+Price: $1,625.13
+Total Cost: $20,083.33
+Capital Before: $100,413.29
+Total Open Positions: 2
+
+Trading Day 253 (2023-09-11): Portfolio Equity=$100,209.89, Open Positions=2
+
+Trading Day 254 (2023-09-12): Portfolio Equity=$99,567.86, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-09-12 09:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.358
+Entry: $1,625.13
+Exit: $1,588.83
+P&L: $-448.51
+Capital Before: $80,329.97
+Capital After: $99,964.78
+
+Processing BUY signal for BTC-USD at 2023-09-12 15:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.763
+Price: $26,218.44
+Total Cost: $20,004.67
+Capital Before: $99,964.78
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-09-12 14:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 86.757
+Entry: $179.55
+Exit: $175.72
+P&L: $-332.71
+Capital Before: $79,960.11
+Capital After: $95,205.05
+
+Trading Day 255 (2023-09-13): Portfolio Equity=$114,982.15, Open Positions=1
+
+Trading Day 256 (2023-09-14): Portfolio Equity=$115,402.58, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-09-14 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 108.564
+Price: $175.39
+Total Cost: $19,041.04
+Capital Before: $95,205.05
+Total Open Positions: 2
+
+Trading Day 257 (2023-09-15): Portfolio Equity=$96,384.80, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-09-15 18:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.409
+Price: $1,619.04
+Total Cost: $15,233.53
+Capital Before: $76,164.01
+Total Open Positions: 3
+
+Trading Day 258 (2023-09-16): Portfolio Equity=$96,733.75, Open Positions=3
+
+Processing SELL signal for ETH-USD at 2023-09-16 01:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.409
+Entry: $1,619.04
+Exit: $1,643.57
+P&L: $230.82
+Capital Before: $60,930.49
+Capital After: $76,394.83
+
+Processing SELL signal for BTC-USD at 2023-09-16 04:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.763
+Entry: $26,218.44
+Exit: $26,596.79
+P&L: $288.69
+Capital Before: $76,394.83
+Capital After: $96,688.18
+
+Processing BUY signal for BTC-USD at 2023-09-16 13:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.728
+Price: $26,566.31
+Total Cost: $19,340.28
+Capital Before: $96,688.18
+Total Open Positions: 2
+
+Processing BUY signal for ETH-USD at 2023-09-16 16:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.450
+Price: $1,637.00
+Total Cost: $15,469.65
+Capital Before: $77,347.91
+Total Open Positions: 3
+
+Trading Day 259 (2023-09-17): Portfolio Equity=$96,517.76, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-09-17 18:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.728
+Entry: $26,566.31
+Exit: $26,505.32
+P&L: $-44.41
+Capital Before: $61,878.26
+Capital After: $81,174.13
+
+Trading Day 260 (2023-09-18): Portfolio Equity=$96,423.96, Open Positions=2
+
+Processing BUY signal for BTC-USD at 2023-09-18 04:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.610
+Price: $26,624.93
+Total Cost: $16,241.21
+Capital Before: $81,174.13
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-09-18 10:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.45
+Entry: $1,637.00
+Exit: $1,648.38
+P&L: $107.52
+Capital Before: $64,932.92
+Capital After: $80,510.09
+
+Trading Day 261 (2023-09-19): Portfolio Equity=$96,793.47, Open Positions=2
+
+Trading Day 262 (2023-09-20): Portfolio Equity=$97,089.90, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-09-20 05:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.853
+Price: $1,634.30
+Total Cost: $16,102.79
+Capital Before: $80,510.09
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-09-20 10:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 108.564
+Entry: $175.39
+Exit: $176.99
+P&L: $173.16
+Capital Before: $64,407.30
+Capital After: $83,621.50
+
+Trading Day 263 (2023-09-21): Portfolio Equity=$116,096.45, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-09-21 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.61
+Entry: $26,624.93
+Exit: $27,022.05
+P&L: $242.24
+Capital Before: $83,621.50
+Capital After: $100,104.95
+
+Trading Day 264 (2023-09-22): Portfolio Equity=$115,780.26, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-09-22 03:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.853
+Entry: $1,634.30
+Exit: $1,594.32
+P&L: $-393.95
+Capital Before: $100,104.95
+Capital After: $115,813.79
+
+Processing BUY signal for AAPL at 2023-09-22 11:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 131.152
+Price: $176.61
+Total Cost: $23,162.75
+Capital Before: $115,813.79
+Total Open Positions: 1
+
+Processing SELL signal for AAPL at 2023-09-22 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 131.152
+Entry: $176.61
+Exit: $174.74
+P&L: $-245.25
+Capital Before: $92,651.04
+Capital After: $115,568.54
+
+Trading Day 265 (2023-09-23): Portfolio Equity=$115,568.54, Open Positions=0
+
+Processing BUY signal for ETH-USD at 2023-09-23 15:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 14.530
+Price: $1,590.71
+Total Cost: $23,113.07
+Capital Before: $115,568.54
+Total Open Positions: 1
+
+Trading Day 266 (2023-09-24): Portfolio Equity=$115,597.81, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-09-24 10:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.696
+Price: $26,582.44
+Total Cost: $18,501.38
+Capital Before: $92,455.47
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-09-24 15:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.696
+Entry: $26,582.44
+Exit: $26,579.68
+P&L: $-1.92
+Capital Before: $73,954.09
+Capital After: $92,453.55
+
+Processing BUY signal for BTC-USD at 2023-09-24 16:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.696
+Price: $26,575.78
+Total Cost: $18,496.75
+Capital Before: $92,453.55
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-09-24 21:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.696
+Entry: $26,575.78
+Exit: $26,520.70
+P&L: $-38.34
+Capital Before: $73,956.80
+Capital After: $92,415.21
+
+Trading Day 267 (2023-09-25): Portfolio Equity=$115,352.79, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-09-25 10:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 104.856
+Price: $176.27
+Total Cost: $18,482.97
+Capital Before: $92,415.21
+Total Open Positions: 2
+
+Trading Day 268 (2023-09-26): Portfolio Equity=$96,999.70, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-09-26 01:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 14.53
+Entry: $1,590.71
+Exit: $1,590.58
+P&L: $-1.90
+Capital Before: $73,932.24
+Capital After: $97,043.42
+
+Processing SELL signal for AAPL at 2023-09-26 09:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 104.856
+Entry: $176.27
+Exit: $173.10
+P&L: $-332.39
+Capital Before: $97,043.42
+Capital After: $115,193.99
+
+Processing BUY signal for BTC-USD at 2023-09-26 20:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.880
+Price: $26,167.37
+Total Cost: $23,027.28
+Capital Before: $115,193.99
+Total Open Positions: 1
+
+Processing SELL signal for BTC-USD at 2023-09-26 21:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.88
+Entry: $26,167.37
+Exit: $26,157.25
+P&L: $-8.91
+Capital Before: $92,166.71
+Capital After: $115,185.08
+
+Trading Day 269 (2023-09-27): Portfolio Equity=$115,185.08, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-09-27 11:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.862
+Price: $26,728.16
+Total Cost: $23,039.67
+Capital Before: $115,185.08
+Total Open Positions: 1
+
+Trading Day 270 (2023-09-28): Portfolio Equity=$114,918.76, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-09-28 11:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 107.214
+Price: $171.89
+Total Cost: $18,429.01
+Capital Before: $92,145.41
+Total Open Positions: 2
+
+Trading Day 271 (2023-09-29): Portfolio Equity=$97,049.18, Open Positions=2
+
+Trading Day 272 (2023-09-30): Portfolio Equity=$96,940.54, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-09-30 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.862
+Entry: $26,728.16
+Exit: $26,951.59
+P&L: $192.60
+Capital Before: $73,716.39
+Capital After: $96,948.67
+
+Processing BUY signal for BTC-USD at 2023-09-30 21:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.718
+Price: $27,001.49
+Total Cost: $19,387.07
+Capital Before: $96,948.67
+Total Open Positions: 2
+
+Trading Day 273 (2023-10-01): Portfolio Equity=$96,944.10, Open Positions=2
+
+Trading Day 274 (2023-10-02): Portfolio Equity=$97,625.00, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-10-02 15:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.177
+Price: $1,690.33
+Total Cost: $15,512.17
+Capital Before: $77,561.59
+Total Open Positions: 3
+
+Trading Day 275 (2023-10-03): Portfolio Equity=$96,993.75, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-10-03 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.718
+Entry: $27,001.49
+Exit: $27,628.56
+P&L: $450.23
+Capital Before: $62,049.42
+Capital After: $81,886.73
+
+Processing SELL signal for AAPL at 2023-10-03 12:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 107.214
+Entry: $171.89
+Exit: $172.00
+P&L: $11.99
+Capital Before: $81,886.73
+Capital After: $100,327.73
+
+Trading Day 276 (2023-10-04): Portfolio Equity=$115,363.41, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-10-04 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 116.396
+Price: $172.39
+Total Cost: $20,065.51
+Capital Before: $100,327.73
+Total Open Positions: 2
+
+Processing BUY signal for BTC-USD at 2023-10-04 21:00:00+00:00
+
+Opening position #3:
+Symbol: BTC-USD
+Shares: 0.580
+Price: $27,695.81
+Total Cost: $16,063.57
+Capital Before: $80,262.22
+Total Open Positions: 3
+
+Trading Day 277 (2023-10-05): Portfolio Equity=$95,495.30, Open Positions=3
+
+Trading Day 278 (2023-10-06): Portfolio Equity=$94,968.24, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-10-06 05:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.58
+Entry: $27,695.81
+Exit: $27,503.44
+P&L: $-111.58
+Capital Before: $64,198.65
+Capital After: $80,150.65
+
+Processing SELL signal for ETH-USD at 2023-10-06 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.177
+Entry: $1,690.33
+Exit: $1,630.86
+P&L: $-545.73
+Capital Before: $80,150.65
+Capital After: $95,117.08
+
+Processing BUY signal for BTC-USD at 2023-10-06 19:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.680
+Price: $27,981.94
+Total Cost: $19,027.72
+Capital Before: $95,117.08
+Total Open Positions: 2
+
+Trading Day 279 (2023-10-07): Portfolio Equity=$95,085.81, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-10-07 11:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 9.286
+Price: $1,638.79
+Total Cost: $15,217.84
+Capital Before: $76,089.36
+Total Open Positions: 3
+
+Trading Day 280 (2023-10-08): Portfolio Equity=$95,118.59, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-10-08 15:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.68
+Entry: $27,981.94
+Exit: $27,915.76
+P&L: $-45.00
+Capital Before: $60,871.52
+Capital After: $79,854.24
+
+Trading Day 281 (2023-10-09): Portfolio Equity=$94,972.77, Open Positions=2
+
+Trading Day 282 (2023-10-10): Portfolio Equity=$94,508.98, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-10-10 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.286
+Entry: $1,638.79
+Exit: $1,589.91
+P&L: $-453.94
+Capital Before: $79,854.24
+Capital After: $94,618.14
+
+Processing BUY signal for ETH-USD at 2023-10-10 16:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.096
+Price: $1,564.52
+Total Cost: $18,924.38
+Capital Before: $94,618.14
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-10-10 13:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 116.396
+Entry: $172.39
+Exit: $178.17
+P&L: $672.77
+Capital Before: $75,693.76
+Capital After: $96,432.04
+
+Trading Day 283 (2023-10-11): Portfolio Equity=$115,474.35, Open Positions=1
+
+Trading Day 284 (2023-10-12): Portfolio Equity=$115,319.40, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-10-12 09:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 106.133
+Price: $181.72
+Total Cost: $19,286.49
+Capital Before: $96,432.04
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-10-12 13:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 106.133
+Entry: $181.72
+Exit: $179.64
+P&L: $-220.76
+Capital Before: $77,145.55
+Capital After: $96,211.28
+
+Trading Day 285 (2023-10-13): Portfolio Equity=$114,887.66, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-10-13 06:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.096
+Entry: $1,564.52
+Exit: $1,539.73
+P&L: $-299.82
+Capital Before: $96,211.28
+Capital After: $114,835.84
+
+Processing BUY signal for BTC-USD at 2023-10-13 14:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.859
+Price: $26,738.52
+Total Cost: $22,968.38
+Capital Before: $114,835.84
+Total Open Positions: 1
+
+Trading Day 286 (2023-10-14): Portfolio Equity=$114,970.70, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-10-14 11:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.875
+Price: $1,547.23
+Total Cost: $18,373.30
+Capital Before: $91,867.45
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-10-14 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.875
+Entry: $1,547.23
+Exit: $1,555.37
+P&L: $96.73
+Capital Before: $73,494.15
+Capital After: $91,964.18
+
+Trading Day 287 (2023-10-15): Portfolio Equity=$115,026.83, Open Positions=1
+
+Trading Day 288 (2023-10-16): Portfolio Equity=$115,276.44, Open Positions=1
+
+Trading Day 289 (2023-10-17): Portfolio Equity=$116,263.06, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-10-17 12:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 11.663
+Price: $1,577.02
+Total Cost: $18,392.74
+Capital Before: $91,964.18
+Total Open Positions: 2
+
+Trading Day 290 (2023-10-18): Portfolio Equity=$116,199.58, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-10-18 08:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.663
+Entry: $1,577.02
+Exit: $1,578.27
+P&L: $14.67
+Capital Before: $73,571.44
+Capital After: $91,978.85
+
+Processing SELL signal for BTC-USD at 2023-10-18 23:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.859
+Entry: $26,738.52
+Exit: $28,329.40
+P&L: $1,366.57
+Capital Before: $91,978.85
+Capital After: $116,313.81
+
+Processing BUY signal for ETH-USD at 2023-10-19 00:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 14.846
+Price: $1,566.93
+Total Cost: $23,262.71
+Capital Before: $116,313.81
+Total Open Positions: 1
+
+Trading Day 291 (2023-10-19): Portfolio Equity=$116,313.81, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-10-19 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 14.846
+Entry: $1,566.93
+Exit: $1,561.94
+P&L: $-74.09
+Capital Before: $93,051.09
+Capital After: $116,239.72
+
+Processing BUY signal for AAPL at 2023-10-19 12:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 130.768
+Price: $177.78
+Total Cost: $23,247.93
+Capital Before: $116,239.72
+Total Open Positions: 1
+
+Processing BUY signal for BTC-USD at 2023-10-19 18:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.649
+Price: $28,668.62
+Total Cost: $18,605.93
+Capital Before: $92,991.79
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-10-19 15:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 130.768
+Entry: $177.78
+Exit: $175.45
+P&L: $-304.69
+Capital Before: $74,385.85
+Capital After: $97,329.10
+
+Trading Day 292 (2023-10-20): Portfolio Equity=$115,931.06, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-10-20 23:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 12.133
+Price: $1,604.38
+Total Cost: $19,465.89
+Capital Before: $97,329.10
+Total Open Positions: 2
+
+Trading Day 293 (2023-10-21): Portfolio Equity=$116,562.75, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-10-21 14:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.133
+Entry: $1,604.38
+Exit: $1,623.21
+P&L: $228.47
+Capital Before: $77,863.21
+Capital After: $97,557.57
+
+Trading Day 294 (2023-10-22): Portfolio Equity=$117,018.02, Open Positions=1
+
+Trading Day 295 (2023-10-23): Portfolio Equity=$117,117.84, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-10-23 14:30:00-04:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 112.697
+Price: $173.13
+Total Cost: $19,511.57
+Capital Before: $97,557.57
+Total Open Positions: 2
+
+Trading Day 296 (2023-10-24): Portfolio Equity=$99,882.56, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-10-24 17:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.782
+Price: $1,777.43
+Total Cost: $15,609.35
+Capital Before: $78,046.00
+Total Open Positions: 3
+
+Trading Day 297 (2023-10-25): Portfolio Equity=$100,257.06, Open Positions=3
+
+Processing SELL signal for AAPL at 2023-10-25 13:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 112.697
+Entry: $173.13
+Exit: $171.42
+P&L: $-193.05
+Capital Before: $62,436.65
+Capital After: $81,755.17
+
+Trading Day 298 (2023-10-26): Portfolio Equity=$119,972.93, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-10-26 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.782
+Entry: $1,777.43
+Exit: $1,846.05
+P&L: $602.69
+Capital Before: $81,755.17
+Capital After: $97,967.21
+
+Processing SELL signal for BTC-USD at 2023-10-26 21:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.649
+Entry: $28,668.62
+Exit: $34,124.13
+P&L: $3,540.63
+Capital Before: $97,967.21
+Capital After: $120,113.77
+
+Trading Day 299 (2023-10-27): Portfolio Equity=$120,113.77, Open Positions=0
+
+Processing BUY signal for AAPL at 2023-10-27 11:30:00-04:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 143.197
+Price: $167.76
+Total Cost: $24,022.73
+Capital Before: $120,113.77
+Total Open Positions: 1
+
+Trading Day 300 (2023-10-28): Portfolio Equity=$96,091.04, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-10-28 15:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.562
+Price: $34,186.34
+Total Cost: $19,212.72
+Capital Before: $96,091.04
+Total Open Positions: 2
+
+Trading Day 301 (2023-10-29): Portfolio Equity=$96,034.18, Open Positions=2
+
+Trading Day 302 (2023-10-30): Portfolio Equity=$96,251.17, Open Positions=2
+
+Trading Day 303 (2023-10-31): Portfolio Equity=$96,285.48, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-10-31 08:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.562
+Entry: $34,186.34
+Exit: $34,402.99
+P&L: $121.76
+Capital Before: $76,878.32
+Capital After: $96,212.80
+
+Trading Day 304 (2023-11-01): Portfolio Equity=$96,212.80, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-11-01 02:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.558
+Price: $34,468.60
+Total Cost: $19,233.48
+Capital Before: $96,212.80
+Total Open Positions: 2
+
+Trading Day 305 (2023-11-02): Portfolio Equity=$96,758.59, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-11-02 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.474
+Price: $1,816.89
+Total Cost: $15,396.34
+Capital Before: $76,979.32
+Total Open Positions: 3
+
+Trading Day 306 (2023-11-03): Portfolio Equity=$95,984.04, Open Positions=3
+
+Processing SELL signal for BTC-USD at 2023-11-03 05:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.558
+Entry: $34,468.60
+Exit: $34,555.29
+P&L: $48.37
+Capital Before: $61,582.98
+Capital After: $80,864.83
+
+Processing SELL signal for AAPL at 2023-11-03 11:30:00-04:00
+
+Closing position:
+Symbol: AAPL
+Shares: 143.197
+Entry: $167.76
+Exit: $176.34
+P&L: $1,228.63
+Capital Before: $80,864.83
+Capital After: $106,116.19
+
+Processing SELL signal for ETH-USD at 2023-11-03 23:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.474
+Entry: $1,816.89
+Exit: $1,832.83
+P&L: $135.10
+Capital Before: $106,116.19
+Capital After: $121,647.63
+
+Trading Day 307 (2023-11-04): Portfolio Equity=$121,647.63, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-11-04 12:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.700
+Price: $34,780.00
+Total Cost: $24,346.00
+Capital Before: $121,647.63
+Total Open Positions: 1
+
+Trading Day 308 (2023-11-05): Portfolio Equity=$121,809.88, Open Positions=1
+
+Trading Day 309 (2023-11-06): Portfolio Equity=$121,853.01, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-11-06 10:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 108.662
+Price: $179.09
+Total Cost: $19,460.28
+Capital Before: $97,301.63
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-11-06 16:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.7
+Entry: $34,780.00
+Exit: $34,987.01
+P&L: $144.91
+Capital Before: $77,841.35
+Capital After: $102,332.26
+
+Processing BUY signal for BTC-USD at 2023-11-06 17:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.585
+Price: $34,983.73
+Total Cost: $20,465.48
+Capital Before: $102,332.26
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-11-06 19:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.585
+Entry: $34,983.73
+Exit: $35,071.38
+P&L: $51.27
+Capital Before: $81,866.78
+Capital After: $102,383.53
+
+Processing BUY signal for BTC-USD at 2023-11-07 00:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.586
+Price: $34,955.62
+Total Cost: $20,484.00
+Capital Before: $102,383.53
+Total Open Positions: 2
+
+Trading Day 310 (2023-11-07): Portfolio Equity=$102,383.53, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-11-07 07:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.586
+Entry: $34,955.62
+Exit: $34,951.93
+P&L: $-2.17
+Capital Before: $81,899.53
+Capital After: $102,381.36
+
+Processing BUY signal for BTC-USD at 2023-11-07 23:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.578
+Price: $35,448.28
+Total Cost: $20,489.11
+Capital Before: $102,381.36
+Total Open Positions: 2
+
+Trading Day 311 (2023-11-08): Portfolio Equity=$102,336.05, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-11-08 11:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 108.662
+Entry: $179.09
+Exit: $181.89
+P&L: $304.25
+Capital Before: $81,892.26
+Capital After: $101,656.79
+
+Trading Day 312 (2023-11-09): Portfolio Equity=$122,382.24, Open Positions=1
+
+Trading Day 313 (2023-11-10): Portfolio Equity=$122,745.61, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-11-10 13:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 109.397
+Price: $185.85
+Total Cost: $20,331.43
+Capital Before: $101,656.79
+Total Open Positions: 2
+
+Trading Day 314 (2023-11-11): Portfolio Equity=$102,895.71, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-11-11 01:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.936
+Price: $2,049.57
+Total Cost: $16,265.38
+Capital Before: $81,325.36
+Total Open Positions: 3
+
+Processing SELL signal for ETH-USD at 2023-11-11 16:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.936
+Entry: $2,049.57
+Exit: $2,089.06
+P&L: $313.37
+Capital Before: $65,059.97
+Capital After: $81,638.72
+
+Trading Day 315 (2023-11-12): Portfolio Equity=$102,972.77, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-11-12 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.578
+Entry: $35,448.28
+Exit: $37,065.42
+P&L: $934.71
+Capital Before: $81,638.72
+Capital After: $103,062.54
+
+Processing BUY signal for BTC-USD at 2023-11-12 22:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.555
+Price: $37,164.26
+Total Cost: $20,626.17
+Capital Before: $103,062.54
+Total Open Positions: 2
+
+Trading Day 316 (2023-11-13): Portfolio Equity=$103,043.33, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-11-13 11:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.555
+Entry: $37,164.26
+Exit: $36,827.22
+P&L: $-187.06
+Capital Before: $82,436.37
+Capital After: $102,875.48
+
+Processing SELL signal for AAPL at 2023-11-13 10:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 109.397
+Entry: $185.85
+Exit: $184.96
+P&L: $-97.36
+Capital Before: $102,875.48
+Capital After: $123,109.55
+
+Trading Day 317 (2023-11-14): Portfolio Equity=$123,109.55, Open Positions=0
+
+Processing BUY signal for ETH-USD at 2023-11-14 09:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 12.014
+Price: $2,049.50
+Total Cost: $24,622.68
+Capital Before: $123,109.55
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-11-14 11:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 105.303
+Price: $187.05
+Total Cost: $19,697.45
+Capital Before: $98,486.87
+Total Open Positions: 2
+
+Trading Day 318 (2023-11-15): Portfolio Equity=$102,613.12, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-11-15 13:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 12.014
+Entry: $2,049.50
+Exit: $2,014.18
+P&L: $-424.35
+Capital Before: $78,789.42
+Capital After: $102,987.74
+
+Processing SELL signal for AAPL at 2023-11-15 14:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 105.303
+Entry: $187.05
+Exit: $188.20
+P&L: $120.05
+Capital Before: $102,987.74
+Capital After: $122,805.24
+
+Processing BUY signal for BTC-USD at 2023-11-15 21:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.652
+Price: $37,650.44
+Total Cost: $24,548.09
+Capital Before: $122,805.24
+Total Open Positions: 1
+
+Trading Day 319 (2023-11-16): Portfolio Equity=$122,887.87, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-11-16 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.833
+Price: $1,998.49
+Total Cost: $19,651.12
+Capital Before: $98,257.16
+Total Open Positions: 2
+
+Trading Day 320 (2023-11-17): Portfolio Equity=$121,788.59, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-11-17 03:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.652
+Entry: $37,650.44
+Exit: $36,504.29
+P&L: $-747.29
+Capital Before: $78,606.04
+Capital After: $102,406.84
+
+Trading Day 321 (2023-11-18): Portfolio Equity=$121,636.43, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-11-18 12:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.562
+Price: $36,469.93
+Total Cost: $20,496.10
+Capital Before: $102,406.84
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-11-18 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.833
+Entry: $1,998.49
+Exit: $1,964.19
+P&L: $-337.28
+Capital Before: $81,910.74
+Capital After: $101,224.58
+
+Trading Day 322 (2023-11-19): Portfolio Equity=$121,735.63, Open Positions=1
+
+Trading Day 323 (2023-11-20): Portfolio Equity=$122,193.47, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-11-20 11:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 105.867
+Price: $191.23
+Total Cost: $20,244.95
+Capital Before: $101,224.58
+Total Open Positions: 2
+
+Trading Day 324 (2023-11-21): Portfolio Equity=$101,999.88, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-11-21 07:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 8.079
+Price: $2,004.62
+Total Cost: $16,195.32
+Capital Before: $80,979.63
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-11-21 09:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 105.867
+Entry: $191.23
+Exit: $190.35
+P&L: $-93.43
+Capital Before: $64,784.31
+Capital After: $84,935.83
+
+Processing SELL signal for BTC-USD at 2023-11-21 19:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.562
+Entry: $36,469.93
+Exit: $36,991.43
+P&L: $293.09
+Capital Before: $84,935.83
+Capital After: $105,725.02
+
+Trading Day 325 (2023-11-22): Portfolio Equity=$121,523.00, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-11-22 12:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 8.079
+Entry: $2,004.62
+Exit: $2,022.49
+P&L: $144.40
+Capital Before: $105,725.02
+Capital After: $122,064.73
+
+Processing BUY signal for AAPL at 2023-11-22 12:30:00-05:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 127.147
+Price: $192.01
+Total Cost: $24,412.86
+Capital Before: $122,064.73
+Total Open Positions: 1
+
+Processing SELL signal for AAPL at 2023-11-22 13:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 127.147
+Entry: $192.01
+Exit: $191.63
+P&L: $-47.05
+Capital Before: $97,651.87
+Capital After: $122,017.69
+
+Trading Day 326 (2023-11-23): Portfolio Equity=$122,017.69, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-11-23 02:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.653
+Price: $37,356.38
+Total Cost: $24,393.72
+Capital Before: $122,017.69
+Total Open Positions: 1
+
+Trading Day 327 (2023-11-24): Portfolio Equity=$121,976.85, Open Positions=1
+
+Trading Day 328 (2023-11-25): Portfolio Equity=$122,263.89, Open Positions=1
+
+Trading Day 329 (2023-11-26): Portfolio Equity=$122,282.63, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-11-26 10:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.653
+Entry: $37,356.38
+Exit: $37,719.23
+P&L: $236.94
+Capital Before: $97,623.97
+Capital After: $122,254.63
+
+Processing BUY signal for ETH-USD at 2023-11-26 16:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 11.934
+Price: $2,048.91
+Total Cost: $24,451.66
+Capital Before: $122,254.63
+Total Open Positions: 1
+
+Trading Day 330 (2023-11-27): Portfolio Equity=$122,475.21, Open Positions=1
+
+Trading Day 331 (2023-11-28): Portfolio Equity=$122,073.81, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-11-28 17:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.512
+Price: $38,190.02
+Total Cost: $19,553.29
+Capital Before: $97,802.97
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-11-28 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.934
+Entry: $2,048.91
+Exit: $2,061.34
+P&L: $148.32
+Capital Before: $78,249.68
+Capital After: $102,849.66
+
+Trading Day 332 (2023-11-29): Portfolio Equity=$122,265.75, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-11-29 09:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 107.764
+Price: $190.88
+Total Cost: $20,569.99
+Capital Before: $102,849.66
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-11-29 11:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 107.764
+Entry: $190.88
+Exit: $189.90
+P&L: $-105.61
+Capital Before: $82,279.67
+Capital After: $102,744.05
+
+Processing BUY signal for ETH-USD at 2023-11-29 22:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 10.125
+Price: $2,029.43
+Total Cost: $20,548.00
+Capital Before: $102,744.05
+Total Open Positions: 2
+
+Trading Day 333 (2023-11-30): Portfolio Equity=$122,069.41, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-11-30 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.512
+Entry: $38,190.02
+Exit: $37,713.73
+P&L: $-243.86
+Capital Before: $82,196.05
+Capital After: $101,505.48
+
+Processing BUY signal for AAPL at 2023-11-30 15:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 106.859
+Price: $189.98
+Total Cost: $20,301.07
+Capital Before: $101,505.48
+Total Open Positions: 2
+
+Processing SELL signal for ETH-USD at 2023-11-30 23:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 10.125
+Entry: $2,029.43
+Exit: $2,052.54
+P&L: $234.00
+Capital Before: $81,204.40
+Capital After: $101,986.41
+
+Trading Day 334 (2023-12-01): Portfolio Equity=$101,986.41, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-12-01 09:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.527
+Price: $38,697.66
+Total Cost: $20,393.67
+Capital Before: $101,986.41
+Total Open Positions: 2
+
+Trading Day 335 (2023-12-02): Portfolio Equity=$101,998.10, Open Positions=2
+
+Trading Day 336 (2023-12-03): Portfolio Equity=$102,419.80, Open Positions=2
+
+Trading Day 337 (2023-12-04): Portfolio Equity=$102,777.86, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-12-04 10:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 106.859
+Entry: $189.98
+Exit: $187.97
+P&L: $-214.79
+Capital Before: $81,592.74
+Capital After: $101,679.03
+
+Trading Day 338 (2023-12-05): Portfolio Equity=$123,755.42, Open Positions=1
+
+Processing BUY signal for AAPL at 2023-12-05 09:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 105.046
+Price: $193.59
+Total Cost: $20,335.85
+Capital Before: $101,679.03
+Total Open Positions: 2
+
+Trading Day 339 (2023-12-06): Portfolio Equity=$104,600.39, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-12-06 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.217
+Price: $2,254.13
+Total Cost: $16,268.03
+Capital Before: $81,343.17
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-12-06 14:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 105.046
+Entry: $193.59
+Exit: $192.43
+P&L: $-122.27
+Capital Before: $65,075.14
+Capital After: $85,288.72
+
+Trading Day 340 (2023-12-07): Portfolio Equity=$124,570.26, Open Positions=2
+
+Processing BUY signal for AAPL at 2023-12-07 09:30:00-05:00
+
+Opening position #3:
+Symbol: AAPL
+Shares: 87.599
+Price: $194.73
+Total Cost: $17,057.72
+Capital Before: $85,288.72
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-12-07 15:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.527
+Entry: $38,697.66
+Exit: $43,659.19
+P&L: $2,614.73
+Capital Before: $68,231.01
+Capital After: $91,239.40
+
+Processing SELL signal for ETH-USD at 2023-12-07 15:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.217
+Entry: $2,254.13
+Exit: $2,322.73
+P&L: $495.08
+Capital Before: $91,239.40
+Capital After: $108,002.51
+
+Trading Day 341 (2023-12-08): Portfolio Equity=$108,002.51, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-12-08 20:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.486
+Price: $44,416.21
+Total Cost: $21,586.28
+Capital Before: $108,002.51
+Total Open Positions: 2
+
+Trading Day 342 (2023-12-09): Portfolio Equity=$107,897.38, Open Positions=2
+
+Trading Day 343 (2023-12-10): Portfolio Equity=$107,696.81, Open Positions=2
+
+Processing SELL signal for BTC-USD at 2023-12-10 09:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.486
+Entry: $44,416.21
+Exit: $43,644.15
+P&L: $-375.22
+Capital Before: $86,416.23
+Capital After: $107,627.29
+
+Trading Day 344 (2023-12-11): Portfolio Equity=$107,627.29, Open Positions=1
+
+Processing BUY signal for ETH-USD at 2023-12-11 02:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.653
+Price: $2,229.82
+Total Cost: $21,524.48
+Capital Before: $107,627.29
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-12-11 09:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 87.599
+Entry: $194.73
+Exit: $192.11
+P&L: $-229.07
+Capital Before: $86,102.81
+Capital After: $102,931.46
+
+Trading Day 345 (2023-12-12): Portfolio Equity=$124,461.61, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-12-12 08:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.653
+Entry: $2,229.82
+Exit: $2,235.51
+P&L: $54.94
+Capital Before: $102,931.46
+Capital After: $124,510.88
+
+Processing BUY signal for ETH-USD at 2023-12-12 16:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 11.373
+Price: $2,189.59
+Total Cost: $24,902.20
+Capital Before: $124,510.88
+Total Open Positions: 1
+
+Processing BUY signal for AAPL at 2023-12-12 14:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 102.486
+Price: $194.38
+Total Cost: $19,921.74
+Capital Before: $99,608.68
+Total Open Positions: 2
+
+Trading Day 346 (2023-12-13): Portfolio Equity=$104,747.48, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-12-13 19:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.373
+Entry: $2,189.59
+Exit: $2,250.99
+P&L: $698.31
+Capital Before: $79,686.94
+Capital After: $105,287.44
+
+Processing BUY signal for BTC-USD at 2023-12-13 20:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.491
+Price: $42,868.23
+Total Cost: $21,048.30
+Capital Before: $105,287.44
+Total Open Positions: 2
+
+Trading Day 347 (2023-12-14): Portfolio Equity=$105,249.71, Open Positions=2
+
+Trading Day 348 (2023-12-15): Portfolio Equity=$105,313.30, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-12-15 12:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 7.449
+Price: $2,261.76
+Total Cost: $16,847.83
+Capital Before: $84,239.14
+Total Open Positions: 3
+
+Processing SELL signal for AAPL at 2023-12-15 10:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 102.486
+Entry: $194.38
+Exit: $197.62
+P&L: $332.06
+Capital Before: $67,391.31
+Capital After: $87,645.11
+
+Processing SELL signal for BTC-USD at 2023-12-15 16:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.491
+Entry: $42,868.23
+Exit: $41,806.20
+P&L: $-521.46
+Capital Before: $87,645.11
+Capital After: $108,171.95
+
+Trading Day 349 (2023-12-16): Portfolio Equity=$124,759.39, Open Positions=1
+
+Trading Day 350 (2023-12-17): Portfolio Equity=$124,748.43, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-12-17 20:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 7.449
+Entry: $2,261.76
+Exit: $2,243.12
+P&L: $-138.86
+Capital Before: $108,171.95
+Capital After: $124,880.92
+
+Trading Day 351 (2023-12-18): Portfolio Equity=$124,880.92, Open Positions=0
+
+Processing BUY signal for ETH-USD at 2023-12-18 05:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 11.536
+Price: $2,164.98
+Total Cost: $24,975.19
+Capital Before: $124,880.92
+Total Open Positions: 1
+
+Processing SELL signal for ETH-USD at 2023-12-19 00:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.536
+Entry: $2,164.98
+Exit: $2,212.84
+P&L: $552.16
+Capital Before: $99,905.73
+Capital After: $125,433.08
+
+Trading Day 352 (2023-12-19): Portfolio Equity=$125,433.08, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-12-19 02:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.583
+Price: $43,062.66
+Total Cost: $25,105.53
+Capital Before: $125,433.08
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-12-19 15:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.159
+Price: $2,190.68
+Total Cost: $20,064.42
+Capital Before: $100,327.55
+Total Open Positions: 2
+
+Trading Day 353 (2023-12-20): Portfolio Equity=$124,997.07, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-12-20 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.159
+Entry: $2,190.68
+Exit: $2,215.88
+P&L: $230.82
+Capital Before: $80,263.13
+Capital After: $100,558.37
+
+Processing BUY signal for AAPL at 2023-12-20 09:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 101.891
+Price: $197.38
+Total Cost: $20,111.75
+Capital Before: $100,558.37
+Total Open Positions: 2
+
+Processing SELL signal for AAPL at 2023-12-20 14:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 101.891
+Entry: $197.38
+Exit: $195.20
+P&L: $-222.63
+Capital Before: $80,446.62
+Capital After: $100,335.74
+
+Trading Day 354 (2023-12-21): Portfolio Equity=$125,747.83, Open Positions=1
+
+Trading Day 355 (2023-12-22): Portfolio Equity=$125,902.73, Open Positions=1
+
+Processing SELL signal for BTC-USD at 2023-12-23 00:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.583
+Entry: $43,062.66
+Exit: $43,869.33
+P&L: $470.29
+Capital Before: $100,335.74
+Capital After: $125,911.56
+
+Trading Day 356 (2023-12-23): Portfolio Equity=$125,911.56, Open Positions=0
+
+Processing BUY signal for ETH-USD at 2023-12-23 04:00:00+00:00
+
+Opening position #1:
+Symbol: ETH-USD
+Shares: 11.021
+Price: $2,284.87
+Total Cost: $25,181.53
+Capital Before: $125,911.56
+Total Open Positions: 1
+
+Trading Day 357 (2023-12-24): Portfolio Equity=$126,127.81, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-12-24 04:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.460
+Price: $43,824.29
+Total Cost: $20,159.17
+Capital Before: $100,730.03
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-12-24 17:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.46
+Entry: $43,824.29
+Exit: $43,660.25
+P&L: $-75.46
+Capital Before: $80,570.85
+Capital After: $100,654.57
+
+Trading Day 358 (2023-12-25): Portfolio Equity=$125,603.74, Open Positions=1
+
+Processing SELL signal for ETH-USD at 2023-12-25 12:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 11.021
+Entry: $2,284.87
+Exit: $2,298.26
+P&L: $147.56
+Capital Before: $100,654.57
+Capital After: $125,983.66
+
+Trading Day 359 (2023-12-26): Portfolio Equity=$125,983.66, Open Positions=0
+
+Processing BUY signal for BTC-USD at 2023-12-26 04:00:00+00:00
+
+Opening position #1:
+Symbol: BTC-USD
+Shares: 0.580
+Price: $43,469.46
+Total Cost: $25,212.29
+Capital Before: $125,983.66
+Total Open Positions: 1
+
+Processing BUY signal for ETH-USD at 2023-12-26 05:00:00+00:00
+
+Opening position #2:
+Symbol: ETH-USD
+Shares: 9.005
+Price: $2,238.16
+Total Cost: $20,154.67
+Capital Before: $100,771.37
+Total Open Positions: 2
+
+Processing SELL signal for BTC-USD at 2023-12-26 08:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.58
+Entry: $43,469.46
+Exit: $42,702.28
+P&L: $-444.97
+Capital Before: $80,616.70
+Capital After: $105,384.02
+
+Processing BUY signal for AAPL at 2023-12-26 15:30:00-05:00
+
+Opening position #2:
+Symbol: AAPL
+Shares: 109.184
+Price: $193.04
+Total Cost: $21,076.88
+Capital Before: $105,384.02
+Total Open Positions: 2
+
+Trading Day 360 (2023-12-27): Portfolio Equity=$104,353.33, Open Positions=2
+
+Processing SELL signal for ETH-USD at 2023-12-27 07:00:00+00:00
+
+Closing position:
+Symbol: ETH-USD
+Shares: 9.005
+Entry: $2,238.16
+Exit: $2,229.73
+P&L: $-75.95
+Capital Before: $84,307.14
+Capital After: $104,385.87
+
+Processing SELL signal for AAPL at 2023-12-27 09:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 109.184
+Entry: $193.04
+Exit: $191.64
+P&L: $-153.02
+Capital Before: $104,385.87
+Capital After: $125,309.73
+
+Processing BUY signal for AAPL at 2023-12-27 12:30:00-05:00
+
+Opening position #1:
+Symbol: AAPL
+Shares: 129.871
+Price: $192.98
+Total Cost: $25,061.99
+Capital Before: $125,309.73
+Total Open Positions: 1
+
+Processing BUY signal for BTC-USD at 2023-12-27 21:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.462
+Price: $43,361.34
+Total Cost: $20,032.94
+Capital Before: $100,247.74
+Total Open Positions: 2
+
+Trading Day 361 (2023-12-28): Portfolio Equity=$100,342.91, Open Positions=2
+
+Processing BUY signal for ETH-USD at 2023-12-28 14:00:00+00:00
+
+Opening position #3:
+Symbol: ETH-USD
+Shares: 6.781
+Price: $2,365.78
+Total Cost: $16,042.34
+Capital Before: $80,214.80
+Total Open Positions: 3
+
+Processing SELL signal for BTC-USD at 2023-12-28 22:00:00+00:00
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.462
+Entry: $43,361.34
+Exit: $42,640.32
+P&L: $-333.11
+Capital Before: $64,172.47
+Capital After: $83,872.30
+
+Trading Day 362 (2023-12-29): Portfolio Equity=$99,784.23, Open Positions=2
+
+Processing SELL signal for AAPL at 2023-12-29 11:30:00-05:00
+
+Closing position:
+Symbol: AAPL
+Shares: 129.871
+Entry: $192.98
+Exit: $191.90
+P&L: $-139.74
+Capital Before: $83,872.30
+Capital After: $108,794.54
+
+Trading Day 363 (2023-12-30): Portfolio Equity=$124,413.84, Open Positions=1
+
+Trading Day 364 (2023-12-31): Portfolio Equity=$124,397.64, Open Positions=1
+
+Processing BUY signal for BTC-USD at 2023-12-31 07:00:00+00:00
+
+Opening position #2:
+Symbol: BTC-USD
+Shares: 0.512
+Price: $42,526.33
+Total Cost: $21,773.48
+Capital Before: $108,794.54
+Total Open Positions: 2
+
+Closing remaining positions...
+
+Closing position:
+Symbol: BTC-USD
+Shares: 0.512
+Entry: $42,526.33
+Exit: $42,255.12
+P&L: $-138.86
+Capital Before: $87,021.06
+Capital After: $108,655.68
+
+Closing position:
+Symbol: ETH-USD
+Shares: 6.781
+Entry: $2,365.78
+Exit: $2,280.95
+P&L: $-575.23
+Capital Before: $108,655.68
+Capital After: $124,122.79
+================================================================================
+=== Final Results ===
+================================================================================
+Starting Capital: 100000.00
+Final Capital: 124122.79
+Total Trades: 299
+Total P&L: 24122.79
+Average P&L per trade: 80.68
+ Portfolio Backtest Results 
+┏━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Metric        ┃    Value ┃
+┡━━━━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ Total Return  │   24.12% │
+│ Annual Return │   24.20% │
+│ Sharpe Ratio  │     0.12 │
+│ Max Drawdown  │   38.12% │
+│ Total Trades  │      299 │
+│ Win Rate      │   47.83% │
+│ Average Win   │  $443.41 │
+│ Average Loss  │ $-253.45 │
+│ Volatility    │  177.96% │
+└───────────────┴──────────┘
+
+
+                      Asset Performance Summary                      
+┏━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Asset   ┃ Strategy      ┃ Type   ┃ Trades ┃        P&L ┃ Win Rate ┃
+┡━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ BTC-USD │ SMA Crossover │ crypto │    111 │ $16,305.44 │    35.1% │
+│ ETH-USD │ RSI Strategy  │ crypto │    117 │  $5,112.17 │    65.8% │
+│ AAPL    │ MACD Strategy │ stock  │     71 │  $2,705.18 │    38.0% │
+└─────────┴───────────────┴────────┴────────┴────────────┴──────────┘
+
