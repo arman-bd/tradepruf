@@ -222,25 +222,6 @@ class MyCustomStrategy(Strategy):
 - Volatility
 - Per-asset Performance
 
-## 🛠 Development
-
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Code Style
-```bash
-# Format code
-black .
-
-# Lint
-ruff check .
-
-# Type checking
-mypy src
-```
-
 ## 📝 Todo
 - [ ] Add more technical indicators
 - [ ] Implement portfolio optimization
