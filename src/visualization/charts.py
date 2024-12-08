@@ -30,7 +30,7 @@ class BacktestVisualizer:
                 x=equity_series.index,
                 y=equity_series.values,
                 name="Portfolio Value",
-                line=dict(color="blue"),
+                line={"color": "blue"},
             )
         )
 
@@ -46,7 +46,7 @@ class BacktestVisualizer:
                 y=buy_prices,
                 mode="markers",
                 name="Buy",
-                marker=dict(color="green", size=10, symbol="triangle-up"),
+                marker={"color": "green", "size": 10, "symbol": "triangle-up"},
             )
         )
 
@@ -56,7 +56,7 @@ class BacktestVisualizer:
                 y=sell_prices,
                 mode="markers",
                 name="Sell",
-                marker=dict(color="red", size=10, symbol="triangle-down"),
+                marker={"color": "red", "size": 10, "symbol": "triangle-down"},
             )
         )
 
@@ -128,7 +128,7 @@ class BacktestVisualizer:
         if format in ["html", "interactive"]:
             fig = px.imshow(
                 returns_matrix,
-                labels=dict(x="Month", y="Year", color="Returns (%)"),
+                labels={"x": "Month", "y": "Year", "color": "Returns (%)"},
                 title="Monthly Returns Heatmap",
             )
 

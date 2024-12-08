@@ -5,7 +5,7 @@ from .base import SignalType, Strategy
 
 
 class SMACrossoverStrategy(Strategy):
-    """Simple Moving Average Crossover Strategy"""
+    """Simple Moving Average Crossover Strategy."""
 
     def __init__(
         self,

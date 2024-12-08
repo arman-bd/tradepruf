@@ -1,7 +1,7 @@
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, TextIO, Union
+from typing import TextIO
 
 
 class JournalWriter:
@@ -9,7 +9,7 @@ class JournalWriter:
 
     def __init__(
         self,
-        filename: Optional[Union[str, Path]] = None,
+        filename: str | Path | None = None,
         directory: str = "journals",
         stdout: bool = True,
         mode: str = "w",
@@ -31,7 +31,7 @@ class JournalWriter:
             filename = f"journal_{timestamp}.txt"
 
         self.filepath = self.directory / filename
-        self.file: Optional[TextIO] = None
+        self.file: TextIO | None = None
         self.mode = mode
 
     def __enter__(self):
@@ -115,7 +115,7 @@ class JournalWriter:
         )
         self.write(message, printable=printable)
 
-    def metric(self, name: str, value: Union[str, int, float], printable: bool = None):
+    def metric(self, name: str, value: str | int | float, printable: bool = None):
         """Write a metric entry to the journal."""
         if isinstance(value, float):
             message = f"{name}: {value:.2f}"

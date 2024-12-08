@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Optional
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -172,7 +171,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                                     mode="markers",
                                     name=name,
                                     visible=(i == 0 and j == 1),
-                                    marker=dict(size=5, color=color, opacity=0.5),
+                                    marker={"size": 5, "color": color, "opacity": 0.5},
                                 ),
                                 row=row,
                                 col=1,
@@ -185,7 +184,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                                     y=data[0].values,
                                     name=name,
                                     visible=(i == 0 and j == 1),
-                                    line=dict(color=color),
+                                    line={"color": color},
                                 ),
                                 row=row,
                                 col=1,
@@ -225,7 +224,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
     def create_portfolio_risk_analysis(
         self,
         returns_data: dict[str, pd.Series],
-        weights: Optional[dict[str, float]] = None,
+        weights: dict[str, float] | None = None,
         format: str = "html",
     ) -> go.Figure:
         """Create portfolio risk analysis visualization."""

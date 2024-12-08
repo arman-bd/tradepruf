@@ -12,7 +12,7 @@ class SignalType:
 
 
 class Strategy(ABC):
-    """Base class for trading strategies"""
+    """Base class for trading strategies."""
 
     def __init__(self, name: str, journal: JournalWriter = None):
         self.name = name
@@ -20,9 +20,9 @@ class Strategy(ABC):
 
     @abstractmethod
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
-        """Generate trading signals"""
+        """Generate trading signals."""
         pass
 
     def calculate_position_size(self, capital: float, price: float) -> int:
-        """Calculate position size based on available capital"""
+        """Calculate position size based on available capital."""
         return int(capital * 0.02 / price)  # 2% risk per trade

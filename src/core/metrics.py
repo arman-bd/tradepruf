@@ -12,7 +12,7 @@ logger = get_logger(__name__)
 
 @dataclass
 class PerformanceMetrics:
-    """Trading performance metrics"""
+    """Trading performance metrics."""
 
     total_trades: int
     winning_trades: int
