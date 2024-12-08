@@ -341,9 +341,9 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
     ) -> go.Figure:
         """Create detailed trade analysis visualization."""
         trades_df = pd.DataFrame(trades)
-        trades_df["duration"] = pd.to_datetime(trades_df["exit_date"]) - pd.to_datetime(
-            trades_df["entry_date"]
-        )
+        trades_df["entry_date"] = pd.to_datetime(trades_df["entry_date"], utc=True)
+        trades_df["exit_date"] = pd.to_datetime(trades_df["exit_date"], utc=True)
+        trades_df["duration"] = trades_df["exit_date"] - trades_df["entry_date"]
         trades_df["return"] = (
             (trades_df["exit_price"] - trades_df["entry_price"])
             / trades_df["entry_price"]
@@ -501,7 +501,8 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                 y=buy_prices,
                 mode="markers",
                 name="Buy",
-                marker=dict(color="green", size=10, symbol="triangle-up"),
+                text=[f"{t['symbol']} Buy" for t in trades],
+                marker={"color": "green", "size": 10, "symbol": "triangle-up"},
             )
         )
 
@@ -511,7 +512,8 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                 y=sell_prices,
                 mode="markers",
                 name="Sell",
-                marker=dict(color="red", size=10, symbol="triangle-down"),
+                text=[f"{t['symbol']} Sell" for t in trades],
+                marker={"color": "red", "size": 10, "symbol": "triangle-down"},
             )
         )
 
@@ -574,6 +576,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         self, equity_series: pd.Series, format: str = "html"
     ) -> go.Figure:
         """Create monthly returns heatmap."""
+        equity_series.index = pd.to_datetime(equity_series.index, utc=True)
         monthly_returns = equity_series.resample("ME").last().pct_change() * 100
         returns_by_month = monthly_returns.groupby(
             [monthly_returns.index.year, monthly_returns.index.month]
@@ -585,23 +588,11 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
                 z=returns_matrix.values,
                 x=returns_matrix.columns,
                 y=returns_matrix.index,
-                colorscale="RdYlGn",
-                colorbar=dict(title="Returns (%)"),
             )
-        )
-
-        fig.update_layout(
-            title="Monthly Returns Heatmap",
-            xaxis_title="Month",
-            yaxis_title="Year",
-            height=400,
         )
 
         if format == "html":
-            fig.write_html(
-                self.output_dir
-                / f"monthly_returns_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
-            )
+            fig.write_html(f"monthly_returns_heatmap_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html")
         elif format == "interactive":
             fig.show()
 

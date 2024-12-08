@@ -325,8 +325,7 @@ def backtest_portfolio(
 
             progress.stop_task(prg3)
             progress.remove_task(prg3)
-            if charts == "none":
-                progress.stop()
+            progress.stop()
 
             # Display results
             _display_portfolio_results(result.metrics, assets, strategies)
@@ -375,6 +374,7 @@ def backtest_portfolio(
                 print(f"\nUnified dashboard has been saved to {dashboard_path}")
 
     except Exception as e:
+        e.with_traceback()
         console.print(f"[red]Error: {str(e)}")
         raise click.Abort()
 
@@ -402,7 +402,7 @@ def _display_portfolio_results(metrics, assets, strategies):
     for metric, value in metrics_to_display:
         table.add_row(metric, value)
 
-    console.print("\n")
+    console.print("------------------------------------")
     console.print(table)
 
     # Create asset performance table
