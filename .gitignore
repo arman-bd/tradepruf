@@ -1,4 +1,5 @@
 # Project Specific
+.DS_Store
 logs/
 .ruff_cache/
 
