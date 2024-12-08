@@ -176,7 +176,7 @@ Generated signals for AAPL using MACD Strategy
 │ AAPL    │ MACD Strategy │ stock  │     71 │  $2,705.18 │    38.0% │
 └─────────┴───────────────┴────────┴────────┴────────────┴──────────┘
 ```
-&raquo; [View Event Journal](https://arman-bd.github.io/tradepruf/docs/sample_trade/backtest_btc-eth-aapl.txt)
+&raquo; [View Event Journal](https://arman-bd.github.io/tradepruf/sample_trade/backtest_btc-eth-aapl.txt)
 
 **Analysis Dashboard**
 Analysis Dashboard contains some interactive charts and tables to help you understand the performance of your portfolio. Here are some screenshots of the dashboard:
@@ -185,7 +185,7 @@ Analysis Dashboard contains some interactive charts and tables to help you under
 |:--:|:--:|
 | ![Screenshot 3](docs/sample_trade/screenshot_3.png) | ![Screenshot 4](docs/sample_trade/screenshot_4.png) |
 
-&raquo; [View Analysis Dashboard](https://arman-bd.github.io/tradepruf/docs/sample_trade/backtest_btc-eth-aapl.html)
+&raquo; [View Analysis Dashboard](https://arman-bd.github.io/tradepruf/sample_trade/backtest_btc-eth-aapl.html)
 
 ## 📈 Custom Strategies
 Create your own strategy by extending the base Strategy class:
