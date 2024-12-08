@@ -528,6 +528,7 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
             fig.show()
 
         return fig
+        
 
     def create_drawdown_chart(
         self, equity_series: pd.Series, format: str = "html"
@@ -579,14 +580,22 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
         fig = go.Figure(
             data=go.Heatmap(
                 z=returns_matrix.values,
-                x=returns_matrix.columns,
-                y=returns_matrix.index,
+                x=[f"{int(month):02d}" for month in returns_matrix.columns],
+                y=[str(year) for year in returns_matrix.index],
             )
+        )
+
+        fig.update_layout(
+            title="Monthly Returns Heatmap",
+            xaxis_title="Month",
+            yaxis_title="Year",
+            height=400,
         )
 
         if format == "html":
             fig.write_html(
-                f"monthly_returns_heatmap_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+                self.output_dir
+                / f"monthly_returns_heatmap_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
             )
         elif format == "interactive":
             fig.show()
