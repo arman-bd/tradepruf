@@ -15,6 +15,11 @@ class DataFetcher:
     """Fetches and manages market data."""
 
     def __init__(self, use_cache: bool = True):
+        """Initialize the DataFetcher.
+
+        Args:
+            use_cache (bool): Whether to use caching for fetched data.
+        """
         self.cache = DataCache() if use_cache else None
 
     def get_data(

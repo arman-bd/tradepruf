@@ -80,10 +80,10 @@ class JournalWriter:
             # Print to stdout if enabled
             should_print = self.stdout if printable is None else printable
             if should_print:
-                print(entry)
+                print(entry)  # noqa: T201
 
         except Exception as e:
-            print(f"Error writing to journal: {str(e)}", file=sys.stderr)
+            print(f"Error writing to journal: {str(e)}", file=sys.stderr)  # noqa: T201
 
     def section(self, title: str, printable: bool = None):
         """Write a section header to the journal."""

@@ -163,7 +163,7 @@ def backtest(
                     result.equity_series, format=charts
                 )
 
-                print(f"\nCharts have been saved to {output_dir}/")
+                print(f"\nCharts have been saved to {output_dir}/")  # noqa: T201
 
             # Display results
             _display_results(result.metrics, asset, strategy_instance)
@@ -226,7 +226,7 @@ def info(symbol: str):
 
     except Exception as e:
         console.print(f"[red]Error: {str(e)}")
-        raise click.Abort()
+        raise click.Abort() from e
 
 
 def calculate_portfolio_returns(
@@ -380,12 +380,12 @@ def backtest_portfolio(
                 progress.stop_task(prg4)
                 progress.remove_task(prg4)
 
-                print(f"\nUnified dashboard has been saved to {dashboard_path}")
+                print(f"\nUnified dashboard has been saved to {dashboard_path}")  # noqa: T201
 
     except Exception as e:
         e.with_traceback()
         console.print(f"[red]Error: {str(e)}")
-        raise click.Abort()
+        raise click.Abort() from e
 
 
 def _display_portfolio_configuration(config):

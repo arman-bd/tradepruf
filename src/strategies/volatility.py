@@ -8,14 +8,30 @@ class BollingerBandsStrategy(Strategy):
     """Bollinger Bands Strategy."""
 
     def __init__(
+        
         self, window: int = 20, num_std: float = 2.0, journal: JournalWriter = None
     ):
+        """Initialize the Bollinger Bands Strategy.
+
+        Parameters:
+        window (int): The window size for the moving average.
+        num_std (float): The number of standard deviations for the bands.
+        journal (JournalWriter): The journal writer instance.
+        """
         super().__init__("Bollinger Bands Strategy")
         self.window = window
         self.num_std = num_std
         self.journal = journal
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
+        """Generate trading signals based on the strategy.
+
+        Parameters:
+        data (pd.DataFrame): DataFrame containing the market data.
+
+        Returns:
+        pd.Series: Series containing the generated signals.
+        """
         if len(data) < self.window:
             return pd.Series(SignalType.HOLD, index=data.index)
 
@@ -53,12 +69,27 @@ class ATRTrailingStopStrategy(Strategy):
         atr_multiplier: float = 2.0,
         journal: JournalWriter = None,
     ):
+        """Initialize the ATR Trailing Stop Strategy.
+
+        Parameters:
+        atr_period (int): The period for the ATR calculation.
+        atr_multiplier (float): The multiplier for the ATR to set the stop.
+        journal (JournalWriter): The journal writer instance.
+        """
         super().__init__("ATR Trailing Stop Strategy")
         self.atr_period = atr_period
         self.atr_multiplier = atr_multiplier
         self.journal = journal
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
+        """Generate trading signals based on the ATR trailing stop strategy.
+
+        Parameters:
+        data (pd.DataFrame): DataFrame containing the market data.
+
+        Returns:
+        pd.Series: Series containing the generated signals.
+        """
         if len(data) < self.atr_period:
             return pd.Series(SignalType.HOLD, index=data.index)
 

@@ -95,10 +95,10 @@ class UnifiedDashboard(EnhancedBacktestVisualizer):
 
         def run_server():
             with socketserver.TCPServer(("", port), Handler) as httpd:
-                print(
+                print(  # noqa: T201
                     f"\nServing dashboard at http://localhost:{port}/{dashboard_path.name}"
                 )
-                print("Press Ctrl+C to stop the server.")
+                print("Press Ctrl+C to stop the server.")  # noqa: T201
                 httpd.serve_forever()
 
         # Start server in a separate thread
@@ -112,7 +112,7 @@ class UnifiedDashboard(EnhancedBacktestVisualizer):
             # Keep the main thread running
             server_thread.join()
         except KeyboardInterrupt:
-            print("\nShutting down server...")
+            print("\nShutting down server...")  # noqa: T201
 
     def _get_dashboard_template(self) -> str:
         """Get the HTML template for the dashboard."""

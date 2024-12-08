@@ -13,6 +13,11 @@ class DataCache:
     """Manages caching of market data."""
 
     def __init__(self, cache_dir: str = ".cache", expiry_days: int = 7):
+        """Initialize the DataCache instance.
+
+        :param cache_dir: Directory where cache files are stored.
+        :param expiry_days: Number of days before cache expires.
+        """
         self.cache_dir = Path(cache_dir)
         self.expiry_days = expiry_days
         self._ensure_cache_dir()

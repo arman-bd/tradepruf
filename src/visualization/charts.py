@@ -9,7 +9,14 @@ import seaborn as sns
 
 
 class BacktestVisualizer:
+    """Class for visualizing backtest results, including equity curves, drawdowns, monthly returns, and asset allocation."""
+    
     def __init__(self, output_dir: str = "charts"):
+        """Initialize the BacktestVisualizer with the specified output directory.
+
+        Args:
+            output_dir (str): The directory where the charts will be saved.
+        """
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
 
