@@ -1,10 +1,10 @@
-# TradePruf - Simple Python based Trading Strategy Backtester
-
-## 🚨 Disclaimer
-This project was developed in a very short period with heavy use of AI assistance. While the code is functional and well-structured, it should be used for educational and research purposes only. Trading financial instruments involves substantial risk of loss. Past performance is not indicative of future results.
+# TradePruf - Python Trading Backtester
 
 ## 🚀 Overview
 TradePruf is a flexible and extensible backtesting framework that allows you to test trading strategies across multiple asset classes including stocks, cryptocurrencies, and ETFs. It provides detailed performance metrics, portfolio management capabilities, and interactive visualizations.
+
+## 🚨 Disclaimer
+This project was developed in a very short period with heavy use of AI assistance. While the code is functional and well-structured, it should be used for educational and research purposes only. Trading financial instruments involves substantial risk of loss. Past performance is not indicative of future results.
 
 ## ✨ Features
 - Multiple asset classes support (Stocks, Crypto, ETFs)
@@ -195,4 +195,3 @@ This software is for educational purposes only. Trading financial instruments ca
 
 ---
 *Note: This project was developed with the assistance of AI tools. While efforts have been made to ensure accuracy and reliability, users should conduct their own testing and validation before using in any real-world applications.*
-```
