@@ -1,0 +1,25 @@
+{
+    "initial_capital": 100000,
+    "position_size": 0.25,
+    "max_positions": 4,
+    "start_date": "2023-01-01",
+    "end_date": "2024-01-31",
+    "interval": "1d",
+    "assets": [
+        {
+            "symbol": "SPY",
+            "type": "etf",
+            "strategy": "sma"
+        },
+        {
+            "symbol": "QQQ",
+            "type": "etf",
+            "strategy": "rsi"
+        },
+        {
+            "symbol": "IWM",
+            "type": "etf",
+            "strategy": "macd"
+        }
+    ]
+}

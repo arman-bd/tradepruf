@@ -27,3 +27,7 @@ def main():
     print(f"Sharpe Ratio: {metrics.sharpe_ratio:.2f}")
     print(f"Max Drawdown: {metrics.max_drawdown:.2f}%")
     print(f"Win Rate: {metrics.win_rate * 100:.2f}%")
+
+
+if __name__ == "__main__":
+    main()

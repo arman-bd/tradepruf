@@ -1,14 +1,19 @@
+import json
+
 import click
 import pandas as pd
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 
+from src.strategies.base import Strategy
+
 from ..backtest.engine import BacktestEngine
 from ..core.asset import Asset, AssetType
 from ..strategies.momentum import MACDStrategy, RSIStrategy
 from ..strategies.moving_average import EMAStrategy, SMACrossoverStrategy
 from ..strategies.volatility import ATRTrailingStopStrategy, BollingerBandsStrategy
+from ..visualization.charts import BacktestVisualizer
 
 console = Console()
 
@@ -72,6 +77,15 @@ def cli():
     help="Data interval",
 )
 @click.option("--capital", type=float, default=100000, help="Initial capital")
+@click.option(
+    "--charts",
+    type=click.Choice(["none", "html", "png", "interactive"]),
+    default="none",
+    help="Generate charts in specified format",
+)
+@click.option(
+    "--output-dir", type=str, default="charts", help="Directory to save charts"
+)
 def backtest(
     symbol: str,
     asset_type: str,
@@ -80,6 +94,8 @@ def backtest(
     end_date: str,
     interval: str,
     capital: float,
+    charts: str,
+    output_dir: str,
 ):
     """Run backtest with specified parameters."""
     with Progress(
@@ -96,7 +112,7 @@ def backtest(
 
             # Run backtest
             progress.add_task("Running backtest...", total=None)
-            metrics = engine.run(
+            result = engine.run(
                 strategy=strategy_instance,
                 asset=asset,
                 start_date=pd.Timestamp(start_date),
@@ -104,8 +120,39 @@ def backtest(
                 interval=interval,
             )
 
+            # Create visualizations if requested
+            if charts != "none":
+                visualizer = BacktestVisualizer(output_dir)
+
+                # Convert positions to dict format for visualization
+                trade_info = [
+                    {
+                        "symbol": p.symbol,
+                        "entry_date": p.entry_date,
+                        "entry_price": float(p.entry_price),
+                        "exit_date": p.exit_date,
+                        "exit_price": float(p.exit_price) if p.exit_price else None,
+                        "shares": float(p.shares),
+                    }
+                    for p in result.metrics.closed_positions
+                ]
+
+                # Create charts
+                visualizer.create_equity_curve(
+                    result.equity_series,
+                    trade_info,
+                    f"{symbol} Equity Curve",
+                    format=charts,
+                )
+                visualizer.create_drawdown_chart(result.equity_series, format=charts)
+                visualizer.create_monthly_returns_heatmap(
+                    result.equity_series, format=charts
+                )
+
+                print(f"\nCharts have been saved to {output_dir}/")
+
             # Display results
-            _display_results(metrics, asset, strategy_instance)
+            _display_results(result.metrics, asset, strategy_instance)
 
         except Exception as e:
             console.print(f"[red]Error: {str(e)}")
@@ -166,6 +213,144 @@ def info(symbol: str):
     except Exception as e:
         console.print(f"[red]Error: {str(e)}")
         raise click.Abort()
+
+
+@cli.command()
+@click.option("--portfolio", type=str, help="Portfolio config file path")
+@click.option(
+    "--charts",
+    type=click.Choice(["none", "html", "png", "interactive"]),
+    default="none",
+    help="Generate charts in specified format",
+)
+@click.option(
+    "--output-dir", type=str, default="charts", help="Directory to save charts"
+)
+def backtest_portfolio(portfolio: str, charts: str, output_dir: str):
+    """Run backtest with a portfolio of assets."""
+    try:
+        # Load portfolio configuration
+        with open(portfolio) as f:
+            config = json.load(f)
+
+        assets = []
+        strategies = {}
+
+        for asset_config in config["assets"]:
+            symbol = asset_config["symbol"]
+            asset_type = asset_config["type"]
+            strategy_type = asset_config["strategy"]
+
+            asset = Asset(symbol, AssetType(asset_type))
+            assets.append(asset)
+
+            # Create strategy instance
+            strategy = STRATEGIES[strategy_type](params=asset_config.get("params", {}))
+            strategies[symbol] = strategy
+
+        # Initialize engine
+        engine = BacktestEngine(
+            initial_capital=config.get("initial_capital", 100000),
+            position_size=config.get("position_size", 0.1),
+            max_positions=config.get("max_positions", 5),
+        )
+
+        # Run portfolio backtest
+        result = engine.run_portfolio(
+            strategies=strategies,
+            assets=assets,
+            start_date=pd.Timestamp(config["start_date"]),
+            end_date=pd.Timestamp(config["end_date"]),
+            interval=config.get("interval", "1d"),
+        )
+
+        # Create visualizations if requested
+        if charts != "none":
+            visualizer = BacktestVisualizer(output_dir)
+
+            # Convert positions to dict format for visualization
+            trade_info = [
+                {
+                    "symbol": p.symbol,
+                    "entry_date": p.entry_date,
+                    "entry_price": float(p.entry_price),
+                    "exit_date": p.exit_date,
+                    "exit_price": float(p.exit_price) if p.exit_price else None,
+                    "shares": float(p.shares),
+                    "current_price": float(p.exit_price or p.entry_price),
+                }
+                for p in result.metrics.closed_positions
+            ]
+
+            # Create charts
+            visualizer.create_equity_curve(
+                result.equity_series,
+                trade_info,
+                "Portfolio Equity Curve",
+                format=charts,
+            )
+            visualizer.create_drawdown_chart(result.equity_series, format=charts)
+            visualizer.create_monthly_returns_heatmap(
+                result.equity_series, format=charts
+            )
+            visualizer.create_asset_allocation(trade_info, format=charts)
+
+            print(f"\nCharts have been saved to {output_dir}/")
+
+        _display_portfolio_results(result.metrics, assets, strategies)
+
+    except Exception as e:
+        console.print(f"[red]Error: {str(e)}")
+        raise click.Abort()
+
+
+def _display_portfolio_results(
+    metrics, assets: list[Asset], strategies: dict[str, Strategy]
+):
+    """Display portfolio backtest results in a formatted table."""
+    table = Table(title="Portfolio Backtest Results")
+
+    table.add_column("Metric", style="cyan", no_wrap=True)
+    table.add_column("Value", style="magenta", justify="right")
+
+    # Add portfolio metrics
+    table.add_row("Total Return", f"{float(metrics.total_return):.2f}%")
+    table.add_row("Annual Return", f"{float(metrics.annual_return):.2f}%")
+    table.add_row("Sharpe Ratio", f"{float(metrics.sharpe_ratio):.2f}")
+    table.add_row("Max Drawdown", f"{float(metrics.max_drawdown):.2f}%")
+    table.add_row("Total Trades", str(metrics.total_trades))
+    table.add_row("Win Rate", f"{float(metrics.win_rate) * 100:.2f}%")
+    table.add_row("Average Win", f"${float(metrics.avg_win):.2f}")
+    table.add_row("Average Loss", f"${float(metrics.avg_loss):.2f}")
+    table.add_row("Volatility", f"{float(metrics.volatility):.2f}%")
+
+    console.print(table)
+
+    # Display per-asset summary
+    asset_table = Table(title="Asset Performance Summary")
+    asset_table.add_column("Asset", style="cyan")
+    asset_table.add_column("Strategy", style="blue")
+    asset_table.add_column("Type", style="green")
+    asset_table.add_column("Trades", justify="right")
+    asset_table.add_column("P&L", justify="right", style="magenta")
+
+    for asset in assets:
+        asset_positions = [
+            p for p in metrics.closed_positions if p.symbol == asset.symbol
+        ]
+        strategy = strategies[asset.symbol]
+        total_pnl = sum(p.profit_loss for p in asset_positions)
+
+        asset_table.add_row(
+            asset.symbol,
+            strategy.name,
+            asset.asset_type.value,
+            str(len(asset_positions)),
+            f"${float(total_pnl):,.2f}",
+        )
+
+    console.print("\n")
+    console.print(asset_table)
 
 
 if __name__ == "__main__":

@@ -1,14 +1,6 @@
-from enum import Enum
-
 import pandas as pd
-
-from .base import Strategy
-
-
-class SignalType(Enum):
-    HOLD = 0
-    BUY = 1
-    SELL = 2
+import numpy as np
+from .base import Strategy, SignalType
 
 
 class RSIStrategy(Strategy):
@@ -21,17 +13,35 @@ class RSIStrategy(Strategy):
         self.overbought = overbought
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
+        if len(data) < self.period:
+            return pd.Series(SignalType.HOLD, index=data.index)
+
+        # Previous position tracker
+        position = 0
+        signals = pd.Series(SignalType.HOLD, index=data.index)
+
+        # Calculate RSI
         delta = data["Close"].diff()
         gain = (delta.where(delta > 0, 0)).rolling(window=self.period).mean()
         loss = (-delta.where(delta < 0, 0)).rolling(window=self.period).mean()
-
         rs = gain / loss
         rsi = 100 - (100 / (1 + rs))
 
-        signals = pd.Series(SignalType.HOLD, index=data.index)
-        signals[rsi < self.oversold] = SignalType.BUY
-        signals[rsi > self.overbought] = SignalType.SELL
+        print(f"Generated RSI values: Min={rsi.min():.2f}, Max={rsi.max():.2f}")
 
+        # Generate signals only on crossovers
+        for i in range(self.period, len(data)):
+            if rsi.iloc[i] < self.oversold and position == 0:
+                signals.iloc[i] = SignalType.BUY
+                position = 1
+            elif rsi.iloc[i] > self.overbought and position == 1:
+                signals.iloc[i] = SignalType.SELL
+                position = 0
+
+        print(
+            f"Generated RSI signals: Buy={sum(signals == SignalType.BUY)}, "
+            f"Sell={sum(signals == SignalType.SELL)}"
+        )
         return signals
 
 
@@ -47,16 +57,30 @@ class MACDStrategy(Strategy):
         self.signal_period = signal_period
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
-        # Calculate MACD line
+        if len(data) < self.slow_period + self.signal_period:
+            return pd.Series(SignalType.HOLD, index=data.index)
+
+        # Previous position tracker
+        position = 0
+        signals = pd.Series(SignalType.HOLD, index=data.index)
+
+        # Calculate MACD
         fast_ema = data["Close"].ewm(span=self.fast_period, adjust=False).mean()
         slow_ema = data["Close"].ewm(span=self.slow_period, adjust=False).mean()
         macd_line = fast_ema - slow_ema
-
-        # Calculate signal line
         signal_line = macd_line.ewm(span=self.signal_period, adjust=False).mean()
 
-        signals = pd.Series(SignalType.HOLD, index=data.index)
-        signals[macd_line > signal_line] = SignalType.BUY
-        signals[macd_line < signal_line] = SignalType.SELL
+        # Generate signals only on crossovers
+        for i in range(self.slow_period + self.signal_period, len(data)):
+            if macd_line.iloc[i] > signal_line.iloc[i] and position == 0:
+                signals.iloc[i] = SignalType.BUY
+                position = 1
+            elif macd_line.iloc[i] < signal_line.iloc[i] and position == 1:
+                signals.iloc[i] = SignalType.SELL
+                position = 0
 
+        print(
+            f"Generated MACD signals: Buy={sum(signals == SignalType.BUY)}, "
+            f"Sell={sum(signals == SignalType.SELL)}"
+        )
         return signals

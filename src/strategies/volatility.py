@@ -1,6 +1,6 @@
 import pandas as pd
-
-from .base import SignalType, Strategy
+import numpy as np
+from .base import Strategy, SignalType
 
 
 class BollingerBandsStrategy(Strategy):
@@ -12,16 +12,31 @@ class BollingerBandsStrategy(Strategy):
         self.num_std = num_std
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
+        if len(data) < self.window:
+            return pd.Series(SignalType.HOLD, index=data.index)
+
+        position = 0
+        signals = pd.Series(SignalType.HOLD, index=data.index)
+
+        # Calculate Bollinger Bands
         sma = data["Close"].rolling(window=self.window).mean()
         std = data["Close"].rolling(window=self.window).std()
-
         upper_band = sma + (std * self.num_std)
         lower_band = sma - (std * self.num_std)
 
-        signals = pd.Series(SignalType.HOLD, index=data.index)
-        signals[data["Close"] < lower_band] = SignalType.BUY
-        signals[data["Close"] > upper_band] = SignalType.SELL
+        # Generate signals only on band crosses
+        for i in range(self.window, len(data)):
+            if data["Close"].iloc[i] < lower_band.iloc[i] and position == 0:
+                signals.iloc[i] = SignalType.BUY
+                position = 1
+            elif data["Close"].iloc[i] > upper_band.iloc[i] and position == 1:
+                signals.iloc[i] = SignalType.SELL
+                position = 0
 
+        print(
+            f"Generated Bollinger Bands signals: Buy={sum(signals == SignalType.BUY)}, "
+            f"Sell={sum(signals == SignalType.SELL)}"
+        )
         return signals
 
 
@@ -34,6 +49,12 @@ class ATRTrailingStopStrategy(Strategy):
         self.atr_multiplier = atr_multiplier
 
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
+        if len(data) < self.atr_period:
+            return pd.Series(SignalType.HOLD, index=data.index)
+
+        position = 0
+        signals = pd.Series(SignalType.HOLD, index=data.index)
+
         # Calculate ATR
         tr = pd.DataFrame(
             {
@@ -44,35 +65,32 @@ class ATRTrailingStopStrategy(Strategy):
         ).max(axis=1)
 
         atr = tr.rolling(window=self.atr_period).mean()
+        stops = data["Close"].copy()
 
-        # Calculate trailing stops
-        is_uptrend = True
-        stops = []
-
-        for i in range(len(data)):
-            if i == 0:
-                stops.append(data["Close"].iloc[i])
-                continue
-
-            prev_stop = stops[-1]
+        # Calculate trailing stops and signals
+        for i in range(1, len(data)):
+            prev_stop = stops.iloc[i - 1]
             curr_close = data["Close"].iloc[i]
             curr_atr = atr.iloc[i]
 
-            if is_uptrend:
-                new_stop = max(prev_stop, curr_close - (self.atr_multiplier * curr_atr))
-                if curr_close < prev_stop:
-                    is_uptrend = False
-            else:
-                new_stop = min(prev_stop, curr_close + (self.atr_multiplier * curr_atr))
-                if curr_close > prev_stop:
-                    is_uptrend = True
+            # Update stop
+            if position == 1:  # In long position
+                stops.iloc[i] = max(
+                    prev_stop, curr_close - (self.atr_multiplier * curr_atr)
+                )
+            else:  # Not in position
+                stops.iloc[i] = curr_close - (self.atr_multiplier * curr_atr)
 
-            stops.append(new_stop)
+            # Generate signals
+            if curr_close > stops.iloc[i] and position == 0:
+                signals.iloc[i] = SignalType.BUY
+                position = 1
+            elif curr_close < stops.iloc[i] and position == 1:
+                signals.iloc[i] = SignalType.SELL
+                position = 0
 
-        stops = pd.Series(stops, index=data.index)
-
-        signals = pd.Series(SignalType.HOLD, index=data.index)
-        signals[data["Close"] > stops] = SignalType.BUY
-        signals[data["Close"] < stops] = SignalType.SELL
-
+        print(
+            f"Generated ATR signals: Buy={sum(signals == SignalType.BUY)}, "
+            f"Sell={sum(signals == SignalType.SELL)}"
+        )
         return signals

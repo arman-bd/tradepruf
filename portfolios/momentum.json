@@ -1,0 +1,30 @@
+{
+    "initial_capital": 100000,
+    "position_size": 0.12,
+    "max_positions": 5,
+    "start_date": "2023-01-01",
+    "end_date": "2024-01-31",
+    "interval": "1d",
+    "assets": [
+        {
+            "symbol": "NVDA",
+            "type": "stock",
+            "strategy": "macd"
+        },
+        {
+            "symbol": "AMD",
+            "type": "stock",
+            "strategy": "rsi"
+        },
+        {
+            "symbol": "TSLA",
+            "type": "stock",
+            "strategy": "bb"
+        },
+        {
+            "symbol": "BTC-USD",
+            "type": "crypto",
+            "strategy": "sma"
+        }
+    ]
+}

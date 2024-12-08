@@ -1,0 +1,39 @@
+{
+    "initial_capital": 100000,
+    "position_size": 0.1,
+    "max_positions": 4,
+    "start_date": "2023-01-01",
+    "end_date": "2024-01-31",
+    "interval": "1d",
+    "assets": [
+        {
+            "symbol": "BTC-USD",
+            "type": "crypto",
+            "strategy": "sma",
+            "params": {
+                "short_window": 10,
+                "long_window": 30
+            }
+        },
+        {
+            "symbol": "ETH-USD",
+            "type": "crypto",
+            "strategy": "rsi",
+            "params": {
+                "period": 7,
+                "oversold": 25,
+                "overbought": 75
+            }
+        },
+        {
+            "symbol": "AAPL",
+            "type": "stock",
+            "strategy": "macd",
+            "params": {
+                "fast_period": 8,
+                "slow_period": 21,
+                "signal_period": 5
+            }
+        }
+    ]
+}

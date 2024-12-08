@@ -3,17 +3,19 @@ from typing import List, Optional
 import pandas as pd
 import numpy as np
 
+
 class SignalType:
     BUY = 1
     SELL = -1
     HOLD = 0
 
+
 class Strategy(ABC):
     """Base class for trading strategies"""
-    
+
     def __init__(self, name: str):
         self.name = name
-    
+
     @abstractmethod
     def generate_signals(self, data: pd.DataFrame) -> pd.Series:
         """Generate trading signals"""
