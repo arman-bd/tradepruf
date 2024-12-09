@@ -528,7 +528,6 @@ class EnhancedBacktestVisualizer(BacktestVisualizer):
             fig.show()
 
         return fig
-        
 
     def create_drawdown_chart(
         self, equity_series: pd.Series, format: str = "html"

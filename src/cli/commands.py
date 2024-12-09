@@ -8,6 +8,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 
 from src.data.fetcher import DataFetcher
+from src.strategies.futures import FuturesStrategy
 
 from ..backtest.engine import BacktestEngine
 from ..core.asset import Asset, AssetType
@@ -55,6 +56,21 @@ STRATEGIES = {
     "atr": lambda params: ATRTrailingStopStrategy(
         atr_period=int(params.get("atr_period", 14)),
         atr_multiplier=float(params.get("atr_multiplier", 2.0)),
+        journal=journal,
+    ),
+    "ftr": lambda params: FuturesStrategy(
+        volatility_window=int(params.get("volatility_window", 20)),
+        atr_periods=int(params.get("atr_periods", 14)),
+        atr_multiplier=float(params.get("atr_multiplier", 2.0)),
+        rsi_period=int(params.get("rsi_period", 14)),
+        rsi_oversold=int(params.get("rsi_oversold", 30)),
+        rsi_overbought=int(params.get("rsi_overbought", 70)),
+        trend_short_window=int(params.get("trend_short_window", 10)),
+        trend_long_window=int(params.get("trend_long_window", 50)),
+        max_leverage=float(params.get("max_leverage", 5.0)),
+        min_leverage=float(params.get("min_leverage", 1.0)),
+        risk_per_trade=float(params.get("risk_per_trade", 0.02)),
+        profit_ratio=float(params.get("profit_ratio", 2.0)),
         journal=journal,
     ),
 }
@@ -285,12 +301,22 @@ def backtest_portfolio(
                 asset_type = asset_config["type"]
                 strategy_type = asset_config["strategy"]
 
+                # Extract leverage and spread parameters
+                min_leverage = asset_config.get("min_leverage", 1.0)
+                max_leverage = asset_config.get("max_leverage", 1.0)
+                spread_fee = asset_config.get("spread_fee", 0.0)
+
+                # Create strategy with leverage parameters
+                strategy_params = {
+                    "min_leverage": min_leverage,
+                    "max_leverage": max_leverage,
+                    **asset_config.get("params", {})
+                }
+
                 asset = Asset(symbol, AssetType(asset_type))
                 assets.append(asset)
 
-                strategy = STRATEGIES[strategy_type](
-                    params=asset_config.get("params", {})
-                )
+                strategy = STRATEGIES[strategy_type](params=strategy_params)
                 strategies[symbol] = strategy
 
             progress.stop_task(prg1)
@@ -301,6 +327,10 @@ def backtest_portfolio(
                 initial_capital=config.get("initial_capital", 100000),
                 position_size=config.get("position_size", 0.1),
                 max_positions=config.get("max_positions", 5),
+                min_leverage=min_leverage,
+                max_leverage=max_leverage,
+                spread_fee=spread_fee,
+                margin_call=config.get("margin_call", 0.0),
                 journal=journal,
             )
 
@@ -330,6 +360,8 @@ def backtest_portfolio(
                 start_date=pd.Timestamp(config["start_date"]),
                 end_date=pd.Timestamp(config["end_date"]),
                 interval=config.get("interval", "1d"),
+                leverage=max_leverage,  # Pass leverage to run_portfolio
+                spread_fee=spread_fee   # Pass spread fee to run_portfolio
             )
 
             progress.stop_task(prg3)

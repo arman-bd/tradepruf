@@ -1,0 +1,27 @@
+{
+    "initial_capital": 10000,
+    "position_size": 0.1,
+    "max_positions": 10,
+    "start_date": "2024-10-01",
+    "end_date": "2024-10-15",
+    "interval": "1h",
+    "margin_call": 0.2,
+    "assets": [
+        {
+            "symbol": "CL=F",
+            "type": "future",
+            "strategy": "ftr",
+            "min_leverage": 1,
+            "max_leverage": 20,
+            "spread_fee": 0.001
+        },
+        {
+            "symbol": "GC=F",
+            "type": "future",
+            "strategy": "ftr",
+            "min_leverage": 1,
+            "max_leverage": 20,
+            "spread_fee": 0.001
+        }
+    ]
+}
